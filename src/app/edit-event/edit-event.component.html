@@ -1,0 +1,79 @@
+<H1>Edit Event</H1>
+<div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+  <form novalidate [formGroup]="myForm">
+
+    <div class="form-group">
+      <label for="eventid">Name Event</label>
+      <input disabled type="eventid" class="form-control"
+             formControlName="eventid"
+             id="eventid" placeholder="Enter your Event Name" name="eventid">
+    </div>
+
+    <div class="form-group">
+      <label for="inputNameevent">Name Event</label>
+      <input type="nameevent" class="form-control"
+             formControlName="nameevent"
+             id="inputNameevent" placeholder="Enter your Event Name" name="nameevent">
+    </div>
+
+    <div class="form-group">
+      <label for="inputTybeevent">Email address</label>
+      <input type="tybeevent" class="form-control" id="inputTybeevent"
+             placeholder="Enter Tybe event" name="tybeevent"
+             formControlName="tybeevent">
+    </div>
+
+    <div class="form-group">
+      <label for="inputGenderEvent">Enter Your Gendar</label>
+      <input type="genderevent" class="form-control" id="inputGenderEvent"
+             placeholder="Enter Your Gendar" name="genderevent"
+             formControlName="genderevent">
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="inputEventStreet">Event street</label>
+      <input type="eventstreet" class="form-control"
+             formControlName="eventstreet"
+             id="inputEventStreet" placeholder="Event street" name="eventstreet">
+    </div>
+
+    <div class="form-group">
+      <label for="eventcity">Event street</label>
+      <input type="eventcity" class="form-control"
+             formControlName="eventcity"
+             id="eventcity" placeholder="Event street" name="eventcity">
+    </div>
+
+
+    <div class="form-group">
+      <label for="eventdate">Enter your Event Date</label>
+      <input type="date" class="form-control"
+             formControlName="eventdate"
+             id="eventdate" placeholder="Enter your Event Date" name="eventdate">
+    </div>
+
+    <div class="form-group">
+      <label for="eventtime">Enter your Event time</label>
+      <input type="eventtime" class="form-control"
+             formControlName="eventtime"
+             id="eventtime" placeholder="Enter your Event time" name="eventtime">
+    </div>
+
+    <div class="form-group">
+      <label for="capacity">Enter your capacity</label>
+      <input type="number" class="form-control"
+             formControlName="capacity"
+             id="capacity" placeholder="Enter your capacity" name="capacity">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary"
+            (click)="onSubmit()" style="margin-right: 10px">Submit</button>
+
+    <button type="submit" class="btn btn-primary"
+            (click)="deleteEvent()">Delete</button>
+  </form>
+</div>

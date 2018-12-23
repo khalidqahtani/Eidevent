@@ -1,0 +1,82 @@
+<H1>Edit</H1>
+<div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+  <form novalidate [formGroup]="myForm">
+
+    <!--<div class="form-group">-->
+      <!--<label for="userid">Enter Your ID</label>-->
+      <!--<input disabled type="number" class="form-control"-->
+             <!--formControlName="userid"-->
+             <!--id="userid" placeholder="Enter your ID" name="userid">-->
+    <!--</div>-->
+
+    <div class="form-group">
+      <label for="id">Enter N ID</label>
+      <input type="number" class="form-control"
+             formControlName="id"
+             id="id" placeholder="Enter your ID" name="userid">
+    </div>
+
+    <div class="form-group">
+      <label for="inputEmail">Email address</label>
+      <input type="email" class="form-control" id="inputEmail"
+             placeholder="Enter email" name="email"
+             formControlName="email">
+    </div>
+
+    <div class="form-group">
+      <label for="inputFirstName">Enter First Name</label>
+      <input type="firstname" class="form-control" id="inputFirstName"
+             placeholder="Enter first name" name="firstname"
+             formControlName="firstname">
+    </div>
+
+    <div class="form-group">
+      <label for="inputLastName">Enter Last Name</label>
+      <input type="lastname" class="form-control" id="inputLastName"
+             placeholder="Enter last name" name="lastname"
+             formControlName="lastname">
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control"
+             formControlName="password"
+             id="inputPassword" placeholder="Password" name="password">
+    </div>
+
+
+    <div class="form-group">
+      <label for="mobile">Enter Your phone number</label>
+      <input type="number" class="form-control"
+             formControlName="mobile"
+             id="mobile" placeholder="Enter your phone number" name="mobile">
+    </div>
+
+    <div class="form-group">
+      <label for="selectGender">Gander</label>
+      <select class="form-control" id="selectGender" formControlName="gender" name="gender">
+        <option value="" disabled>Select gander</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="birthday">Enter DateOfBirth</label>
+      <input type="date" class="form-control"
+             formControlName="birthday"
+             id="birthday" placeholder="Enter your phone number" name="birthday">
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-primary"
+            (click)="onSubmit()" style="margin-right: 10px">Submit</button>
+
+    <button type="submit" class="btn btn-primary"
+            (click)="deleteUser()">Delete</button>
+  </form>
+</div>

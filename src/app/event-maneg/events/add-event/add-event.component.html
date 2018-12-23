@@ -1,0 +1,69 @@
+<div style="background-color: #e9eedb">
+  <H1 style="color: white">Add Event</H1>
+  <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+    <form novalidate [formGroup]="myReactiveForm">
+      <div class="form-group">
+        <label for="nameevent">Name Event</label>
+        <input type="nameevent" class="form-control" id="nameevent"
+               placeholder="Enter Event Name" name="nameevent"
+               formControlName="nameevent">
+      </div>
+
+      <div class="form-group">
+        <label for="tybeevent">Enter Type Of Event</label>
+        <input type="string" class="form-control" id="tybeevent"
+               placeholder="Enter the type" name="tybeevent"
+               formControlName="tybeevent">
+      </div>
+      <div class="form-group">
+        <label for="genderevent">Enter The gender event</label>
+        <input type="string" class="form-control" id="genderevent"
+               placeholder="Enter Gender" name="genderevent"
+               formControlName="genderevent">
+      </div>
+      <div class="form-group">
+        <label for="eventstreet">Enter the street</label>
+        <input type="string" class="form-control" id="eventstreet"
+               placeholder="Enter the street" name="eventstreet"
+               formControlName="eventstreet">
+      </div>
+      <div class="form-group">
+        <label for="eventcity">Enter City</label>
+        <input type="string" class="form-control"
+               formControlName="eventcity"
+               id="eventcity" placeholder="City" name="eventcity">
+      </div>
+
+
+      <div class="form-group">
+        <label for="eventdate">enter your Date</label>
+        <input type="date" class="form-control"
+               formControlName="eventdate"
+               id="eventdate" placeholder="time of event" name="eventdate">
+      </div>
+
+      <div class="form-group">
+        <label for="eventtime">enter your event time</label>
+        <input type="string" class="form-control"
+               formControlName="eventtime"
+               id="eventtime" placeholder="time of event" name="eventtime">
+      </div>
+
+      <div class="form-group">
+        <label for="capacity">enter your capacity</label>
+        <input type="number" class="form-control"
+               formControlName="capacity"
+               id="capacity" placeholder="capacity of event" name="capacity">
+      </div>
+
+
+      <button type="submit" class="btn btn-primary"
+              (click)="onSubmit()"
+
+              [disabled]="!myReactiveForm.valid">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
