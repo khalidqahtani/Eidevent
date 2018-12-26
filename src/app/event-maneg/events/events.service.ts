@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Events} from './events.model';
+import {Ticketmodel} from '../ticket-maneg/tickets.model';
+import {Comments} from '../comment-maneg/comments.model';
 
 const headers = new HttpHeaders().set('Content-Type', 'application/json');
 const API_ARGS = {headers: headers};
@@ -17,6 +19,15 @@ export class EventsService {
   addEvent(orgid: number, a): Observable<Events> {
     console.log(JSON.stringify(a.value));
     return this.http.post<Events>(`/api/event/` + `${orgid}`, JSON.stringify(a.value), API_ARGS);
+  }
+
+  BookEvent(eid: number, uid: number): Observable<Ticketmodel> {
+    return this.http.get<Ticketmodel>(`/api/book/` + `${eid}` + `/` + `${uid}`);
+  }
+
+  CommentEvent(a, eid: number, uid: number): Observable<Comments> {
+    console.log(JSON.stringify(a.value));
+    return this.http.post<Comments>(`/api/comment/` + `${eid}` + `/` + `${uid}`, JSON.stringify(a.value), API_ARGS);
   }
 
   getEvents(): Observable<Events[]> {

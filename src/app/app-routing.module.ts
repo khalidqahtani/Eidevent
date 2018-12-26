@@ -13,6 +13,8 @@ import {AddEventComponent} from './event-maneg/events/add-event/add-event.compon
 import {ActiveEventComponent} from './event-maneg/events/active-event/active-event.component';
 import {MyeventComponent} from './event-maneg/events/myevent/myevent.component';
 import {UnactiveEventComponent} from './event-maneg/events/unactive-event/unactive-event.component';
+import {TicketManegComponent} from './event-maneg/ticket-maneg/ticket-maneg.component';
+import {CommentManegComponent} from './event-maneg/comment-maneg/comment-maneg.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -28,6 +30,8 @@ const routes: Routes = [
   {path: 'event/:eventid', component: EditEventComponent},
   {path: 'user/:userid', component: EditUserComponent},
   {path: 'myevent', component: MyeventComponent},
+  {path: 'myticket', component: TicketManegComponent},
+  {path: 'mycomments', component: CommentManegComponent}
 
 
 

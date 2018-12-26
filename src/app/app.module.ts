@@ -22,9 +22,22 @@ import { ActiveEventComponent } from './event-maneg/events/active-event/active-e
 import { NavDetailsComponent } from './nav/nav-details/nav-details.component';
 import { MyeventComponent } from './event-maneg/events/myevent/myevent.component';
 import { UnactiveEventComponent } from './event-maneg/events/unactive-event/unactive-event.component';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { TicketManegComponent } from './event-maneg/ticket-maneg/ticket-maneg.component';
+import { TicketDetailComponent } from './event-maneg/ticket-maneg/ticket-detail.component';
+import { CommentManegComponent } from './event-maneg/comment-maneg/comment-maneg.component';
+import {CommentsDetilsComponent} from './event-maneg/events/comments-detils.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
+import { RateDetilsComponent } from './event-maneg/ticket-maneg/rate-detils.component';
+import { RateManegComponent } from './event-maneg/ticket-maneg/rate-maneg/rate-maneg.component';
 
 
 
@@ -47,7 +60,13 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
     ActiveEventComponent,
     NavDetailsComponent,
     MyeventComponent,
-    UnactiveEventComponent
+    UnactiveEventComponent,
+    TicketManegComponent,
+    TicketDetailComponent,
+    CommentManegComponent,
+    CommentsDetilsComponent,
+    RateDetilsComponent,
+    RateManegComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +77,9 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
     MatSidenavModule,
     MatListModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
+    // NoopAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
     MatIconModule,
     AppRoutingModule
   ],

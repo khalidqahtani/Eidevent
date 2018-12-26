@@ -6,6 +6,8 @@
         <li><a routerLink="/">Home</a></li>
         <li *ngIf="admin"><a routerLink="/users">Users List</a></li>
         <li><a routerLink="/homeevent">Events</a></li>
+        <li *ngIf="user"><a routerLink="/myticket">My ticket</a> </li>
+        <li *ngIf="user"><a routerLink="/mycomments">My Comments</a> </li>
         <li><a routerLink="/login">Login</a></li>
         <li><a routerLink="/register">Register</a></li>
 

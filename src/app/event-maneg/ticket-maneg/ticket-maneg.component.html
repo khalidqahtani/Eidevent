@@ -1,0 +1,13 @@
+<div class="row" >
+  <div class="col-md-6">
+    <h1>My Events</h1>
+    <ul style="list-style-type:disc" *ngFor="let ticket of tikets$ " class="list-group-item" (click)="getTicket(ticket)">
+      <li>{{ticket.ticketid}} - {{ticket.eventname}}</li>
+    </ul>
+  </div>
+
+  <div class="col-md-6">
+  <app-ticket-detail [ticket]="currentTickets"></app-ticket-detail>
+  </div>
+
+</div>
