@@ -11,13 +11,13 @@ export class AuthenticationService {
   login(username: string, password: string) {
     let headers = new HttpHeaders();
     headers = headers.append('Authorization', 'Basic ' + btoa(`${username}:${password}`));
-    return this.http.get<any>('/login', {headers: headers})
+    return this.http.get<any>('/userData', {headers: headers})
       .pipe(map(user => {
         // login successful if there's a user in the response
         if (user) {
           // store user details and basic auth credentials in local storage
           // to keep user logged in between page refreshes
-          // user.authdata = window.btoa(username + ':' + password);
+          user.authdata = btoa(`${username}:${password}`);
           localStorage.setItem('currentUser', JSON.stringify(user));
           user = JSON.parse(localStorage.getItem('currentUser'));
         }

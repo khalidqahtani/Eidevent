@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <p>
   <a *ngIf="admin" routerLink="/events"><button class="btn btn-success">Event List</button></a>
 </p>
@@ -13,3 +14,7 @@
 <p>
   <a *ngIf="admin" routerLink="/unapproved"><button class="btn btn-success">Un Active Event</button></a>
 </p>
+<p>
+  <a *ngIf="org" routerLink="/ticketsforevent"><button class="btn btn-success">tickets for event</button></a>
+</p>
+<app-nav-details></app-nav-details>

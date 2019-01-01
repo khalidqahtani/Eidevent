@@ -12,9 +12,5 @@ export class AppComponent implements OnInit {
   constructor(private auth: AuthenticationService, private users: UsersService) {}
 
 ngOnInit(): void {
-  console.log(this.auth.getRole());
-  console.log(this.auth.getUserId());
-  console.log(this.auth.getFirstName());
-  console.log(this.auth.getLastName());
 }
 }

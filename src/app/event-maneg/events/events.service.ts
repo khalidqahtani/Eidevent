@@ -65,4 +65,7 @@ export class EventsService {
   UnapprovelEvent(eventid: number): Observable<Events> {
     return this.http.get<Events>(`api/event/unapprove/` + `${eventid}`);
   }
+  Myeventtickets(eid: number): Observable<Ticketmodel[]> {
+    return this.http.get<Ticketmodel[]>(`api/allticket/forevent/` + `${eid}`);
+  }
 }

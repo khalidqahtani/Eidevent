@@ -6,6 +6,7 @@ export class Ticketmodel {
   ticketbook: boolean;
   eventname: string;
   dateevent: string;
+  ticketrate: number;
   eid: Eid;
   uid: Uid;
 }

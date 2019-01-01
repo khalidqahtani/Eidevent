@@ -1,4 +1,6 @@
 export class Rate {
+  id: number;
+  rated: boolean;
   attenderRate: number;
   rcoment: string;
   entityTicket: TID;

@@ -1,15 +1,17 @@
+<app-nav></app-nav>
 <div class="row" >
-  <div class="col-sm-8">
+  <div class="col-md-6">
     <h1>Event list</h1>
     <ul style="list-style-type:disc" *ngFor="let event of events$ " class="list-group-item" (click)="getEvent(event)">
       <li>{{event.eventid}} - {{event.nameevent}}</li>
     </ul>
   </div>
 
-  <div class="col-sm-8">
+  <div class="col-md-7">
     <app-event-detail [event]="currentEvents"></app-event-detail>
   </div>
 
 
 
 </div>
+<app-nav-details></app-nav-details>

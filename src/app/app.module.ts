@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
 import { EventsComponent } from './event-maneg/events/events.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {UserDetailComponent} from './users/user-detail.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { EditUserComponent } from './edit-user/edit-user.component';
@@ -32,12 +32,14 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatSelectModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
-import { RateDetilsComponent } from './event-maneg/ticket-maneg/rate-detils.component';
 import { RateManegComponent } from './event-maneg/ticket-maneg/rate-maneg/rate-maneg.component';
+import { TicketsForEventsComponent } from './event-maneg/events/tickets-for-events/tickets-for-events.component';
+import {BasicAuthInterceptor} from './authentication/basic-auth.interceptor';
+import {ErrorInterceptor} from './authentication/error.interceptor';
 
 
 
@@ -65,8 +67,8 @@ import { RateManegComponent } from './event-maneg/ticket-maneg/rate-maneg/rate-m
     TicketDetailComponent,
     CommentManegComponent,
     CommentsDetilsComponent,
-    RateDetilsComponent,
-    RateManegComponent
+    RateManegComponent,
+    TicketsForEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -81,9 +83,13 @@ import { RateManegComponent } from './event-maneg/ticket-maneg/rate-maneg/rate-m
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    MatSelectModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

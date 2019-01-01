@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Rate} from './rate.model';
 import {AuthenticationService} from '../../../authentication/authentication.service';
+import {RateService} from './rate.service';
 
 @Component({
   selector: 'app-rate-maneg',
@@ -11,18 +12,18 @@ export class RateManegComponent implements OnInit {
   rates$: Rate[];
   curentRate: Rate;
   userid: number;
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService, private rateService: RateService) { }
 
   ngOnInit() {
     this.userid = this.auth.getUserId();
-    this.MyRate();
+    this.MyRates();
   }
   MyRates() {
-    this.ticketService.MyTickets(this.userid).subscribe(myticket => {
-        this.tikets$ = myticket;
+    this.rateService.MyRates(this.userid).subscribe(myrates => {
+        this.rates$ = myrates;
       },
       err => console.log(err),
-      () => console.log('list Ticket ...')
+      () => console.log('list rates ...')
     );
   }
 

@@ -15,6 +15,7 @@ import {MyeventComponent} from './event-maneg/events/myevent/myevent.component';
 import {UnactiveEventComponent} from './event-maneg/events/unactive-event/unactive-event.component';
 import {TicketManegComponent} from './event-maneg/ticket-maneg/ticket-maneg.component';
 import {CommentManegComponent} from './event-maneg/comment-maneg/comment-maneg.component';
+import {TicketsForEventsComponent} from './event-maneg/events/tickets-for-events/tickets-for-events.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'user/:userid', component: EditUserComponent},
   {path: 'myevent', component: MyeventComponent},
   {path: 'myticket', component: TicketManegComponent},
+  {path: 'ticketsforevent/:eventid', component: TicketsForEventsComponent},
   {path: 'mycomments', component: CommentManegComponent}
 
 

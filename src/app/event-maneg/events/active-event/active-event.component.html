@@ -1,5 +1,6 @@
+<app-nav></app-nav>
 <div class="row" >
-  <div class="col-md-6">
+  <div class="col-md-8">
     <h1>Event Active</h1>
     <ul style="list-style-type:disc" *ngFor="let event of events$ " class="list-group-item" (click)="getEvent(event)">
       <li>{{event.eventid}} - {{event.nameevent}}</li>
@@ -11,3 +12,4 @@
   </div>
 
 </div>
+<app-nav-details></app-nav-details>

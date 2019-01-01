@@ -26,12 +26,13 @@ import {Comments} from '../comment-maneg/comments.model';
         <li class="list-group-item">Approvel: {{ event.approval }}</li>
         <td>
           <button mat-raised-button color="accent" *ngIf="admin||org" [routerLink]="['/event', event.eventid]" class="btn btn-primary" style="margin-top: 10px">Edit</button>
-          <button mat-raised-button color="primary" *ngIf="admin||org" [disabled]="eventdeleted()" (click)="deleteEvent(event.eventid)">Delete</button>
-          <button mat-raised-button color="primary" *ngIf="admin||org" [disabled]="!eventdeleted()" (click)="undeleteEvent(event.eventid)">UnDelete</button>
+          <button mat-raised-button color="primary" *ngIf="admin" [disabled]="eventdeleted()" (click)="deleteEvent(event.eventid)">Delete</button>
+          <button mat-raised-button color="primary" *ngIf="admin" [disabled]="!eventdeleted()" (click)="undeleteEvent(event.eventid)">UnDelete</button>
           <button mat-raised-button color="primary" *ngIf="admin||org" [disabled]="eventapprovel()" (click)="approvelEvent(event.eventid)">approvel</button>
           <button mat-raised-button color="black" *ngIf="admin||org" [disabled]="!eventapprovel()" (click)="UnapprovelEvent(event.eventid)">Unapprovel</button>
           <button mat-raised-button color="black" *ngIf="user"  (click)="BookEvent(event.eventid)">Book</button>
           <button mat-raised-button color="primary" *ngIf="org||user" (click)="getComent(event.comments,event.eventid)">View Comment</button>
+          <button mat-raised-button color="primary" *ngIf="org" [routerLink]="['/ticketsforevent/', event.eventid]" >View Ticket</button>
         </td>
       </ul>
       <app-comments-detils [eventid]="eventid" [comments]="currentComments"> </app-comments-detils>
