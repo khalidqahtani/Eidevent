@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import {RegisterOrgnizerComponent} from './register/register-orgnizer/register-orgnizer.component';
+import {RegisterAttenderComponent} from './register/register-attender/register-attender.component';
 import { UsersComponent } from './users/users.component';
 import { EventsComponent } from './event-maneg/events/events.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -14,8 +15,6 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EventDetailComponent } from './event-maneg/events/event-detail.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
-import {RegisterOrgnizerComponent} from './register/register-orgnizer/register-orgnizer.component';
-import {RegisterAttenderComponent} from './register/register-attender/register-attender.component';
 import { EventManegComponent } from './event-maneg/event-maneg.component';
 import { AddEventComponent } from './event-maneg/events/add-event/add-event.component';
 import { ActiveEventComponent } from './event-maneg/events/active-event/active-event.component';
@@ -28,12 +27,12 @@ import { CommentManegComponent } from './event-maneg/comment-maneg/comment-maneg
 import {CommentsDetilsComponent} from './event-maneg/events/comments-detils.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-  MatButtonModule,
+  MatButtonModule, MatDatepickerModule,
   MatFormFieldModule,
-  MatIconModule,
   MatInputModule,
-  MatListModule, MatSelectModule,
+  MatListModule, MatNativeDateModule, MatSelectModule,
   MatSidenavModule,
+  MatIconModule,
   MatToolbarModule
 } from '@angular/material';
 import { RateManegComponent } from './event-maneg/ticket-maneg/rate-maneg/rate-maneg.component';
@@ -48,7 +47,6 @@ import {ErrorInterceptor} from './authentication/error.interceptor';
     AppComponent,
     NavComponent,
     LoginComponent,
-    RegisterComponent,
     RegisterOrgnizerComponent,
     RegisterAttenderComponent,
     UsersComponent,
@@ -82,8 +80,11 @@ import {ErrorInterceptor} from './authentication/error.interceptor';
     // NoopAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatIconModule,
     AppRoutingModule
   ],
   providers: [

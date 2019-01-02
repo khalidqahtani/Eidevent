@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
 import {UsersComponent} from './users/users.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {EventsComponent} from './event-maneg/events/events.component';
@@ -19,7 +18,6 @@ import {TicketsForEventsComponent} from './event-maneg/events/tickets-for-events
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
   {path: 'orgregister', component: RegisterOrgnizerComponent},
   {path: 'attender', component: RegisterAttenderComponent},
   {path: 'users', component: UsersComponent},

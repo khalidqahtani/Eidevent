@@ -7,6 +7,7 @@ import {UsersService} from '../../users/users.service';
 @Component({
   selector: 'app-register-orgnizer',
   templateUrl: './register-orgnizer.component.html',
+  styleUrls: ['./register-orgnizer.component.scss']
 })
 export class RegisterOrgnizerComponent implements OnInit {
   user$: Observable<User>;

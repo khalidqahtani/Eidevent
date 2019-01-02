@@ -47,7 +47,7 @@
     <!-- Login Form -->
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field>
-        <input matInput type="text" formControlName="username" class="fadeIn second" placeholder="Username">
+        <input matInput type="text" class="fadeIn second" formControlName="username" placeholder="Username">
         <mat-error>
           <small *ngIf="!loginForm.controls.username.valid && !loginForm.controls.username.untouched">User name Is Required</small>
         </mat-error>

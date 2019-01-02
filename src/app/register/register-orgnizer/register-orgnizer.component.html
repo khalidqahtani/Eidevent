@@ -1,83 +1,173 @@
-<div style="background-color: #e9eedb">
-  <H1 style="color: white">Register</H1>
-  <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
-    <form novalidate [formGroup]="myReactiveForm">
-      <div class="form-group">
-        <label for="inputId">ID</label>
-        <input type="number" class="form-control" id="inputId"
-               placeholder="Enter id" name="id"
-               formControlName="id">
-      </div>
-
-      <div class="form-group">
-        <label for="inputFirstName">Enter First Name</label>
-        <input type="string" class="form-control" id="inputFirstName"
-               placeholder="Enter FirstName" name="firstname"
-               formControlName="firstname">
-      </div>
-      <div class="form-group">
-        <label for="inputLastName">Enter Last Name</label>
-        <input type="string" class="form-control" id="inputLastName"
-               placeholder="Enter Lastname" name="lastname"
-               formControlName="lastname">
-      </div>
-      <div class="form-group">
-        <label for="inputUserName">Enter User Name</label>
-        <input type="string" class="form-control" id="inputUserName"
-               placeholder="Enter Username" name="username"
-               formControlName="username">
-      </div>
-      <div class="form-group">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control"
-               formControlName="password"
-               id="inputPassword" placeholder="Password" name="password">
-      </div>
-      <div class="form-group">
-        <label for="inputBirthday">Birthday</label>
-        <input type="date" class="form-control"
-               formControlName="birthday"
-               id="inputBirthday" placeholder="birthday" name="birthday">
-      </div>
+<!--<div style="background-color: #e9eedb">-->
+  <!--<H1 style="color: white">Register</H1>-->
+  <!--<div class="rounded" style="background-color: white; margin: 20px; padding: 20px">-->
+    <!--<form novalidate [formGroup]="myReactiveForm">-->
+      <!--<div class="form-group">-->
+        <!--<label for="inputId">ID</label>-->
+        <!--<input type="number" class="form-control" id="inputId"-->
+               <!--placeholder="Enter id" name="id"-->
+               <!--formControlName="id">-->
+      <!--</div>-->
 
       <!--<div class="form-group">-->
-      <!--<label for="confirmPassword">Confirm Password</label>-->
-      <!--<input type="password" class="form-control"-->
-      <!--formControlName="confirm"-->
-      <!--id="confirmPassword" placeholder="Confirm Password" name="confirm">-->
+        <!--<label for="inputFirstName">Enter First Name</label>-->
+        <!--<input type="string" class="form-control" id="inputFirstName"-->
+               <!--placeholder="Enter FirstName" name="firstname"-->
+               <!--formControlName="firstname">-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="inputLastName">Enter Last Name</label>-->
+        <!--<input type="string" class="form-control" id="inputLastName"-->
+               <!--placeholder="Enter Lastname" name="lastname"-->
+               <!--formControlName="lastname">-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="inputUserName">Enter User Name</label>-->
+        <!--<input type="string" class="form-control" id="inputUserName"-->
+               <!--placeholder="Enter Username" name="username"-->
+               <!--formControlName="username">-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="inputPassword">Password</label>-->
+        <!--<input type="password" class="form-control"-->
+               <!--formControlName="password"-->
+               <!--id="inputPassword" placeholder="Password" name="password">-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="inputBirthday">Birthday</label>-->
+        <!--<input type="date" class="form-control"-->
+               <!--formControlName="birthday"-->
+               <!--id="inputBirthday" placeholder="birthday" name="birthday">-->
+      <!--</div>-->
+
+      <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+      <!--&lt;!&ndash;<label for="confirmPassword">Confirm Password</label>&ndash;&gt;-->
+      <!--&lt;!&ndash;<input type="password" class="form-control"&ndash;&gt;-->
+      <!--&lt;!&ndash;formControlName="confirm"&ndash;&gt;-->
+      <!--&lt;!&ndash;id="confirmPassword" placeholder="Confirm Password" name="confirm">&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+      <!--<div class="form-group">-->
+        <!--<label for="selectGender">Gender</label>-->
+        <!--<select class="form-control" id="selectGender" formControlName="gender" name="gender">-->
+          <!--<option value="" disabled>Select gander</option>-->
+          <!--<option value="male">Male</option>-->
+          <!--<option value="female">Female</option>-->
+        <!--</select>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="email">Enter Email</label>-->
+        <!--<input type="email" class="form-control"-->
+               <!--formControlName="email"-->
+               <!--id="email" placeholder="Enter your phone number" name="email">-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+        <!--<label for="inputMobile">Enter Your phone number</label>-->
+        <!--<input type="number" class="form-control"-->
+               <!--formControlName="mobile"-->
+               <!--id="inputMobile" placeholder="Enter your phone number" name="mobile">-->
       <!--</div>-->
 
 
-      <div class="form-group">
-        <label for="selectGender">Gender</label>
-        <select class="form-control" id="selectGender" formControlName="gender" name="gender">
-          <option value="" disabled>Select gander</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
+      <!--<button type="submit" class="btn btn-primary"-->
+              <!--(click)="onSubmit()"-->
+
+              <!--[disabled]="!myReactiveForm.valid">Submit</button>-->
+    <!--</form>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div id="formHeader">
+    </div>    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <br>
+      <img src="../../../assets/male-user (1).png" style="max-height: 120px"/>
+      <p>Organizer Register</p>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()" class="fadeIn second">
+      <mat-form-field>
+        <input matInput type="text" formControlName="id" placeholder="ID">
+      </mat-form-field>
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+                 formControlName="firstname" placeholder="First Name">
+        </mat-form-field>
       </div>
-      <div class="form-group">
-        <label for="email">Enter Email</label>
-        <input type="email" class="form-control"
-               formControlName="email"
-               id="email" placeholder="Enter your phone number" name="email">
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+                 name="lastname" placeholder="Lastname"
+                 formControlName="lastname">
+        </mat-form-field>
       </div>
-
-      <div class="form-group">
-        <label for="inputMobile">Enter Your phone number</label>
-        <input type="number" class="form-control"
-               formControlName="mobile"
-               id="inputMobile" placeholder="Enter your phone number" name="mobile">
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+                 name="username" placeholder="Username"
+                 formControlName="username">
+        </mat-form-field>
       </div>
-
-
-      <button type="submit" class="btn btn-primary"
-              (click)="onSubmit()"
-
-              [disabled]="!myReactiveForm.valid">Submit</button>
+      <div>
+        <mat-form-field>
+          <input matInput type="password"
+                 name="password" placeholder="Password"
+                 formControlName="password">
+        </mat-form-field>
+      </div>
+      <!--<div>-->
+      <!--<mat-form-field>-->
+      <!--<input matInput type="text" class="fadeIn fourth"-->
+      <!--name="confirm" placeholder="Confirm Password"-->
+      <!--formControlName="confirm">-->
+      <!--</mat-form-field>-->
+      <!--</div>-->
+      <div>
+        <mat-form-field>
+          <input matInput type="date"
+                 name="birthday" placeholder="Birthday"
+                 formControlName="birthday">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="Gender" formControlName="gender">
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="email"
+                 name="email" placeholder="Email"
+                 formControlName="email">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+                 name="mobile" placeholder="Mobile"
+                 formControlName="mobile">
+        </mat-form-field>
+      </div>
+      <div>
+        <input type="submit" class="fadeIn fourth" value="Register">
+      </div>
     </form>
+
+    <div id="formFooter">
+      <a routerLink="/login" class="underlineHover">Cancel</a>
+    </div>
+
   </div>
 </div>
-
-
-
