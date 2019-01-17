@@ -39,6 +39,9 @@ import { RateManegComponent } from './event-maneg/ticket-maneg/rate-maneg/rate-m
 import { TicketsForEventsComponent } from './event-maneg/events/tickets-for-events/tickets-for-events.component';
 import {BasicAuthInterceptor} from './authentication/basic-auth.interceptor';
 import {ErrorInterceptor} from './authentication/error.interceptor';
+import { HomeComponent } from './home/home.component';
+import { TestStylesComponent } from './test-styles/test-styles.component';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 
 
@@ -66,7 +69,9 @@ import {ErrorInterceptor} from './authentication/error.interceptor';
     CommentManegComponent,
     CommentsDetilsComponent,
     RateManegComponent,
-    TicketsForEventsComponent
+    TicketsForEventsComponent,
+    HomeComponent,
+    TestStylesComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +90,7 @@ import {ErrorInterceptor} from './authentication/error.interceptor';
     MatNativeDateModule,
     MatFormFieldModule,
     MatIconModule,
+    AngularFontAwesomeModule,
     AppRoutingModule
   ],
   providers: [

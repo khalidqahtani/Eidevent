@@ -1,15 +1,15 @@
+<app-nav-details></app-nav-details>
 <app-nav></app-nav>
 <div class="row" >
-  <div class="col-md-6">
+  <div class="col-md-4">
     <h1>user list</h1>
     <ul style="list-style-type:disc" *ngFor="let user of users$ " class="list-group-item" (click)="getUser(user)">
         <li>{{user.userid}} - {{user.firstname}}</li>
       </ul>
   </div>
 
-      <div class="col-md-6">
+      <div class="col-md-4">
         <app-user-detail [user]="currentUser"></app-user-detail>
       </div>
 
     </div>
-<app-nav-details></app-nav-details>

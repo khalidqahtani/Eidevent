@@ -1,17 +1,39 @@
-<header>
+<nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
-    <a routerLink="/" class="logo"> Khalid Event</a>
-    <nav>
-      <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li *ngIf="admin"><a routerLink="/users">Users List</a></li>
-        <li><a routerLink="/homeevent">Events</a></li>
-        <li *ngIf="user"><a routerLink="/myticket">My ticket</a> </li>
-        <li *ngIf="user"><a routerLink="/mycomments">My Comments</a> </li>
-        <li><a routerLink="/login">Login</a></li>
-        <!--<li><a routerLink="/register">Register</a></li>-->
-
+    <a class="navbar-brand">
+      <img src="assets/Shape 1.png" style="max-height: 40px; max-width: 40px">
+      <h6 style="display:inline-block; margin-left: 15px;" >Event Management</h6>
+    </a>
+    <button class="navbar-toggler " type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="admin">
+          <a class="nav-link " routerLink="/users">Users</a>
+        </li>
+        <!--<li><a routerLink="/login">Login</a></li>-->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/homeevent">Events</a>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <a class="nav-link" routerLink="/myticket">My ticket</a>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <a class="nav-link" routerLink="/mycomments">My comment</a>
+        </li>
+        <li class="nav-item" *ngIf="org">
+          <a class="nav-link" routerLink="/myevent">My event</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Log Out</a>
+        </li>
       </ul>
-    </nav>
+    </div>
   </div>
-</header>
+</nav>

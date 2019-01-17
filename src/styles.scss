@@ -1,5 +1,12 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+body{
+  background-image: url("../src/assets/76.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
 .example-form {
   min-width: 150px;
   max-width: 500px;
@@ -9,4 +16,9 @@
 .example-full-width {
   width: 100%;
 }
+
+//back-img {
+//  background-image: url("assets/76.png");
+//  background-color: #00c2ff;
+//}
 

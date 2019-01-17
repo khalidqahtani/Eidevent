@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../../authentication/authentication.service';
 import {TicketService} from './ticket.service';
 import {Ticketmodel} from './tickets.model';
@@ -28,7 +28,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
         </td>
       </ul>
       <div>
-        <form [formGroup]="rateForm" (ngSubmit)="sendRate(rate)" *ngIf="!ticketrate()" >
       <mat-form-field>
         <mat-select #rate placeholder="Rate Event" >
           <mat-option value="1">1</mat-option>
@@ -38,10 +37,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
           <mat-option value="5">5</mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-fab color="warn" type="submit">Rate</button>
-        </form>
+      <button mat-fab color="warn" (click)="sendRate(rate)" >Rate</button>
+        
       </div>
-    </div>
     `
 
 })
@@ -62,6 +60,7 @@ export class TicketDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private auth: AuthenticationService,
               private ticketService: TicketService,
+              private router: Router,
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -77,7 +76,7 @@ export class TicketDetailComponent implements OnInit {
     this.ticketService.deleteTicket(tid).subscribe(canselTicket => {
       },
       err => console.log(err),
-      () => console.log('Ticket Deleted..')
+      () => this.router.navigate(['/activeEvent'])
     );
   }
   getRole() {
@@ -90,11 +89,11 @@ export class TicketDetailComponent implements OnInit {
     }
   }
   ticketdeleted() {
-    if (this.ticket.ticketcancel === true) {return true;}
+    if (this.ticket.ticketcancel === true) {return true; }
   }
   sendRate(rate) {
     this.ticketService.rateEvent(this.ticket.ticketid , rate.value).subscribe();
-    // console.log('The ticket id is : ', this.ticket.ticketid , rate.value);
+    console.log(rate);
   }
   ticketrate() {
     if (this.rate.rated === true) {return true;}

@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
           // this.router.navigate(['/users"']);
         },
         error => this.error = error,
-        () => this.router.navigate(['/users'])
+        () => this.router.navigate(['/home'])
         );
 
   }

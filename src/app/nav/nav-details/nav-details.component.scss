@@ -1,64 +1,70 @@
-header {
-  background: #198bff;
+//header {
+//  background: #198bff;
+//
+//  .logo {
+//    font-weight: bold;
+//  }
+//
+//  nav {
+//    justify-self: right;
+//
+//    ul {
+//      list-style-type: none;
+//      margin: 0; padding: 0;
+//
+//      li {
+//        float: left;
+//
+//        a {
+//          padding: 1.5em;
+//          text-transform: uppercase;
+//          font-size: .8em;
+//
+//          &:hover {
+//            background: #30b1ff;
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
+///* You can add global styles to this file, and also import other style files */
+//@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+//
+//body, html {
+//  height: 100%;
+//  margin: 0 auto;
+//}
+//
+//body {
+//  font-family: 'Montserrat';
+//  font-size: 18px;
+//}
+//
+//a {
+//  text-decoration: none;
+//}
+//
+//.container {
+//  width: 80%;
+//  margin: 0 auto;
+//  padding: 1.3em;
+//  display: grid;
+//  grid-template-columns: 30% auto;
+//
+//  a {
+//    color: white;
+//  }
+//}
+//
+//section {
+//  width: 80%;
+//  margin: 0 auto;
+//  padding: 2em;
+//}
 
-  .logo {
-    font-weight: bold;
-  }
+nav {
+  background-color:  #241F61;
+  color: white;
 
-  nav {
-    justify-self: right;
-
-    ul {
-      list-style-type: none;
-      margin: 0; padding: 0;
-
-      li {
-        float: left;
-
-        a {
-          padding: 1.5em;
-          text-transform: uppercase;
-          font-size: .8em;
-
-          &:hover {
-            background: #30b1ff;
-          }
-        }
-      }
-    }
-  }
-}
-/* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
-
-body, html {
-  height: 100%;
-  margin: 0 auto;
-}
-
-body {
-  font-family: 'Montserrat';
-  font-size: 18px;
-}
-
-a {
-  text-decoration: none;
-}
-
-.container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 1.3em;
-  display: grid;
-  grid-template-columns: 30% auto;
-
-  a {
-    color: white;
-  }
-}
-
-section {
-  width: 80%;
-  margin: 0 auto;
-  padding: 2em;
 }

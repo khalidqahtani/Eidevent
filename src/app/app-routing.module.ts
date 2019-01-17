@@ -15,23 +15,30 @@ import {UnactiveEventComponent} from './event-maneg/events/unactive-event/unacti
 import {TicketManegComponent} from './event-maneg/ticket-maneg/ticket-maneg.component';
 import {CommentManegComponent} from './event-maneg/comment-maneg/comment-maneg.component';
 import {TicketsForEventsComponent} from './event-maneg/events/tickets-for-events/tickets-for-events.component';
+import {HomeComponent} from './home/home.component';
+import {TestStylesComponent} from './test-styles/test-styles.component';
+import {AuthGuard} from './authentication/auth.guard';
+import {AppComponent} from './app.component';
 
 const routes: Routes = [
+  {path: '', component: AppComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'orgregister', component: RegisterOrgnizerComponent},
   {path: 'attender', component: RegisterAttenderComponent},
-  {path: 'users', component: UsersComponent},
+  {path: 'users', component: UsersComponent, canActivate: [AuthGuard], data: {userRole : ['ROLE_ADMIN']}},
   {path: 'homeevent', component: EventManegComponent},
   {path: 'events', component: EventsComponent},
   {path: 'addEvent', component: AddEventComponent},
   {path: 'activeEvent', component: ActiveEventComponent},
   {path: 'unapproved', component: UnactiveEventComponent},
-  {path: 'event/:eventid', component: EditEventComponent},
+  {path: 'event/:id', component: EditEventComponent},
   {path: 'user/:userid', component: EditUserComponent},
   {path: 'myevent', component: MyeventComponent},
   {path: 'myticket', component: TicketManegComponent},
   {path: 'ticketsforevent/:eventid', component: TicketsForEventsComponent},
-  {path: 'mycomments', component: CommentManegComponent}
+  {path: 'mycomments', component: CommentManegComponent},
+  {path: 'test', component: TestStylesComponent}
 
 
 

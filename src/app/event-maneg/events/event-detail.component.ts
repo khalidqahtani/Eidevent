@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Events} from './events.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {EventsService} from './events.service';
 import {Subscription} from 'rxjs';
 import {AuthenticationService} from '../../authentication/authentication.service';
@@ -51,49 +51,52 @@ export class EventDetailComponent implements OnInit {
   org  = false;
   private sub: Subscription;
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private eventsService: EventsService,
               private commentService: CommentService,
               private auth: AuthenticationService) { }
 
   ngOnInit() {
-    // this.sub = this.route.params.subscribe((params: any) => {
-    //   this.eventid = params.eventid;
-    // });
+    this.sub = this.route.params.subscribe((params: any) => {
+      this.eventid = params.eventid;
+    });
     this.getRole();
   }
   deleteEvent(eventid: number) {
     this.eventsService.deleteEvent(eventid).subscribe(eventdelete => {
       },
       err => console.log(err),
-      () => console.log('Event Deleted..')
-    );
+      // () => console.log('Event Deleted..')
+      () => this.router.navigate(['/myevent'])
+
+  );
   }
   BookEvent(eventid: number) {
     this.eventsService.BookEvent(eventid, this.userid).subscribe(eventbook => {
       },
       err => console.log(err),
-      () => console.log('Event Booking..')
-    );
+      () => this.router.navigate(['/myticket']));
+
   }
   undeleteEvent(eventid: number) {
     this.eventsService.undeleteEvent(eventid).subscribe(eventUndelete => {
       },
       err => console.log(err),
-      () => console.log('Event UnDeleted..')
+      () => this.router.navigate(['/myevent'])
     );
   }
   approvelEvent(eventid: number) {
     this.eventsService.approvelEvent(eventid).subscribe(approve => {
       },
       err => console.log(err),
-      () => console.log('Approved..')
+      () => this.router.navigate(['/activeEvent'])
     );
   }
   UnapprovelEvent(eventid: number) {
     this.eventsService.UnapprovelEvent(eventid).subscribe(unapprove => {
       },
       err => console.log(err),
-      () => console.log('UnApproved..')
+      () => this.router.navigate(['/activeEvent'])
     );
   }
   getRole() {
@@ -116,6 +119,7 @@ export class EventDetailComponent implements OnInit {
   }
   comment(event) {
     this.commentService.Stream.next(event);
+      // ( => this.router.navigate(['/myevent']));
   }
   getCommentEvent(eventid: number) {
     this.commentService.getCommentEvent(eventid).subscribe(approve => {

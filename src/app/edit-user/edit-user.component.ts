@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../users/user.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../users/users.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-user',
@@ -13,13 +13,16 @@ export class EditUserComponent implements OnInit {
   userid: number;
   user$: User;
 
-  constructor(private formBuilder: FormBuilder, private usersService: UsersService, private route: ActivatedRoute ) { }
+  constructor(private formBuilder: FormBuilder,
+              private usersService: UsersService,
+              private route: ActivatedRoute,
+              private router: Router,
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe((value: any) => {
       this.userid = value.userid;
     });
-    console.log('user id is ? ', this.userid);
 
     this.usersService.getUser(this.userid).subscribe((value0 => {
       this.user$ = value0;
@@ -43,15 +46,18 @@ export class EditUserComponent implements OnInit {
       if (res !== null && res !== undefined) {
         console.log(res);
       }
-    }, (error) => console.log(error), () => {});
+    }, (error) => console.log(error),
+      () => this.router.navigate(['/users'])
+    );
   }
   deleteUser() {
     this.usersService.deleteUser(this.userid).subscribe(res => {
       if (res !== null && res !== undefined) {
         console.log(res);
       }
-    }, (error) => console.log(error), () => {});
-    console.log(`this user Id delted`, this.userid );
+    }, (error) => console.log(error),
+      () => this.router.navigate(['/users'])
+    );
   }
 
 }

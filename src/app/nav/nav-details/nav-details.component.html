@@ -1,6 +1,15 @@
-<header>
-<div class="container">
-    <a class="logo"> {{auth.getFirstName()}} {{auth.getLastName()}}</a>
-</div>
-</header>
+<!--<header>-->
+<!--<div class="container">-->
+<!--<a class="logo"> {{auth.getFirstName()}} {{auth.getLastName()}}</a>-->
+<!--</div>-->
+<!--</header>-->
 
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <a class="logo"> Welcome {{auth.getFirstName()}} {{auth.getLastName()}}</a>
+      </ul>
+    </div>
+  </div>
+</nav>
