@@ -1,13 +1,6 @@
 <app-nav-details></app-nav-details>
 <app-nav></app-nav>
 <div class="row" >
-  <!--<div class="col-md-6">-->
-    <!--<h1 *ngIf="currentEvents">All Ticket for {{currentEvents.nameevent}} </h1>-->
-    <!--<ul style="list-style-type:disc" *ngFor="let t1 of ticket" class="list-group-item" >-->
-      <!--<li>{{t1.uid.username}} - {{t1.eid.nameevent}}</li>-->
-      <!--<button>HI</button>-->
-    <!--</ul>-->
-  <!--</div>-->
   <div class="container">
 <table class="table">
   <h1 *ngIf="currentEvents">All Ticket for {{currentEvents.nameevent}} </h1>
@@ -19,7 +12,7 @@
   <tr *ngFor="let t1 of ticket" >
   <td>{{t1.uid.username}}</td>
   <td>{{t1.eid.nameevent}}</td>
-  <td><button class="btn" (click)="presentTicket(t1.ticketid)">Present</button></td>
+  <td> <button class="btn" [disabled]="present(t1)"(click)="presentTicket(t1.ticketid)">Present</button></td>
 </tr>
 </table>
   </div>

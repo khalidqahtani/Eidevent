@@ -56,4 +56,7 @@ export class TicketsForEventsComponent implements OnInit {
       // () => this.router.navigate(['/activeEvent'])
     );
   }
+  present(ticket: Ticketmodel) {
+    if (ticket.userpresent === true) {return true; }
+  }
 }
