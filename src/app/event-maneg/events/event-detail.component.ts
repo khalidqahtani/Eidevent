@@ -128,6 +128,9 @@ export class EventDetailComponent implements OnInit {
       () => console.log('event..')
     );
   }
+  Myeventtickets(eid: number) {
+    this.eventsService.Myeventtickets(eid).subscribe();
+  }
   getComent(comment, id) {
     console.log(comment);
     this.currentComments = comment;

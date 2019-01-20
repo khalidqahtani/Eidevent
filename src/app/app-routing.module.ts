@@ -36,7 +36,7 @@ const routes: Routes = [
   {path: 'user/:userid', component: EditUserComponent},
   {path: 'myevent', component: MyeventComponent},
   {path: 'myticket', component: TicketManegComponent},
-  {path: 'ticketsforevent/:eventid', component: TicketsForEventsComponent},
+  {path: 'ticketsforevent/:id', component: TicketsForEventsComponent},
   {path: 'mycomments', component: CommentManegComponent},
   {path: 'test', component: TestStylesComponent}
 

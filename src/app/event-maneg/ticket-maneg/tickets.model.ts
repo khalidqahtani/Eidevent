@@ -1,3 +1,6 @@
+import {Events} from '../events/events.model';
+import {User} from '../../users/user.model';
+
 export class Ticketmodel {
   ticketid: number;
   date: string;
@@ -7,16 +10,6 @@ export class Ticketmodel {
   eventname: string;
   dateevent: string;
   ticketrate: number;
-  eid: Eid;
-  uid: Uid;
+  eid: Events;
+  uid: User;
 }
-export class Eid {
-    eventid: number;
-    nameevent: string;
-  }
-
-  export class Uid {
-    userid: number;
-    username: string;
-  }
-

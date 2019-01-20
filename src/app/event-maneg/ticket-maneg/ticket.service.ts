@@ -28,4 +28,8 @@ export class TicketService {
     return this.http.get<Rate>(`/api/rate/${tid}/${rate}`);
     // return this.http.get<Rate>('/api/rate/' + tid + '/' + rate);
   }
+
+  presentTicket(tid: number): Observable<Ticketmodel> {
+    return this.http.get<Ticketmodel>(`api/adminaccess/ticket/present/` + `${tid}`);
+  }
 }
