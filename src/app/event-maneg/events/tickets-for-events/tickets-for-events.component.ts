@@ -51,7 +51,7 @@ export class TicketsForEventsComponent implements OnInit {
     );
   }
   presentTicket(id: number) {
-    this.ticketService.presentTicket(id).subscribe(approve => {
+    this.ticketService.presentTicket(id).subscribe(present => {
       },
       err => console.log(err),
       // () => this.router.navigate(['/activeEvent'])
@@ -59,7 +59,7 @@ export class TicketsForEventsComponent implements OnInit {
   }
 
   unpresentTicket(id: number) {
-    this.ticketService.unpresentTicket(id).subscribe(unapprove => {
+    this.ticketService.unpresentTicket(id).subscribe(unprsent => {
       },
       err => console.log(err),
       // () => this.router.navigate(['/activeEvent'])
