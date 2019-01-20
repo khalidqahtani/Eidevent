@@ -32,4 +32,8 @@ export class TicketService {
   presentTicket(tid: number): Observable<Ticketmodel> {
     return this.http.get<Ticketmodel>(`api/adminaccess/ticket/present/` + `${tid}`);
   }
+
+  unpresentTicket(tid: number): Observable<Ticketmodel> {
+    return this.http.get<Ticketmodel>(`api/adminaccess/ticket/unpresent/` + `${tid}`);
+  }
 }

@@ -11,6 +11,7 @@ import {TicketService} from '../../ticket-maneg/ticket.service';
 @Component({
   selector: 'app-tickets-for-events',
   templateUrl: './tickets-for-events.component.html',
+  styleUrls: ['./tickets-for-events.component.scss']
 })
 export class TicketsForEventsComponent implements OnInit {
   ticket: Ticketmodel[];
@@ -51,6 +52,14 @@ export class TicketsForEventsComponent implements OnInit {
   }
   presentTicket(id: number) {
     this.ticketService.presentTicket(id).subscribe(approve => {
+      },
+      err => console.log(err),
+      // () => this.router.navigate(['/activeEvent'])
+    );
+  }
+
+  unpresentTicket(id: number) {
+    this.ticketService.unpresentTicket(id).subscribe(unapprove => {
       },
       err => console.log(err),
       // () => this.router.navigate(['/activeEvent'])
