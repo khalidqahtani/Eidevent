@@ -1,15 +1,61 @@
 <app-nav-details></app-nav-details>
 <app-nav></app-nav>
-<div class="row" >
-  <div class="col-md-6">
-    <h1>Event Need Active</h1>
-    <ul style="list-style-type:disc" *ngFor="let event of events$ " class="list-group-item" (click)="getEvent(event)">
-      <li>{{event.eventid}} - {{event.nameevent}}</li>
-    </ul>
-  </div>
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
 
-  <div class="col-md-6">
-    <app-event-detail [event]="currentEvents"></app-event-detail>
-  </div>
+<body class="hm-gradient">
 
-</div>
+<main>
+
+  <div class="row" >
+    <div class="container mt-4">
+
+
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead class="mdb-color darken-3">
+            <tr class="text-white">
+              <th>#</th>
+              <th>Event Name</th>
+              <th>Type Event</th>
+              <th>Gender Event</th>
+              <th>Event Street</th>
+              <th>City</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Capacity</th>
+              <th>Booking</th>
+              <!--<td>Organizer</td>-->
+            </tr>
+            </thead>
+            <tbody *ngFor="let event of events$ " (click)="getEvent(event)">
+            <tr >
+              <td>{{event.eventid}}</td>
+              <td>{{event.nameevent}}</td>
+              <td>{{event.tybeevent}}</td>
+              <td>{{event.genderevent}}</td>
+              <td>{{event.eventstreet}}</td>
+              <td>{{event.eventcity}}</td>
+              <td>{{event.eventdate}}</td>
+              <td>{{event.eventtime}}</td>
+              <td>{{event.capacity}}</td>
+              <td>{{event.counter}}</td>
+
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <app-event-detail [event]="currentEvents"></app-event-detail>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</main>
+
+</body>

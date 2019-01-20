@@ -1,3 +1,5 @@
+import {User} from '../../users/user.model';
+
 export class Events {
   constructor(
     public eventid: number,
@@ -12,6 +14,6 @@ export class Events {
     public counter: number,
     public edelete: boolean,
     public approval: boolean,
-    public OrgnizerID: number,
+    public OrgnizerID: User,
     public comments: string) {}
 }
