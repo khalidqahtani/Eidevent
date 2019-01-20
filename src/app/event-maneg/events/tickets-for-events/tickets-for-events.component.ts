@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Events} from '../events.model';
 import {EventsService} from '../events.service';
 import {Subscription} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Ticketmodel} from '../../ticket-maneg/tickets.model';
 import {UsersService} from '../../../users/users.service';
 import {User} from '../../../users/user.model';
@@ -24,7 +24,7 @@ export class TicketsForEventsComponent implements OnInit {
   constructor(private eventsService: EventsService,
               private ticketService: TicketService,
               private route: ActivatedRoute,
-              private user: UsersService) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe((params: any) => {
@@ -54,7 +54,7 @@ export class TicketsForEventsComponent implements OnInit {
     this.ticketService.presentTicket(id).subscribe(present => {
       },
       err => console.log(err),
-      // () => this.router.navigate(['/activeEvent'])
+      () => this.router.navigate(['/myevent'])
     );
   }
 
@@ -62,7 +62,7 @@ export class TicketsForEventsComponent implements OnInit {
     this.ticketService.unpresentTicket(id).subscribe(unprsent => {
       },
       err => console.log(err),
-      // () => this.router.navigate(['/activeEvent'])
+      () => this.router.navigate(['/myevent'])
     );
   }
   present(ticket: Ticketmodel) {

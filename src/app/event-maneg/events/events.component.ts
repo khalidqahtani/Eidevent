@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Events} from './events.model';
 import {EventsService} from './events.service';
-import {Comments} from '../comment-maneg/comments.model';
+
 
 @Component({
   selector: 'app-events',
