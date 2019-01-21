@@ -56,7 +56,7 @@ import {Comments} from '../comment-maneg/comments.model';
             <div class="card-body">
               <table class="table table-hover">
                 <thead class="mdb-color darken-3">
-                <tr class="text-white">
+                <tr class="text-white" style="background-color: #241F61">
                   <th>Edit</th>
                   <th>Delete</th>
                   <th>UnDelete</th>

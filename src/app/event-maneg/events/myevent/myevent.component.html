@@ -29,8 +29,8 @@
       <div class="card mb-4">
         <div class="card-body">
           <table class="table table-hover">
-            <thead class="mdb-color darken-3">
-            <tr class="text-white">
+            <thead class="mdb-color">
+            <tr class="text-white" style="background-color: #241F61">
               <th>#</th>
               <th>Event Name</th>
               <th>Type Event</th>
@@ -62,10 +62,10 @@
             </tbody>
           </table>
         </div>
-        <app-event-detail [event]="currentEvents"></app-event-detail>
+
       </div>
 
-
+      <app-event-detail [event]="currentEvents"></app-event-detail>
 
     </div>
 
