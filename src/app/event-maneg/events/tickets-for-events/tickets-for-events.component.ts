@@ -17,9 +17,7 @@ export class TicketsForEventsComponent implements OnInit {
   ticket: Ticketmodel[];
   // events$: Events;
   currentEvents: Events;
-  users: User;
   id: number;
-  private sub: Subscription;
 
   constructor(private eventsService: EventsService,
               private ticketService: TicketService,
@@ -27,12 +25,12 @@ export class TicketsForEventsComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe((params: any) => {
+    this.route.params.subscribe((params: any) => {
       this.id = params.id;
     });
     this.getevent();
     this.Myeventtickets();
-    console.log(this.ticket);
+    // console.log(this.ticket);
   }
   Myeventtickets() {
     this.eventsService.Myeventtickets(this.id).subscribe(Myevent => {

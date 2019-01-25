@@ -32,6 +32,7 @@ export class AddEventComponent implements OnInit {
       eventcity: ``,
       eventdate: ``,
       eventtime: ``,
+      description: ``,
       capacity: ``,
       counter: ``
     });

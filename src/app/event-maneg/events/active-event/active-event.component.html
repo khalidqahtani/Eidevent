@@ -1,60 +1,148 @@
 <app-nav-details></app-nav-details>
 <app-nav></app-nav>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-<body class="hm-gradient">
+<!--<body class="hm-gradient">-->
 
-<main>
+<!--<main>-->
 
-  <div class="row" >
-    <div class="container mt-4">
+<!--<div class="row" >-->
+<!--<div class="container mt-4">-->
 
 
 
-      <div class="card mb-4">
-        <div class="card-body">
-          <table class="table table-hover">
-            <thead class="mdb-color darken-3">
-            <tr class="text-white" style="background-color: #241F61">
-              <th>#</th>
-              <th>Event Name</th>
-              <th>Type Event</th>
-              <th>Gender Event</th>
-              <th>Event Street</th>
-              <th>City</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Capacity</th>
-              <th>Booking</th>
-              <!--<td>Organizer</td>-->
-            </tr>
-            </thead>
-            <tbody *ngFor="let event of events$ " (click)="getEvent(event)">
-            <tr >
-              <td>{{event.eventid}}</td>
-              <td>{{event.nameevent}}</td>
-              <td>{{event.tybeevent}}</td>
-              <td>{{event.genderevent}}</td>
-              <td>{{event.eventstreet}}</td>
-              <td>{{event.eventcity}}</td>
-              <td>{{event.eventdate}}</td>
-              <td>{{event.eventtime}}</td>
-              <td>{{event.capacity}}</td>
-              <td>{{event.counter}}</td>
+<!--<div class="card mb-4">-->
+<!--<div class="card-body">-->
+<!--<table class="table table-hover">-->
+<!--<thead class="mdb-color darken-3">-->
+<!--<tr class="text-white" style="background-color: #241F61">-->
+<!--<th>#</th>-->
+<!--<th>Event Name</th>-->
+<!--<th>Type Event</th>-->
+<!--<th>Gender Event</th>-->
+<!--<th>Event Street</th>-->
+<!--<th>City</th>-->
+<!--<th>Date</th>-->
+<!--<th>Time</th>-->
+<!--<th>Capacity</th>-->
+<!--<th>Booking</th>-->
+<!--&lt;!&ndash;<td>Organizer</td>&ndash;&gt;-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody *ngFor="let event of events$ " (click)="getEvent(event)">-->
+<!--<tr >-->
+<!--<td>{{event.eventid}}</td>-->
+<!--<td>{{event.nameevent}}</td>-->
+<!--<td>{{event.tybeevent}}</td>-->
+<!--<td>{{event.genderevent}}</td>-->
+<!--<td>{{event.eventstreet}}</td>-->
+<!--<td>{{event.eventcity}}</td>-->
+<!--<td>{{event.eventdate}}</td>-->
+<!--<td>{{event.eventtime}}</td>-->
+<!--<td>{{event.capacity}}</td>-->
+<!--<td>{{event.counter}}</td>-->
 
-            </tr>
-            </tbody>
-          </table>
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<app-event-detail [event]="currentEvents"></app-event-detail>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</main>-->
+
+<!--</body>-->
+<div>
+<div class="container">
+  <!--<div class="form-group">-->
+    <!--<input type="text" class="form-control" [(ngModel)]="term" />-->
+  <!--</div>-->
+  <div class="container h-100" style="padding-top: 30px">
+    <div class="d-flex justify-content-center h-100">
+      <div class="searchbar">
+        <input  class="search_input" type="text" name="" placeholder="Search..." [(ngModel)]="term" />
+        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 bordered" *ngFor="let event of events$ | filter:term " (click)="getEvent(event)" >
+
+      <div class="thumbnail">
+        <img src="assets/ABCs-kids.jpg"
+             alt="" class="img-fluid">
+        <div class="caption" >
+          <h4 class="float-right">FREE</h4>
+          <h4><a href="#">{{event.nameevent}}</a></h4>
+          <p>{{event.description}}</p>
+        </div>
+        <div class="ratings">
+          <p> <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span
+              class="glyphicon glyphicon-star"></span> <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <i class="fas fa-male"></i><i class="fas fa-female">   -</i>{{event.genderevent}}/{{event.eventdate}}</p>
+        </div>
+        <div class="space-ten"></div>
+        <div class="btn-ground text-center">
+          <button class="btn btn-sm " style="background-color: #241F61; color:white"  (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i> Book</button>
+          <button class="btn btn-sm" style="background-color: #6A3092; color: white" data-toggle="modal" data-target="#product_view"><i class="fas fa-search"></i>View Details</button>
+          <button class="btn btn-sm" (click)="getComent(event.comments,event.eventid)">View Comment</button>
+        </div>
+        <div class="space-ten"><app-comments-detils [eventid]="eventid" [comments]="currentComments"> </app-comments-detils></div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <app-comments-detils [eventid]="eventid" [comments]="currentComments"> </app-comments-detils>
+    </div>
+  </div>
+</div>
+<div class="modal fade product_view" id="product_view"  *ngFor="let event of events$" (click)="getEvent(event)" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #6A3092"> <a href="#" data-dismiss="modal" class="class float-right"><span class="glyphicon glyphicon-remove"></span></a>
+        <h3
+          class="modal-title" style="text-align: center; color: white; padding-right: 46%">{{currentEvents.nameevent}}</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-6 product_img">
+            <img src="assets/ABCs-kids.jpg"
+                 class="img-fluid">
+          </div>
+          <div class="col-lg-6 product_content" >
+            <h4>Event ID: <span>{{currentEvents.eventid}}</span></h4>
+            <div class="rating"> <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span
+                class="glyphicon glyphicon-star"></span> <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <h4>Event Capacity: <span>{{currentEvents.capacity}}</span></h4><br>
+              <h4>Booking Event: <span>{{currentEvents.counter}}</span></h4></div>
+            <p>{{currentEvents.description}}</p>
+            <h3 class="cost"><small class="pre-cost"><span class="glyphicon glyphicon-usd"></span> FREE</small></h3>
+            <h4><i class="fas fa-map-marker-alt"></i>Location:</h4>
+           <h4>{{currentEvents.eventcity}}/{{currentEvents.eventstreet}}<br>{{currentEvents.eventdate}} {{currentEvents.eventtime}} </h4>
+
+            <div class="space-ten"></div>
+            <div class="btn-ground">
+              <button class="btn btn-sm " style="background-color: #241F61; color:white"  (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i> Book</button>
+              <button class="btn btn-sm btn-danger"  style="color: white"data-toggle="modal" data-target="#product_view"><i class="fas fa-ban"></i> Cancel</button>
+              <button class="btn btn-sm" (click)="getComent(event.comments,event.eventid)">View Comment</button>
+              <!--<div class="space-ten"><app-comments-detils [eventid]="eventid" [comments]="currentComments.length"> </app-comments-detils></div>-->
+
+            </div>
+            <div class="space-ten"><app-comments-detils [eventid]="currentEvents.eventid" [comments]="currentComments"> </app-comments-detils></div>
+          </div>
         </div>
       </div>
-
-      <app-event-detail [event]="currentEvents"></app-event-detail>
-
-
     </div>
-
   </div>
-</main>
-
-</body>
-
-
+</div>
+</div>

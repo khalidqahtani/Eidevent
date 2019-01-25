@@ -11,7 +11,7 @@ import { UsersComponent } from './users/users.component';
 import { EventsComponent } from './event-maneg/events/events.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {UserDetailComponent} from './users/user-detail.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EventDetailComponent } from './event-maneg/events/event-detail.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
@@ -42,6 +42,8 @@ import {ErrorInterceptor} from './authentication/error.interceptor';
 import { HomeComponent } from './home/home.component';
 import { TestStylesComponent } from './test-styles/test-styles.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import { FilterPipe } from './filter.pipe';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -71,7 +73,9 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     RateManegComponent,
     TicketsForEventsComponent,
     HomeComponent,
-    TestStylesComponent
+    TestStylesComponent,
+    FilterPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +95,8 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     MatFormFieldModule,
     MatIconModule,
     AngularFontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},

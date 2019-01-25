@@ -31,7 +31,7 @@ import {EventsService} from './events.service';
 export class CommentsDetilsComponent implements OnInit {
   @Input() comments: Comments[];
   @Input() eventid: number;
-  // currentComment: Comments[] = [];
+  currentComment: Comments;
   cid: number;
   userid: number;
   admin  = false;

@@ -40,6 +40,7 @@ export class EditEventComponent implements OnInit {
       eventcity: ['', Validators.required],
       eventdate: ``,
       eventtime: ``,
+      description: ``,
       capacity: ['', Validators.required],
       counter: ``,
       edelete: ``,
