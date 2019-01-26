@@ -68,6 +68,9 @@ export class EventsService {
   Myeventtickets(eid: number): Observable<Ticketmodel[]> {
     return this.http.get<Ticketmodel[]>(`api/ticketforevent/` + `${eid}`);
   }
+  First3Events(): Observable<Events[]> {
+  return this.http.get<Events[]>(`api/event/Top3event`);
+}
 
   // Ticketforevent(eid: number)
 }

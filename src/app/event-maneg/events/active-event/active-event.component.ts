@@ -56,4 +56,7 @@ export class ActiveEventComponent implements OnInit {
     this.currentComments = comment;
     this.eventid = id;
   }
+  fullBook() {
+    if (this.currentEvents.capacity === this.currentEvents.counter) {return true; }
+  }
 }

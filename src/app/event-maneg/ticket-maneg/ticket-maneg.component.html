@@ -15,7 +15,7 @@
   <!--</div>-->
 
 <!--</div>-->
-
+<div style="background-color: rgba(256, 256, 256, 0.8); ">
 <div class="ticket" *ngFor="let ticket of tikets$ ">
   <div class="stub">
     <div class="top"> <span class="admit">{{ticket.eid.nameevent}}</span>
@@ -33,7 +33,8 @@
   <div class="check">
     <div class="big">Your
       <br>Ticket</div>
-    <div class="number">#{{ticket.eid.eventid}}</div>
+    <div class="number">#{{ticket.eid.eventid}} </div>
+
     <div class="info">
       <section>
         <div class="title">Date</div>
@@ -46,10 +47,16 @@
       <section>
         <div class="title">Location</div>
         <div style="color: white">{{ticket.eid.eventcity}}-{{ticket.eid.eventstreet}}</div>
-      </section>
 
+      </section>
+      <button mat-flat-button color="warn" (click)="deleteTicket(ticket.ticketid)"><i class="fas fa-ban"></i></button>
     </div>
+
   </div>
 </div>
+<!--<app-ticket-detail [ticket]="currentTickets"></app-ticket-detail>-->
 
 
+
+</div>
+<app-footer></app-footer>

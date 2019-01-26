@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TicketService} from './ticket.service';
 import {AuthenticationService} from '../../authentication/authentication.service';
 import {Ticketmodel} from './tickets.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-ticket-maneg',
@@ -13,7 +14,9 @@ export class TicketManegComponent implements OnInit {
   currentTickets: Ticketmodel;
   userid: number;
 
-  constructor(private ticketService: TicketService, private auth: AuthenticationService) { }
+  constructor(private ticketService: TicketService,
+              private auth: AuthenticationService,
+              private router: Router) { }
 
   ngOnInit() {
     this.userid = this.auth.getUserId();
@@ -30,6 +33,13 @@ export class TicketManegComponent implements OnInit {
   getTicket(ticket) {
     this.currentTickets = ticket;
     // if (this.currentTickets.eid.nameevent)
+  }
+  deleteTicket(tid: number) {
+    this.ticketService.deleteTicket(tid).subscribe(canselTicket => {
+      },
+      err => console.log(err),
+      () => this.router.navigate(['/activeEvent'])
+    );
   }
 
 
