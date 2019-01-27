@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-add-event',
   templateUrl: './add-event.component.html',
+  styleUrls: ['./add-event.component.scss']
+
 })
 export class AddEventComponent implements OnInit {
   events$: Observable<Events>;

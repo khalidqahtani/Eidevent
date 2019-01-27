@@ -94,34 +94,42 @@
 
     <!-- Login Form -->
     <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()" class="fadeIn second">
-      <mat-form-field>
-        <input matInput type="text" formControlName="id" placeholder="ID">
+      <mat-form-field appearance="outline">
+        <mat-label>NIN / IQAMA</mat-label>
+        <input matInput formControlName="id" placeholder="ID">
+        <mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>
       </mat-form-field>
       <div>
-        <mat-form-field>
-          <input matInput type="text"
-                 formControlName="firstname" placeholder="First Name">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstname" placeholder="First Name">
+          <mat-icon matSuffix>account_circle</mat-icon>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field>
-          <input matInput type="text"
-                 name="lastname" placeholder="Lastname"
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput
+                 placeholder="Lastname"
                  formControlName="lastname">
+          <mat-icon matSuffix>account_circle</mat-icon>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>User Name</mat-label>
           <input matInput type="text"
                  name="username" placeholder="Username"
                  formControlName="username">
+          <mat-icon matSuffix>person</mat-icon>
+
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field>
-          <input matInput type="password"
-                 name="password" placeholder="Password"
-                 formControlName="password">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
       </div>
       <!--<div>-->
@@ -132,36 +140,41 @@
       <!--</mat-form-field>-->
       <!--</div>-->
       <div>
-        <mat-form-field>
-          <input matInput type="date"
-                 name="birthday" placeholder="Birthday"
-                 formControlName="birthday">
+        <mat-form-field appearance="outline">
+          <mat-label>Birthday</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthday">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field>
-          <mat-select placeholder="Gender" formControlName="gender">
+      <div >
+        <mat-form-field appearance="outline">
+          <mat-label>Gender</mat-label>
+          <mat-select placeholder="Gender" formControlName="gender" >
             <mat-option value="Male">Male</mat-option>
             <mat-option value="Female">Female</mat-option>
           </mat-select>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
           <input matInput type="email"
                  name="email" placeholder="Email"
                  formControlName="email">
+          <mat-icon matSuffix>mail</mat-icon>
+
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field>
-          <input matInput type="text"
-                 name="mobile" placeholder="Mobile"
-                 formControlName="mobile">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Mobile</mat-label>
+          <span matPrefix>+966 &nbsp;</span>
+          <input type="tel" matInput placeholder="Mobile" formControlName="mobile">
+          <mat-icon matSuffix>mode_edit</mat-icon>
         </mat-form-field>
-      </div>
-      <div>
-        <input type="submit" class="fadeIn fourth" value="Register">
       </div>
     </form>
 

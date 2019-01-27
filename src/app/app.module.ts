@@ -27,12 +27,12 @@ import { CommentManegComponent } from './event-maneg/comment-maneg/comment-maneg
 import {CommentsDetilsComponent} from './event-maneg/events/comments-detils.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-  MatButtonModule, MatDatepickerModule,
-  MatFormFieldModule,
+  MatButtonModule, MatCheckboxModule, MatDatepickerModule,
+  MatFormFieldModule, MatIconModule,
   MatInputModule,
   MatListModule, MatNativeDateModule, MatSelectModule,
   MatSidenavModule,
-  MatIconModule,
+
   MatToolbarModule
 } from '@angular/material';
 import { RateManegComponent } from './event-maneg/ticket-maneg/rate-maneg/rate-maneg.component';
@@ -83,6 +83,7 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatCheckboxModule,
     MatSidenavModule,
     MatListModule,
     BrowserAnimationsModule,
@@ -93,10 +94,10 @@ import { FooterComponent } from './footer/footer.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatIconModule,
     AngularFontAwesomeModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},

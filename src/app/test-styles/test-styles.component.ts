@@ -10,7 +10,6 @@ export class TestStylesComponent implements OnInit {
 
   constructor(private auth: AuthenticationService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

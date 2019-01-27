@@ -2,76 +2,84 @@
 <app-nav></app-nav>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-<div style="background-color: #e9eedb">
-  <H1 style="color: white">Add Event</H1>
-  <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
-    <form novalidate [formGroup]="myReactiveForm">
-      <div class="form-group">
-        <label for="nameevent">Name Event</label>
-        <input type="nameevent" class="form-control" id="nameevent"
-               placeholder="Enter Event Name" name="nameevent"
-               formControlName="nameevent">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div id="formHeader">
+    </div>
+    <div class="fadeIn first">
+      <br>
+      <img src="assets/Group 1 copy.png" style="max-height: 120px"/>
+      <p>Add Event</p>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()" class="fadeIn second">
+      <mat-form-field>
+        <input matInput type="text" formControlName="nameevent" placeholder="Event Name">
+        <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
+      </mat-form-field>
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+                 formControlName="tybeevent" placeholder="Type Event">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="Gender" formControlName="genderevent" >
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+            <mat-option value="Family">Family</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+                 name="eventstreet" placeholder="Event Street"
+                 formControlName="eventstreet">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+                 name="eventcity" placeholder="Event City"
+                 formControlName="eventcity">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="eventdate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+                 name="eventtime" placeholder="Event Time"
+                 formControlName="eventtime">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+                 name="description" placeholder="Description"
+                 formControlName="description">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="text"
+                 name="capacity" placeholder="Capacity"
+                 formControlName="capacity">
+        </mat-form-field>
       </div>
 
-      <div class="form-group">
-        <label for="tybeevent">Enter Type Of Event</label>
-        <input type="string" class="form-control" id="tybeevent"
-               placeholder="Enter the type" name="tybeevent"
-               formControlName="tybeevent">
+      <div>
+        <input [disabled]="!myReactiveForm" type="submit" class="fadeIn fourth" value="Add Event">
       </div>
-      <div class="form-group">
-        <label for="genderevent">Enter The gender event</label>
-        <input type="string" class="form-control" id="genderevent"
-               placeholder="Enter Gender" name="genderevent"
-               formControlName="genderevent">
-      </div>
-      <div class="form-group">
-        <label for="eventstreet">Enter the street</label>
-        <input type="string" class="form-control" id="eventstreet"
-               placeholder="Enter the street" name="eventstreet"
-               formControlName="eventstreet">
-      </div>
-      <div class="form-group">
-        <label for="eventcity">Enter City</label>
-        <input type="string" class="form-control"
-               formControlName="eventcity"
-               id="eventcity" placeholder="City" name="eventcity">
-      </div>
-
-
-      <div class="form-group">
-        <label for="eventdate">enter your Date</label>
-        <input type="date" class="form-control"
-               formControlName="eventdate"
-               id="eventdate" placeholder="time of event" name="eventdate">
-      </div>
-
-      <div class="form-group">
-        <label for="eventtime">enter your event time</label>
-        <input type="string" class="form-control"
-               formControlName="eventtime"
-               id="eventtime" placeholder="time of event" name="eventtime">
-      </div>
-
-      <div class="form-group">
-        <label for="description">Enter your Description</label>
-        <input type="description" class="form-control"
-               formControlName="description"
-               id="description" placeholder="Enter your Description" name="description">
-      </div>
-
-      <div class="form-group">
-        <label for="capacity">enter your capacity</label>
-        <input type="number" class="form-control"
-               formControlName="capacity"
-               id="capacity" placeholder="capacity of event" name="capacity">
-      </div>
-
-
-      <button type="submit" class="btn btn-primary"
-              (click)="onSubmit()"
-
-              [disabled]="!myReactiveForm.valid">Submit</button>
     </form>
   </div>
 </div>
+
