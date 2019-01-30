@@ -64,7 +64,6 @@ import {Comments} from '../comment-maneg/comments.model';
                   <th>Unapprovel</th>
                   <th>View Comment</th>
                   <th>View Ticket</th>
-                  <th>Book</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -76,7 +75,6 @@ import {Comments} from '../comment-maneg/comments.model';
                   <td><button mat-raised-button color="black" *ngIf="admin||org" [disabled]="!eventapprovel()" (click)="UnapprovelEvent(event.eventid)">Unapprovel</button></td>
                   <td><button mat-raised-button color="primary" *ngIf="org||user" (click)="getComent(event.comments,event.eventid)">View Comment</button></td>
                   <td><button mat-raised-button color="primary" *ngIf="org" [routerLink]="['/ticketsforevent', event.eventid]" >View Ticket</button></td>
-                  <td><button mat-raised-button color="black" *ngIf="user"  (click)="BookEvent(event.eventid)">Book</button></td>
                 </tr>
                 </tbody>
               </table>

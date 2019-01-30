@@ -2,89 +2,99 @@
 <app-nav></app-nav>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-<H1>Edit Event</H1>
-<div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
-  <form novalidate [formGroup]="myForm">
-
-    <div class="form-group">
-      <label for="eventid">Name Event</label>
-      <input disabled type="eventid" class="form-control"
-             formControlName="eventid"
-             id="eventid" placeholder="Enter your Event Name" name="eventid">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div id="formHeader">
+    </div>
+    <div class="fadeIn first" style="text-align: center">
+      <br>
+      <img src="assets/gears.png" style="max-height: 120px"/>
+      <p>Edit Event</p>
     </div>
 
-    <div class="form-group">
-      <label for="inputNameevent">Name Event</label>
-      <input type="nameevent" class="form-control"
-             formControlName="nameevent"
-             id="inputNameevent" placeholder="Enter your Event Name" name="nameevent">
-    </div>
+    <!-- Login Form -->
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="fadeIn second">
+      <mat-form-field appearance="outline">
+        <mat-label>Event Name</mat-label>
+        <input matInput type="text" formControlName="nameevent" placeholder="Event Name">
+        <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
+        <mat-icon matSuffix>assignment</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Tybe Event</mat-label>
+        <input matInput type="text"
+               formControlName="tybeevent" placeholder="Type Event">
+        <mat-icon matSuffix>extension</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Event Gender</mat-label>
+        <mat-select placeholder="Gender" formControlName="genderevent" >
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Family">Family</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>people</mat-icon>
+      </mat-form-field>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Event Street </mat-label>
+          <input matInput type="text"
+                 name="eventstreet" placeholder="Event Street"
+                 formControlName="eventstreet">
+          <mat-icon matSuffix>pin_drop</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Event City</mat-label>
+          <input matInput type="text"
+                 name="eventcity" placeholder="Event City"
+                 formControlName="eventcity">
+          <mat-icon matSuffix>map</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Event Date</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="eventdate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Event Time</mat-label>
+          <input matInput type="text"
+                 name="eventtime" placeholder="Event Time"
+                 formControlName="eventtime">
+          <mat-icon matSuffix>notifications</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Capacity</mat-label>
+          <input matInput type="text"
+                 name="capacity" placeholder="Capacity"
+                 formControlName="capacity">
+          <mat-icon matSuffix>view_comfy</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Special Need</mat-label>
+          <mat-select placeholder="specialneed" formControlName="specialneed" >
+            <mat-option value="Yes">Yes</mat-option>
+            <mat-option value="No">No</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>accessible</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width" appearance="outline" style="padding-right: 45px">
+          <mat-label>Description</mat-label>
+          <input matInput type="text"
+                 name="description" placeholder="Description"
+                 formControlName="description">
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </div>
 
-    <div class="form-group">
-      <label for="inputTybeevent">Email address</label>
-      <input type="tybeevent" class="form-control" id="inputTybeevent"
-             placeholder="Enter Tybe event" name="tybeevent"
-             formControlName="tybeevent">
-    </div>
-
-    <div class="form-group">
-      <label for="inputGenderEvent">Enter Your Gendar</label>
-      <input type="genderevent" class="form-control" id="inputGenderEvent"
-             placeholder="Enter Your Gendar" name="genderevent"
-             formControlName="genderevent">
-    </div>
-
-
-
-    <div class="form-group">
-      <label for="inputEventStreet">Event street</label>
-      <input type="eventstreet" class="form-control"
-             formControlName="eventstreet"
-             id="inputEventStreet" placeholder="Event street" name="eventstreet">
-    </div>
-
-    <div class="form-group">
-      <label for="eventcity">Event street</label>
-      <input type="eventcity" class="form-control"
-             formControlName="eventcity"
-             id="eventcity" placeholder="Event street" name="eventcity">
-    </div>
-
-
-    <div class="form-group">
-      <label for="eventdate">Enter your Event Date</label>
-      <input type="date" class="form-control"
-             formControlName="eventdate"
-             id="eventdate" placeholder="Enter your Event Date" name="eventdate">
-    </div>
-
-    <div class="form-group">
-      <label for="eventtime">Enter your Event time</label>
-      <input type="eventtime" class="form-control"
-             formControlName="eventtime"
-             id="eventtime" placeholder="Enter your Event time" name="eventtime">
-    </div>
-
-    <div class="form-group">
-      <label for="description">Enter your Description</label>
-      <input type="description" class="form-control"
-             formControlName="description"
-             id="description" placeholder="Enter your Description" name="description">
-    </div>
-
-    <div class="form-group">
-      <label for="capacity">Enter your capacity</label>
-      <input type="number" class="form-control"
-             formControlName="capacity"
-             id="capacity" placeholder="Enter your capacity" name="capacity">
-    </div>
-
-
-
-    <button type="submit" class="btn btn-primary"
-            (click)="onSubmit()" style="margin-right: 10px">Submit</button>
-
-    <button type="submit" class="btn btn-primary"
-            (click)="deleteEvent()">Delete</button>
-  </form>
+      <div style="text-align: center">
+        <input [disabled]="!myForm" type="submit" class="fadeIn fourth" value="Edit Event">
+      </div>
+    </form>
+  </div>
 </div>
+

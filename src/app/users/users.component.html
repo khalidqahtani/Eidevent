@@ -1,17 +1,218 @@
 <app-nav-details></app-nav-details>
 <app-nav></app-nav>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<div style="background-color: rgba(256, 256, 256, 0.8); ">
 
-<div class="row" >
-  <div class="col-md-4">
-    <h1>user list</h1>
-    <ul style="list-style-type:disc" *ngFor="let user of users$ " class="list-group-item" (click)="getUser(user)">
-        <li>{{user.userid}} - {{user.firstname}}</li>
-      </ul>
-  </div>
+  <!--Admin-->
 
-      <div class="col-md-4">
-        <app-user-detail [user]="currentUser"></app-user-detail>
+  <div>
+    <div class="container">
+      <h1 style="text-align: center; padding-top: 20px">Admin</h1>
+      <hr>
+      <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let admin of admins" (click)="getUser(admin)">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{admin.firstname}}</mat-card-title>
+              <mat-card-subtitle>{{admin.roles.rolename}} #{{admin.userid}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="assets/male-user (1).png" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+            </mat-card-content>
+            <mat-card-actions>
+              <button class="btn btn-sm" data-toggle="modal" data-target="#product_view"  (click)="pushUserToEdit(admin)"><i class="fas fa-search">See Details</i></button>
+              <!--<td><button mat-raised-button color="accent" *ngIf="admin||org" [routerLink]="['/event', event.eventid]" class="btn btn-primary" style="margin-top: 10px">Edit</button></td>-->
+            </mat-card-actions>
+          </mat-card>
+        </div>
       </div>
-
     </div>
+    <div class="container">
+      <h1 style="text-align: center">Organizer</h1>
+      <hr>
+      <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let org of organizers">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{org.firstname}}</mat-card-title>
+              <mat-card-subtitle>{{org.roles.rolename}} #{{org.userid}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="assets/male-user (1).png" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+            </mat-card-content>
+            <mat-card-actions>
+              <button class="btn btn-sm" data-toggle="modal" data-target="#product_view" (click)="pushUserToEdit(org)" ><i class="fas fa-search">See Details</i></button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h1 style="text-align: center">User</h1>
+      <hr>
+      <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let user of users">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{user.firstname}}</mat-card-title>
+              <mat-card-subtitle>{{user.roles.rolename}} #{{user.userid}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="assets/male-user (1).png" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+            </mat-card-content>
+            <mat-card-actions>
+              <button class="btn btn-sm" data-toggle="modal" data-target="#product_view" (click)="pushUserToEdit(user)" ><i class="fas fa-search"> See Details</i></button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade product_view" id="product_view">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #6A3092"> <a href="#" data-dismiss="modal" class="class float-right"><span class="glyphicon glyphicon-remove"></span></a>
+          </div>
+          <div class="modal-body">
+            <div class="fadeIn first" style="text-align: center">
+              <br>
+              <img src="assets/gears.png" style="max-height: 120px"/>
+              <p>Edit</p>
+            </div>
+
+            <!-- Login Form -->
+            <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+              <form novalidate [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                <!--<div class="form-group">-->
+                  <!--<label for="id">Enter N ID</label>-->
+                  <!--<input type="number" class="form-control"-->
+                         <!--formControlName="id"-->
+                         <!--id="id" placeholder="Enter your ID" name="userid">-->
+                <!--</div>-->
+                <mat-form-field appearance="outline">
+                  <mat-label>Id</mat-label>
+                  <input matInput type="text" formControlName="id" placeholder="ID">
+                  <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
+                  <mat-icon matSuffix>assignment</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Email address</mat-label>
+                  <input matInput type="text" formControlName="email" placeholder="Email">
+                  <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
+                  <mat-icon matSuffix>assignment</mat-icon>
+                </mat-form-field>
+
+                <!--<div class="form-group">-->
+                  <!--<label for="inputEmail">Email address</label>-->
+                  <!--<input type="email" class="form-control" id="inputEmail"-->
+                         <!--placeholder="Enter email" name="email"-->
+                         <!--formControlName="email">-->
+                <!--</div>-->
+                <mat-form-field appearance="outline">
+                  <mat-label>First Name</mat-label>
+                  <input matInput type="text" formControlName="firstname" placeholder="firstname">
+                  <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
+                  <mat-icon matSuffix>assignment</mat-icon>
+                </mat-form-field>
+
+                <!--<div class="form-group">-->
+                  <!--<label for="inputFirstName">Enter First Name</label>-->
+                  <!--<input type="firstname" class="form-control" id="inputFirstName"-->
+                         <!--placeholder="Enter first name" name="firstname"-->
+                         <!--formControlName="firstname">-->
+                <!--</div>-->
+                <mat-form-field appearance="outline">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput type="text" formControlName="lastname" placeholder="Last Name">
+                  <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
+                  <mat-icon matSuffix>assignment</mat-icon>
+                </mat-form-field>
+
+                <!--<div class="form-group">-->
+                  <!--<label for="inputLastName">Enter Last Name</label>-->
+                  <!--<input type="lastname" class="form-control" id="inputLastName"-->
+                         <!--placeholder="Enter last name" name="lastname"-->
+                         <!--formControlName="lastname">-->
+                <!--</div>-->
+
+                <!--<mat-form-field appearance="outline">-->
+                  <!--<mat-label>Password</mat-label>-->
+                  <!--<input matInput type="text" formControlName="password" placeholder="Password">-->
+                  <!--&lt;!&ndash;<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>&ndash;&gt;-->
+                  <!--<mat-icon matSuffix>assignment</mat-icon>-->
+                <!--</mat-form-field>-->
+
+                <!--<div class="form-group">-->
+                  <!--<label for="inputPassword">Password</label>-->
+                  <!--<input type="password" class="form-control"-->
+                         <!--formControlName="password"-->
+                         <!--id="inputPassword" placeholder="Password" name="password">-->
+                <!--</div>-->
+                <mat-form-field appearance="outline">
+                  <mat-label>Mobile</mat-label>
+                  <input matInput type="text" formControlName="mobile" placeholder="Mobile">
+                  <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
+                  <mat-icon matSuffix>assignment</mat-icon>
+                </mat-form-field>
+
+
+                <!--<div class="form-group">-->
+                  <!--<label for="mobile">Enter Your phone number</label>-->
+                  <!--<input type="number" class="form-control"-->
+                         <!--formControlName="mobile"-->
+                         <!--id="mobile" placeholder="Enter your phone number" name="mobile">-->
+                <!--</div>-->
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Event Gender</mat-label>
+                  <mat-select placeholder="Gender" formControlName="gender" >
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+                  </mat-select>
+                  <mat-icon matSuffix>people</mat-icon>
+                </mat-form-field>
+
+                <!--<div class="form-group">-->
+                  <!--<label for="selectGender">Gander</label>-->
+                  <!--<select class="form-control" id="selectGender" formControlName="gender" name="gender">-->
+                    <!--<option value="" disabled>Select gander</option>-->
+                    <!--<option value="Male">Male</option>-->
+                    <!--<option value="Female">Female</option>-->
+                  <!--</select>-->
+                <!--</div>-->
+                <mat-form-field appearance="outline">
+                  <mat-label>Date</mat-label>
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthday">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi #picker></mat-datepicker>
+                </mat-form-field>
+
+                <!--<div class="form-group">-->
+                  <!--<label for="birthday">Enter DateOfBirth</label>-->
+                  <!--<input type="date" class="form-control"-->
+                         <!--formControlName="birthday"-->
+                         <!--id="birthday" placeholder="Enter your phone number" name="birthday">-->
+                <!--</div>-->
+
+
+
+
+                <button type="submit" class="btn btn-primary"
+                        (click)="onSubmit()" style="margin-right: 10px">Submit</button>
+
+                <button type="submit" class="btn btn-primary"
+                        (click)="deleteUser()">Delete</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

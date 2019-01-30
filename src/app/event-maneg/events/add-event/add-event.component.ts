@@ -35,6 +35,7 @@ export class AddEventComponent implements OnInit {
       eventdate: ``,
       eventtime: ``,
       description: ``,
+      specialneed: ``,
       capacity: ``,
       counter: ``
     });

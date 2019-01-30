@@ -27,11 +27,11 @@ import { CommentManegComponent } from './event-maneg/comment-maneg/comment-maneg
 import {CommentsDetilsComponent} from './event-maneg/events/comments-detils.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-  MatButtonModule, MatCheckboxModule, MatDatepickerModule,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule,
   MatFormFieldModule, MatIconModule,
   MatInputModule,
   MatListModule, MatNativeDateModule, MatSelectModule,
-  MatSidenavModule,
+  MatSidenavModule, MatSliderModule,
 
   MatToolbarModule
 } from '@angular/material';
@@ -97,7 +97,9 @@ import { FooterComponent } from './footer/footer.component';
     AngularFontAwesomeModule,
     AppRoutingModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatSliderModule,
+    MatCardModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},

@@ -8,6 +8,7 @@ import {AuthenticationService} from '../authentication/authentication.service';
 @Component({
   selector: 'app-edit-event',
   templateUrl: './edit-event.component.html',
+  styleUrls: ['./edit-event.component.scss']
 })
 export class EditEventComponent implements OnInit {
   myForm: FormGroup;
@@ -41,6 +42,7 @@ export class EditEventComponent implements OnInit {
       eventdate: ``,
       eventtime: ``,
       description: ``,
+      specialneed: ``,
       capacity: ['', Validators.required],
       counter: ``,
       edelete: ``,

@@ -1,4 +1,6 @@
-  export class User {
+import {Therole} from '../role.model';
+
+export class User {
     constructor(
     public userid: number,
     public id: number,
@@ -10,5 +12,5 @@
     public gender: string,
     public email: string,
     public mobile: string,
-    public roles: string) {}
+    public roles: Therole) {}
 }

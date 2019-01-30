@@ -6,77 +6,92 @@
   <div id="formContent">
     <div id="formHeader">
     </div>
-    <div class="fadeIn first">
+    <div class="fadeIn first" style="text-align: center">
       <br>
-      <img src="assets/Group 1 copy.png" style="max-height: 120px"/>
+      <img src="assets/calendar.png" style="max-height: 120px"/>
       <p>Add Event</p>
     </div>
 
     <!-- Login Form -->
     <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()" class="fadeIn second">
-      <mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Event Name</mat-label>
         <input matInput type="text" formControlName="nameevent" placeholder="Event Name">
         <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
+        <mat-icon matSuffix>assignment</mat-icon>
       </mat-form-field>
-      <div>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Tybe Event</mat-label>
           <input matInput type="text"
                  formControlName="tybeevent" placeholder="Type Event">
+          <mat-icon matSuffix>extension</mat-icon>
         </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Event Gender</mat-label>
           <mat-select placeholder="Gender" formControlName="genderevent" >
             <mat-option value="Male">Male</mat-option>
             <mat-option value="Female">Female</mat-option>
             <mat-option value="Family">Family</mat-option>
           </mat-select>
+          <mat-icon matSuffix>people</mat-icon>
         </mat-form-field>
-      </div>
       <div>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Event Street </mat-label>
           <input matInput type="text"
                  name="eventstreet" placeholder="Event Street"
                  formControlName="eventstreet">
+          <mat-icon matSuffix>pin_drop</mat-icon>
         </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Event City</mat-label>
           <input matInput type="text"
                  name="eventcity" placeholder="Event City"
                  formControlName="eventcity">
+          <mat-icon matSuffix>map</mat-icon>
         </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Event Date</mat-label>
           <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="eventdate">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker touchUi #picker></mat-datepicker>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Event Time</mat-label>
           <input matInput type="text"
                  name="eventtime" placeholder="Event Time"
                  formControlName="eventtime">
+          <mat-icon matSuffix>notifications</mat-icon>
         </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <input matInput type="text"
-                 name="description" placeholder="Description"
-                 formControlName="description">
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Capacity</mat-label>
           <input matInput type="text"
                  name="capacity" placeholder="Capacity"
                  formControlName="capacity">
+          <mat-icon matSuffix>view_comfy</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Special Need</mat-label>
+          <mat-select placeholder="specialneed" formControlName="specialneed" >
+            <mat-option value="Yes">Yes</mat-option>
+            <mat-option value="No">No</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>accessible</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width" appearance="outline" style="padding-right: 45px">
+          <mat-label>Description</mat-label>
+          <input matInput type="text"
+                 name="description" placeholder="Description"
+                 formControlName="description">
+          <textarea matInput></textarea>
         </mat-form-field>
       </div>
 
-      <div>
+      <div style="text-align: center">
         <input [disabled]="!myReactiveForm" type="submit" class="fadeIn fourth" value="Add Event">
       </div>
     </form>
