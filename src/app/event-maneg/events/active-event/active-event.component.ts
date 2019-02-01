@@ -9,6 +9,7 @@ import {Comments} from '../../comment-maneg/comments.model';
 
 
 
+
 @Component({
   selector: 'app-active-event',
   templateUrl: './active-event.component.html',
@@ -32,6 +33,9 @@ export class ActiveEventComponent implements OnInit {
 
   ngOnInit() {
     this.getEventApprove();
+
+    var arr = [1,2,3,4].reverse();
+    console.log("rsev is:" + arr);
   }
   getEventApprove() {
     this.eventsService.getEventApprove().subscribe(eventApprovel => {

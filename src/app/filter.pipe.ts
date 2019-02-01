@@ -2,8 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {Events} from './event-maneg/events/events.model';
 
 @Pipe({
-  name: 'filter'
-})
+  name: 'filter',
+      })
 export class FilterPipe implements PipeTransform {
 
   transform(ev: Events[], term: string): Events[] {

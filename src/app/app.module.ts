@@ -48,6 +48,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +78,8 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     TestStylesComponent,
     FilterPipe,
     FooterComponent,
-    MyprofileComponent
+    MyprofileComponent,
+
   ],
   imports: [
     BrowserModule,
