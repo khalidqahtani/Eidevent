@@ -44,6 +44,7 @@ import { TestStylesComponent } from './test-styles/test-styles.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import { FilterPipe } from './filter.pipe';
 import { FooterComponent } from './footer/footer.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
 
 
 
@@ -75,7 +76,8 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     TestStylesComponent,
     FilterPipe,
-    FooterComponent
+    FooterComponent,
+    MyprofileComponent
   ],
   imports: [
     BrowserModule,

@@ -37,6 +37,12 @@ export class AuthenticationService {
       return user.userid;
     }
   }
+  getUsername() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user) {
+      return user.username;
+    }
+  }
   getFirstName() {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     if (user) {
@@ -47,6 +53,36 @@ export class AuthenticationService {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     if (user) {
       return user.lastname;
+    }
+  }
+  getId() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user) {
+      return user.id;
+    }
+  }
+  getEmail() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user) {
+      return user.email;
+    }
+  }
+  getBirthday() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user) {
+      return user.birthday;
+    }
+  }
+  getGender() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user) {
+      return user.gender;
+    }
+  }
+  getMobile() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user) {
+      return user.mobile;
     }
   }
 

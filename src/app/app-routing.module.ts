@@ -20,6 +20,8 @@ import {TestStylesComponent} from './test-styles/test-styles.component';
 import {AuthGuard} from './authentication/auth.guard';
 import {AppComponent} from './app.component';
 import {FooterComponent} from './footer/footer.component';
+import {MyprofileComponent} from './myprofile/myprofile.component';
+import {UserDetailComponent} from './users/user-detail.component';
 
 const routes: Routes = [
   {path: '', component: AppComponent, canActivate: [AuthGuard]},
@@ -40,7 +42,9 @@ const routes: Routes = [
   {path: 'ticketsforevent/:id', component: TicketsForEventsComponent},
   {path: 'mycomments', component: CommentManegComponent},
   {path: 'test', component: TestStylesComponent},
-  {path: 'footer', component: FooterComponent}
+  {path: 'footer', component: FooterComponent},
+  {path: 'myprofile', component: MyprofileComponent},
+  {path: 'edituser/:id', component: UserDetailComponent}
 
 
 
