@@ -1,0 +1,37 @@
+<app-nav-details></app-nav-details>
+<app-nav></app-nav>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-sm-6 offset-4">
+
+      <div class="card hovercard">
+        <div class="cardheader">
+
+        </div>
+        <div class="avatar">
+          <img  src="assets/male-user (1).png">
+        </div>
+        <div class="info" (click)="getUser(auth.getUserId())">
+          <div class="title">
+            <a target="_blank" href="https://scripteden.com/">{{auth.getFirstName()}}{{auth.getLastName()}}</a>
+          </div>
+          <div class="desc">{{auth.getRole()}}</div>
+          <div class="desc">{{auth.getUserId()}}</div>
+          <div class="desc">{{auth.getId()}}</div>
+          <div class="desc">{{auth.getEmail()}}</div>
+          <div class="desc">{{auth.getBirthday()}}</div>
+          <div class="desc">{{auth.getMobile()}}</div>
+          <div class="desc">{{auth.getGender()}}</div>
+          <div class="desc">{{auth.getUsername()}}</div> <br>
+
+
+
+        </div>
+      </div>
+      <app-user-detail [user]="currentUsers"></app-user-detail>
+
+
+    </div>
+
+  </div>
+</div>
