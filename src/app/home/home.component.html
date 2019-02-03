@@ -12,25 +12,44 @@
     </div>
   </div>
   <div class="container">
-    <h1 class="h3" style="width: 100%;">New Events</h1>
+    <h1 class="h3" style="width: 100%; margin-bottom: 10px">New Events</h1>
     <div class="row">
-      <div class="col-md-4 col-sm-6" style="margin-bottom: 22px" *ngFor="let event of events$.slice().reverse() ">
+      <div class="col-md-4 col-sm-6" style="margin-bottom: 22px" *ngFor="let event of events$">
         <div class="product-grid4">
           <div class="product-image4">
             <a href="#">
-              <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-1.jpg">
-              <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo5/images/img-2.jpg">
+              <img class="pic-1" src="assets/ev.png">
+              <img class="pic-2" src="assets/ev.png">
             </a>
             <ul class="social">
-              <li><a href="#" data-tip="See Information"><i class="fa fa-shopping-bag"></i></a></li>
+              <li><a routerLink="/activeEvent" data-tip="See Information"><i class="fas fa-search"></i></a></li>
             </ul>
             <span class="product-new-label">New</span>
             <span class="product-discount-label">{{event.tybeevent}}</span>
 
           </div>
           <div class="product-content" style="background-color: #dddddd">
-            <h3 class="title"><a href="#">{{event.nameevent}}</a></h3>
-            <h3 class="title"><a href="#">Event NUM:{{event.eventid}}</a></h3>
+            <h3 class="title">{{event.nameevent}}</h3>
+            <h3 class="title">Event NUM:{{event.eventid}}</h3>
+            <!--<script>-->
+              <!--var items = document.querySelectorAll("#list"),-->
+                <!--tap = [];-->
+
+              <!--for (var i = 0; i < items.length; i++){-->
+                <!--tap.push(items[i].innerHTML)-->
+              <!--}-->
+
+              <!--document.getElementById("list").innerHTML = "";-->
+              <!--var list = document.getElementById("list");-->
+              <!--tap.reverse()-->
+              <!--for (var i = 0; i < tap.length; i++){-->
+                <!--var textNode = document.createTextNode(tap[i]),-->
+                  <!--liNode = document.createElement("li");-->
+                <!--liNode.appendChild(textNode);-->
+                <!--list.appendChild(liNode);-->
+
+              <!--}-->
+            <!--</script>-->
             <div class="price">
               FREE
             </div>

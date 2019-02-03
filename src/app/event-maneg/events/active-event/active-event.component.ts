@@ -34,12 +34,12 @@ export class ActiveEventComponent implements OnInit {
   ngOnInit() {
     this.getEventApprove();
 
-    var arr = [1,2,3,4].reverse();
-    console.log("rsev is:" + arr);
   }
   getEventApprove() {
     this.eventsService.getEventApprove().subscribe(eventApprovel => {
         this.events$ = eventApprovel;
+        var e = [this.events$].reverse()
+      console.log("e" + e.slice(1))
       },
       err => console.log(err),
       () => console.log('Getting users OK...')

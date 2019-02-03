@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.Top3Events();
+
   }
   Top3Events() {
     this.eventService.First3Events().subscribe(top3 => {
