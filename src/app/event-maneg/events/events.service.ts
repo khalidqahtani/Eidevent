@@ -72,5 +72,9 @@ export class EventsService {
   return this.http.get<Events[]>(`api/event/Top3event`);
 }
 
+  trending(): Observable<Events[]> {
+    return this.http.get<Events[]>(`api/event/trending`);
+  }
+
   // Ticketforevent(eid: number)
 }

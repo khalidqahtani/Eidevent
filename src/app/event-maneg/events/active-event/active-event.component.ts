@@ -19,6 +19,7 @@ import {Comments} from '../../comment-maneg/comments.model';
 export class ActiveEventComponent implements OnInit {
 
   events$: Events[];
+  trending$: Events[];
   eventid: number;
   comments: Comments[];
   currentComments: Comments[];
@@ -26,6 +27,7 @@ export class ActiveEventComponent implements OnInit {
   userid = this.auth.getUserId();
   currentUser: User;
   term: string;
+  sport: string;
 
   constructor(private eventsService: EventsService,
               private auth: AuthenticationService,
@@ -33,6 +35,7 @@ export class ActiveEventComponent implements OnInit {
 
   ngOnInit() {
     this.getEventApprove();
+    this.trending();
 
   }
   getEventApprove() {
@@ -45,6 +48,14 @@ export class ActiveEventComponent implements OnInit {
       () => console.log('Getting users OK...')
     );
   }
+  trending() {
+    this.eventsService.trending().subscribe(top3 => {
+        this.trending$ = top3;
+      },
+      err => console.log(err),
+    );
+  }
+
   getEvent(event) {
     this.currentEvents = event;
   }

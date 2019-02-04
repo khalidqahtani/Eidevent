@@ -26,6 +26,7 @@ export class AddEventComponent implements OnInit {
 
   ngOnInit() {
     this.myReactiveForm = this.formBuilder.group({
+      eventid:  ``,
       nameevent: ['', Validators.compose([Validators.required,
       Validators.pattern(/[a-zA-Z0-9]{3,15}/),
       Validators.maxLength(15),
@@ -49,17 +50,15 @@ export class AddEventComponent implements OnInit {
       Validators.pattern(/[a-zA-Z]{3,15}/),
       Validators.maxLength(15),
       Validators.minLength(3),])],
-      eventdate: [Validators.required],
-      eventtime: [Validators.required],
+      eventdate: ['', Validators.required],
+      eventtime: ['', Validators.required],
       description: ['', Validators.compose([Validators.required,
       Validators.pattern(/[a-zA-Z0-9]{3,48}/),
       Validators.maxLength(48),
       Validators.minLength(3),])],
-      specialneed: [Validators.required],
-      capacity: ['', Validators.compose([Validators.required,
-      Validators.maxLength(300),
-      Validators.minLength(20),])],
-      counter: ``
+      specialneed: ['', Validators.required],
+      capacity: ['', Validators.required],
+      counter: ``,
     });
     this.orgid = this.auth.getUserId();
   }
