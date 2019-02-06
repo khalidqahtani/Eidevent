@@ -101,13 +101,13 @@
         <!--<input type="text" class="form-control" [(ngModel)]="term" />-->
       <!--</div>-->
 
-      <h3>Search</h3>
+      <h3>Type</h3>
       <hr>
-     <form [(ngModel)]="term" method="post">
-      <input type="checkbox" name="sport" id="sport" [value]="sport" />Sport<br>
-     </form>
+      <input #Cars value="Cars" type="checkbox"  (change)="tybeSelect(Cars)" >Cars<br>
 
 
+      <h3>Gender</h3>
+      <input #Female value="Female" type="checkbox"  (change)="gendSelect(Female)" >Female<br>
 
 
 
@@ -262,7 +262,7 @@
               <!--<div class="space-ten"><app-comments-detils [eventid]="eventid" [comments]="currentComments.length"> </app-comments-detils></div>-->
 
             </div>
-            <div class="space-ten"><app-comments-detils [eventid]="currentEvents.eventid" [comments]="currentComments"> </app-comments-detils></div>
+            <!--<div class="space-ten"><app-comments-detils [eventid]="currentEvents.eventid" [comments]="currentComments"> </app-comments-detils></div>-->
           </div>
         </div>
       </div>

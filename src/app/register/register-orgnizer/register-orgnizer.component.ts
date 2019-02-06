@@ -35,6 +35,7 @@ export class RegisterOrgnizerComponent implements OnInit {
         Validators.pattern(/[a-zA-Z]{2,16}/),
         Validators.maxLength(16),
         Validators.minLength(2)])],
+      pic: [''],
       username: ['', Validators.compose([Validators.required,
         Validators.pattern(/[a-z0-9]{4,11}/),
         Validators.maxLength(11),

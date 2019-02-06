@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Events} from '../events.model';
 import {EventsService} from '../events.service';
 import {User} from '../../../users/user.model';
 import {AuthenticationService} from '../../../authentication/authentication.service';
 import {Router} from '@angular/router';
 import {Comments} from '../../comment-maneg/comments.model';
-
-
-
 
 
 @Component({
@@ -26,28 +23,31 @@ export class ActiveEventComponent implements OnInit {
   currentEvents: Events;
   userid = this.auth.getUserId();
   currentUser: User;
-  term: string;
-  sport: string;
+  term;
+  gend;
 
   constructor(private eventsService: EventsService,
               private auth: AuthenticationService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.getEventApprove();
     this.trending();
 
   }
+
   getEventApprove() {
     this.eventsService.getEventApprove().subscribe(eventApprovel => {
         this.events$ = eventApprovel;
-        var e = [this.events$].reverse()
-      console.log("e" + e.slice(1))
+        var e = [this.events$].reverse();
+        console.log('e' + e.slice(1));
       },
       err => console.log(err),
       () => console.log('Getting users OK...')
     );
   }
+
   trending() {
     this.eventsService.trending().subscribe(top3 => {
         this.trending$ = top3;
@@ -59,6 +59,7 @@ export class ActiveEventComponent implements OnInit {
   getEvent(event) {
     this.currentEvents = event;
   }
+
   BookEvent(eventid: number) {
     this.eventsService.BookEvent(eventid, this.userid).subscribe(eventbook => {
       },
@@ -66,12 +67,33 @@ export class ActiveEventComponent implements OnInit {
       () => this.router.navigate(['/myticket']));
 
   }
+
   getComent(comment, id) {
     console.log(comment);
     this.currentComments = comment;
     this.eventid = id;
   }
+
   fullBook() {
-    if (this.currentEvents.capacity === this.currentEvents.counter) {return true; }
+    if (this.currentEvents.capacity === this.currentEvents.counter) {
+      return true;
+    }
   }
+
+  tybeSelect(type) {
+    if (type.checked) {
+      this.term = type.value;
+    } else {
+      this.term = null;
+    }
+  }
+
+  gendSelect(type1) {
+    if (type1.checked) {
+      this.gend = type1.value;
+    } else {
+      this.gend = null;
+    }
+  }
+
 }

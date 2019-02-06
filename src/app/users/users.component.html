@@ -21,8 +21,9 @@
             <mat-card-content>
             </mat-card-content>
             <mat-card-actions>
-              <button class="btn btn-sm" data-toggle="modal" data-target="#product_view"  (click)="pushUserToEdit(admin)"><i class="fas fa-search">See Details</i></button>
-              <!--<td><button mat-raised-button color="accent" *ngIf="admin||org" [routerLink]="['/event', event.eventid]" class="btn btn-primary" style="margin-top: 10px">Edit</button></td>-->
+
+              <button mat-flat-button color="primary" style="width: 100%" [routerLink]="['/user', admin.userid]">Edit</button>
+
             </mat-card-actions>
           </mat-card>
         </div>
@@ -43,7 +44,7 @@
             <mat-card-content>
             </mat-card-content>
             <mat-card-actions>
-              <button class="btn btn-sm" data-toggle="modal" data-target="#product_view" (click)="pushUserToEdit(org)" ><i class="fas fa-search">See Details</i></button>
+              <button mat-flat-button color="primary" style="width: 100%" [routerLink]="['/user', org.userid]">Edit</button>
             </mat-card-actions>
           </mat-card>
         </div>
@@ -64,83 +65,9 @@
             <mat-card-content>
             </mat-card-content>
             <mat-card-actions>
-              <button class="btn btn-sm" data-toggle="modal" data-target="#product_view" (click)="pushUserToEdit(user)" ><i class="fas fa-search"> See Details</i></button>
+              <button mat-flat-button color="primary" style="width: 100%" [routerLink]="['/user', user.userid]">Edit</button>
             </mat-card-actions>
           </mat-card>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade product_view" id="product_view">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" style="background-color: #6A3092"> <a href="#" data-dismiss="modal" class="class float-right"><span class="glyphicon glyphicon-remove"></span></a>
-          </div>
-          <div class="modal-body">
-            <div class="fadeIn first" style="text-align: center">
-              <br>
-              <img src="assets/gears.png" style="max-height: 120px"/>
-              <p>Edit</p>
-            </div>
-
-
-            <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
-              <form novalidate [formGroup]="myForm" (ngSubmit)="onSubmit()">
-
-                <mat-form-field appearance="outline">
-                  <mat-label>Id</mat-label>
-                  <input matInput type="text" formControlName="id" placeholder="ID">
-                  <mat-icon matSuffix>assignment</mat-icon>
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                  <mat-label>Email address</mat-label>
-                  <input matInput type="text" formControlName="email" placeholder="Email">
-                  <mat-icon matSuffix>assignment</mat-icon>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                  <mat-label>First Name</mat-label>
-                  <input matInput type="text" formControlName="firstname" placeholder="firstname">
-                  <mat-icon matSuffix>assignment</mat-icon>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                  <mat-label>Last Name</mat-label>
-                  <input matInput type="text" formControlName="lastname" placeholder="Last Name">
-                  <mat-icon matSuffix>assignment</mat-icon>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                  <mat-label>Mobile</mat-label>
-                  <input matInput type="text" formControlName="mobile" placeholder="Mobile">
-                  <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
-                  <mat-icon matSuffix>assignment</mat-icon>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                  <mat-label>Event Gender</mat-label>
-                  <mat-select placeholder="Gender" formControlName="gender" >
-                    <mat-option value="Male">Male</mat-option>
-                    <mat-option value="Female">Female</mat-option>
-                  </mat-select>
-                  <mat-icon matSuffix>people</mat-icon>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                  <mat-label>Date</mat-label>
-                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthday">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker touchUi #picker></mat-datepicker>
-                </mat-form-field>
-
-                <button type="submit" class="btn btn-primary"
-                        (click)="onSubmit()" style="margin-right: 10px">Submit</button>
-
-                <button type="submit" class="btn btn-primary"
-                        (click)="deleteUser()">Delete</button>
-              </form>
-            </div>
-
-          </div>
         </div>
       </div>
     </div>

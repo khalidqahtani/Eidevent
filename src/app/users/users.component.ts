@@ -41,15 +41,38 @@ export class UsersComponent implements OnInit {
     }));
 
     this.myForm = this.formBuilder.group({
-      id: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      username: '',
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.pattern(/^[a-zA-Z]/)])],
-      mobile: ``,
-      gender: ``,
-      birthday: ``
+      id: ['', Validators.compose([Validators.required,
+      Validators.pattern(/[^\s]/),
+      Validators.pattern(/[1-2]{1}[0-9]{9}/),
+      Validators.maxLength(10),
+      Validators.minLength(10)])],
+      firstname: ['', Validators.compose([Validators.required,
+      Validators.pattern(/[a-zA-Z]{2,10}/),
+      Validators.maxLength(10),
+      Validators.minLength(2)])],
+      lastname: ['', Validators.compose([Validators.required,
+        Validators.pattern(/[a-zA-Z]{2,16}/),
+        Validators.maxLength(16),
+        Validators.minLength(2)])],
+      username: ['', Validators.compose([Validators.required,
+        Validators.pattern(/[a-z0-9]{4,11}/),
+        Validators.pattern(/[^\s]/),
+        Validators.maxLength(11),
+        Validators.minLength(4)])],
+      password: ['', Validators.compose([Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(/[^\s]+/)])],
+      birthday: ['', Validators.required],
+      gender: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required,
+        Validators.pattern(/[^\s]/),
+        Validators.maxLength(37),
+        Validators.email])],
+      mobile: ['', Validators.compose([Validators.required,
+      Validators.pattern(/[^\s]+/),
+      Validators.pattern(/[5]{1}[0-9]{8}/),
+      Validators.maxLength(9),
+      Validators.minLength(9)])]
     });
     this.getUsers();
   }

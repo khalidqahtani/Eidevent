@@ -1,86 +1,163 @@
 <app-nav-details></app-nav-details>
 <app-nav></app-nav>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-<H1>Edit</H1>
-<div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
-  <form novalidate [formGroup]="myForm">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div id="formHeader">
+    </div>
+    <div class="fadeIn first" style="text-align: center">
+      <br>
+      <img src="assets/gears.png" style="max-height: 120px"/>
+      <p>Edit Event</p>
+    </div>
 
-    <!--<div class="form-group">-->
-      <!--<label for="userid">Enter Your ID</label>-->
-      <!--<input disabled type="number" class="form-control"-->
-             <!--formControlName="userid"-->
-             <!--id="userid" placeholder="Enter your ID" name="userid">-->
+    <form [formGroup]="myForm"  class="fadeIn second">
+      <mat-form-field appearance="outline">
+        <mat-label>ID</mat-label>
+        <input matInput type="text" formControlName="id" placeholder="ID">
+        <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
+        <mat-icon matSuffix>assignment</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="text"
+               formControlName="email" placeholder="Email">
+        <mat-icon matSuffix>extension</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Firstname</mat-label>
+        <input matInput type="text"
+               formControlName="firstname" placeholder="Firstname">
+        <mat-icon matSuffix>extension</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last name</mat-label>
+        <input matInput type="text"
+               formControlName="lastname" placeholder="Lastname">
+        <mat-icon matSuffix>extension</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password"
+               formControlName="password" placeholder="Password">
+        <mat-icon matSuffix>extension</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input matInput type="number"
+               formControlName="mobile" placeholder="Mobile">
+        <mat-icon matSuffix>extension</mat-icon>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select placeholder="Gender" formControlName="gender" >
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>people</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Birthday</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthday">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </mat-form-field>
+
+
+
+      <div style="text-align: center">
+        <!--<input [disabled]="!myForm" type="submit" class="fadeIn fourth" value="Edit Event">-->
+
+        <!--<button type="submit" class="btn btn-primary"-->
+                <!--(click)="onSubmit()" style="margin-right: 10px">Submit</button>-->
+
+        <!--<button type="submit" class="btn btn-primary"-->
+                <!--(click)="deleteUser()">Delete</button>-->
+        <!--<input [disabled]="!myForm" type="submit" class="fadeIn fourth" value="Edit">-->
+        <button mat-flat-button color="warn" (click)="onSubmit()">Edit</button>
+
+        <button mat-flat-button color="warn" (click)="deleteUser()">Delete</button>
+
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<!--<div class="form-group">-->
+      <!--<label for="id">Enter N ID</label>-->
+      <!--<input type="number" class="form-control"-->
+             <!--formControlName="id"-->
+             <!--id="id" placeholder="Enter your ID" name="userid">-->
     <!--</div>-->
 
-    <div class="form-group">
-      <label for="id">Enter N ID</label>
-      <input type="number" class="form-control"
-             formControlName="id"
-             id="id" placeholder="Enter your ID" name="userid">
-    </div>
+    <!--<div class="form-group">-->
+      <!--<label for="inputEmail">Email address</label>-->
+      <!--<input type="email" class="form-control" id="inputEmail"-->
+             <!--placeholder="Enter email" name="email"-->
+             <!--formControlName="email">-->
+    <!--</div>-->
 
-    <div class="form-group">
-      <label for="inputEmail">Email address</label>
-      <input type="email" class="form-control" id="inputEmail"
-             placeholder="Enter email" name="email"
-             formControlName="email">
-    </div>
+    <!--<div class="form-group">-->
+      <!--<label for="inputFirstName">Enter First Name</label>-->
+      <!--<input type="firstname" class="form-control" id="inputFirstName"-->
+             <!--placeholder="Enter first name" name="firstname"-->
+             <!--formControlName="firstname">-->
+    <!--</div>-->
 
-    <div class="form-group">
-      <label for="inputFirstName">Enter First Name</label>
-      <input type="firstname" class="form-control" id="inputFirstName"
-             placeholder="Enter first name" name="firstname"
-             formControlName="firstname">
-    </div>
-
-    <div class="form-group">
-      <label for="inputLastName">Enter Last Name</label>
-      <input type="lastname" class="form-control" id="inputLastName"
-             placeholder="Enter last name" name="lastname"
-             formControlName="lastname">
-    </div>
+    <!--<div class="form-group">-->
+      <!--<label for="inputLastName">Enter Last Name</label>-->
+      <!--<input type="lastname" class="form-control" id="inputLastName"-->
+             <!--placeholder="Enter last name" name="lastname"-->
+             <!--formControlName="lastname">-->
+    <!--</div>-->
 
 
 
-    <div class="form-group">
-      <label for="inputPassword">Password</label>
-      <input type="password" class="form-control"
-             formControlName="password"
-             id="inputPassword" placeholder="Password" name="password">
-    </div>
+    <!--<div class="form-group">-->
+      <!--<label for="inputPassword">Password</label>-->
+      <!--<input type="password" class="form-control"-->
+             <!--formControlName="password"-->
+             <!--id="inputPassword" placeholder="Password" name="password">-->
+    <!--</div>-->
 
 
-    <div class="form-group">
-      <label for="mobile">Enter Your phone number</label>
-      <input type="number" class="form-control"
-             formControlName="mobile"
-             id="mobile" placeholder="Enter your phone number" name="mobile">
-    </div>
+    <!--<div class="form-group">-->
+      <!--<label for="mobile">Enter Your phone number</label>-->
+      <!--<input type="number" class="form-control"-->
+             <!--formControlName="mobile"-->
+             <!--id="mobile" placeholder="Enter your phone number" name="mobile">-->
+    <!--</div>-->
 
-    <div class="form-group">
-      <label for="selectGender">Gander</label>
-      <select class="form-control" id="selectGender" formControlName="gender" name="gender">
-        <option value="" disabled>Select gander</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-    </div>
+    <!--<div class="form-group">-->
+      <!--<label for="selectGender">Gander</label>-->
+      <!--<select class="form-control" id="selectGender" formControlName="gender" name="gender">-->
+        <!--<option value="" disabled>Select gander</option>-->
+        <!--<option value="Male">Male</option>-->
+        <!--<option value="Female">Female</option>-->
+      <!--</select>-->
+    <!--</div>-->
 
-    <div class="form-group">
-      <label for="birthday">Enter DateOfBirth</label>
-      <input type="date" class="form-control"
-             formControlName="birthday"
-             id="birthday" placeholder="Enter your phone number" name="birthday">
-    </div>
+    <!--<div class="form-group">-->
+      <!--<label for="birthday">Enter DateOfBirth</label>-->
+      <!--<input type="date" class="form-control"-->
+             <!--formControlName="birthday"-->
+             <!--id="birthday" placeholder="Enter your phone number" name="birthday">-->
+    <!--</div>-->
 
 
 
 
-    <button type="submit" class="btn btn-primary"
-            (click)="onSubmit()" style="margin-right: 10px">Submit</button>
 
-    <button type="submit" class="btn btn-primary"
-            (click)="deleteUser()">Delete</button>
-  </form>
-</div>
+  <!--</form>-->
+<!--</div>-->
