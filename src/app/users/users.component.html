@@ -13,7 +13,9 @@
         <div class="col-md-3 col-sm-6" *ngFor="let admin of admins" (click)="getUser(admin)">
           <mat-card class="example-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
+              <!--<div mat-card-avatar class="example-header-image"></div>-->
+              <img mat-card-avatar  src="{{ admin.pic }}">
+
               <mat-card-title>{{admin.firstname}}</mat-card-title>
               <mat-card-subtitle>{{admin.roles.rolename}} #{{admin.userid}}</mat-card-subtitle>
             </mat-card-header>
@@ -36,7 +38,9 @@
         <div class="col-md-3 col-sm-6" *ngFor="let org of organizers">
           <mat-card class="example-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
+              <!--<div mat-card-avatar class="example-header-image"></div>-->
+              <img mat-card-avatar  src="{{ org.pic }}">
+
               <mat-card-title>{{org.firstname}}</mat-card-title>
               <mat-card-subtitle>{{org.roles.rolename}} #{{org.userid}}</mat-card-subtitle>
             </mat-card-header>
@@ -57,7 +61,8 @@
         <div class="col-md-3 col-sm-6" *ngFor="let user of users">
           <mat-card class="example-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
+              <img mat-card-avatar  src="{{ user.pic }}">
+
               <mat-card-title>{{user.firstname}}</mat-card-title>
               <mat-card-subtitle>{{user.roles.rolename}} #{{user.userid}}</mat-card-subtitle>
             </mat-card-header>

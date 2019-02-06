@@ -85,7 +85,12 @@ export class AuthenticationService {
       return user.mobile;
     }
   }
-
+  getPic() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user) {
+      return user.pic;
+    }
+  }
   getRole() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser) {

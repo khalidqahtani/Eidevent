@@ -14,6 +14,9 @@ export class EditUserComponent implements OnInit {
   myForm: FormGroup;
   userid: number;
   user$: User;
+  user: User;
+  hide = true;
+
 
   constructor(private formBuilder: FormBuilder,
               private usersService: UsersService,

@@ -16,6 +16,7 @@
       <mat-form-field appearance="outline">
         <mat-label>NIN / IQAMA</mat-label>
         <input matInput formControlName="id" placeholder="ID">
+        <mat-icon matSuffix>assignment</mat-icon>
         <mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>
       </mat-form-field>
       <div>
