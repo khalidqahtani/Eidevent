@@ -45,6 +45,7 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import { FilterPipe } from './filter.pipe';
 import { FooterComponent } from './footer/footer.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { EventinformationComponent } from './event-maneg/events/active-event/eventinformation/eventinformation.component';
 
 
 
@@ -79,6 +80,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     FilterPipe,
     FooterComponent,
     MyprofileComponent,
+    EventinformationComponent,
 
   ],
   imports: [

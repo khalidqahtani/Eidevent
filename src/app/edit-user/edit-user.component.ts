@@ -16,6 +16,7 @@ export class EditUserComponent implements OnInit {
   user$: User;
   user: User;
   hide = true;
+  pic: string;
 
 
   constructor(private formBuilder: FormBuilder,
@@ -31,8 +32,13 @@ export class EditUserComponent implements OnInit {
 
     this.usersService.getUser(this.userid).subscribe((value0 => {
       this.user$ = value0;
+      this.user$.password = '';
       this.myForm.patchValue(this.user$ as any);
+      this.pic = this.user$.pic;
+
+
     }));
+
 
     this.myForm = this.formBuilder.group({
       id: ['', Validators.compose([Validators.required,
