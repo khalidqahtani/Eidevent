@@ -117,6 +117,8 @@ export class EventDetailComponent implements OnInit {
     this.sub = this.route.params.subscribe((params: any) => {
       this.eventid = params.eventid;
     });
+    console.log(this.eventid);
+
     this.getRole();
   }
   deleteEvent(eventid: number) {

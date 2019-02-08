@@ -22,6 +22,7 @@ import {AppComponent} from './app.component';
 import {FooterComponent} from './footer/footer.component';
 import {MyprofileComponent} from './myprofile/myprofile.component';
 import {UserDetailComponent} from './users/user-detail.component';
+import {EventinformationComponent} from './event-maneg/events/active-event/eventinformation/eventinformation.component';
 
 const routes: Routes = [
   {path: '', component: AppComponent, canActivate: [AuthGuard]},
@@ -44,7 +45,10 @@ const routes: Routes = [
   {path: 'test', component: TestStylesComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'myprofile', component: MyprofileComponent},
-  {path: 'edituser/:id', component: UserDetailComponent}
+  {path: 'edituser/:id', component: UserDetailComponent},
+  {path: 'eventinfo/:id', component: EventinformationComponent},
+
+
 
 
 

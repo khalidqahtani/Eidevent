@@ -58,6 +58,7 @@ export class AddEventComponent implements OnInit {
       Validators.minLength(3),])],
       specialneed: ['', Validators.required],
       capacity: ['', Validators.required],
+      pic: [''],
       counter: ``,
     });
     this.orgid = this.auth.getUserId();

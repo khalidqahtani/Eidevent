@@ -11,6 +11,7 @@ export class Events {
      eventtime: string;
      description: string;
      capacity: number;
+     pic: string;
      specialneed: string;
      counter: number;
      edelete: boolean;

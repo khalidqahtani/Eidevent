@@ -18,11 +18,11 @@
         <div class="product-grid4">
           <div class="product-image4">
             <a href="#">
-              <img class="pic-1" src="assets/ev.png">
-              <img class="pic-2" src="assets/ev.png">
+              <img class="pic-1" src="{{event.pic}}">
+              <img class="pic-2" src="{{event.pic}}">
             </a>
             <ul class="social">
-              <li><a routerLink="/activeEvent" data-tip="See Information"><i class="fas fa-search"></i></a></li>
+              <li><a [routerLink]="['/eventinfo', event.eventid]" data-tip="See Information"><i class="fas fa-search"></i></a></li>
             </ul>
             <span class="product-new-label">New</span>
             <span class="product-discount-label">{{event.tybeevent}}</span>
@@ -39,6 +39,7 @@
         </div>
       </div>
     </div>
+            <button routerLink="/activeEvent">See more Events</button>
   </div>
 </div>
 </div>

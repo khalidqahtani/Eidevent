@@ -1,9 +1,11 @@
 <app-nav-details></app-nav-details>
 <app-nav></app-nav>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<div style="background-color: rgba(256, 256, 256, 0.8); ">
+<div>
 
-<!--<div>-->
+
+
+  <!--<div>-->
 <!--<div class="container">-->
   <!--<div class="form-group">-->
     <!--<input type="text" class="form-control" [(ngModel)]="term" />-->
@@ -132,12 +134,14 @@
         <div class="product-grid3">
           <div class="product-image3">
             <a>
-              <img class="pic-1" src="assets/ev.png">
-              <img class="pic-2" src="assets/ev.png">
+              <img class="pic-1" src="{{event.pic}}">
+              <img class="pic-2" src="{{event.pic}}">
             </a>
             <ul class="social">
-              <li><a class="btn btn-sm" data-toggle="modal" data-target="#product_view"><i class="fas fa-search"></i></a></li>
+              <li><a [routerLink]="['/eventinfo', event.eventid]" class="btn btn-sm"><i class="fas fa-search"></i></a></li>
               <li><a (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i></a></li>
+              <!--<li><a (click)="getComent(currentEvents.comments,currentEvents.eventid)"><i class="fas fa-ticket-alt"></i></a></li>-->
+              <!--<app-comments-detils></app-comments-detils>-->
             </ul>
             <span class="product-new-label">{{event.nameevent}}</span>
           </div>
@@ -197,19 +201,21 @@
       <!--</div>-->
     <!--</div>-->
   <!--</div>-->
-  <div>
+  <div style="background-color: rgba(106,49,146,0.12); padding: 1% ">
   <h3 class="h3">Events</h3>
-  <div class="row">
+  <div class="row" >
     <div class="col-md-6 col-sm-3" *ngFor="let event of events$ |  filter:term " (click)="getEvent(event)">
       <div class="product-grid3">
         <div class="product-image3">
           <a>
-            <img class="pic-1" src="assets/ev.png">
-            <img class="pic-2" src="assets/ev.png">
+            <img class="pic-1" src="{{event.pic}}">
+            <img class="pic-2" src="{{event.pic}}">
           </a>
           <ul class="social">
-            <li><a class="btn btn-sm" data-toggle="modal" data-target="#product_view"><i class="fas fa-search"></i></a></li>
+            <li><a [routerLink]="['/eventinfo', event.eventid]" class="btn btn-sm"><i class="fas fa-search"></i></a></li>
             <li><a (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i></a></li>
+
+            <!--<div class="space-ten"><app-comments-detils [eventid]="eventid" [comments]="currentComments.length"> </app-comments-detils></div>-->
           </ul>
           <span class="product-new-label">{{event.nameevent}}</span>
         </div>
@@ -258,11 +264,11 @@
             <div class="btn-ground" >
               <button class="btn btn-sm " style="background-color: #241F61; color:white"  (click)="BookEvent(currentEvents.eventid)"><i class="fas fa-ticket-alt"></i> Book</button>
               <button class="btn btn-sm btn-danger"  style="color: white"data-toggle="modal" data-target="#product_view"><i class="fas fa-ban"></i> Cancel</button>
-              <button class="btn btn-sm" (click)="getComent(currentEvents.comments,currentEvents.eventid)">View Comment</button>
+              <!--<button class="btn btn-sm" (click)="getComent(currentEvents.comments,currentEvents.eventid)">View Comment</button>-->
               <!--<div class="space-ten"><app-comments-detils [eventid]="eventid" [comments]="currentComments.length"> </app-comments-detils></div>-->
 
             </div>
-            <!--<div class="space-ten"><app-comments-detils [eventid]="currentEvents.eventid" [comments]="currentComments"> </app-comments-detils></div>-->
+            <div class="space-ten"><app-comments-detils [eventid]="currentEvents.eventid" [comments]="currentComments"> </app-comments-detils></div>
           </div>
         </div>
       </div>
