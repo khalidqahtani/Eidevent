@@ -49,18 +49,15 @@ export class TicketsForEventsComponent implements OnInit {
     );
   }
   presentTicket(id: number) {
-    this.ticketService.presentTicket(id).subscribe(present => {
-      },
+    this.ticketService.presentTicket(id).subscribe(present => this.ngOnInit(),
+
       err => console.log(err),
-      () => this.router.navigate(['/myevent'])
     );
   }
 
   unpresentTicket(id: number) {
-    this.ticketService.unpresentTicket(id).subscribe(unprsent => {
-      },
+    this.ticketService.unpresentTicket(id).subscribe(unprsent => this.ngOnInit(),
       err => console.log(err),
-      () => this.router.navigate(['/myevent'])
     );
   }
   present(ticket: Ticketmodel) {

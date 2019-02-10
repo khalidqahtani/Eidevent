@@ -20,16 +20,33 @@
   <title></title>
 </head>
 <body>
+
 <div class="container" *ngIf="events" >
-  <div class="card">
-    <div class="container-fliud">
+  <div class="card1">
+    <div class="container-fliud" style="margin-bottom: 3%">
       <div class="wrapper row">
         <div class="preview col-lg-6">
           <div class="preview-pic tab-content">
             <div class="tab-pane active" id="pic-1">
               <img src="{{events.pic}}">
+              <h2 style="text-align: center">Description</h2>
+              <h3 style="text-align: center">"{{events.description}}"</h3>
 
-
+              <!--<div>-->
+                <!--<h2>comment details</h2>-->
+                <!--<ul class="list-group" *ngFor="let comment of comments">-->
+                  <!--<li class="list-group-item">{{ comment.userid.username }} : "{{ comment.comment }}" on : {{comment.eventname}}</li>-->
+                <!--</ul>-->
+                <!--<div class="example-container">-->
+                  <!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()">-->
+                    <!--<mat-form-field hintLabel="Max 18 characters">-->
+                      <!--<input matInput maxlength="18" placeholder="Enter Your Comment" formControlName="comment">-->
+                      <!--&lt;!&ndash;<mat-hint align="end">Max Length !!!</mat-hint>&ndash;&gt;-->
+                    <!--</mat-form-field>-->
+                    <!--<button mat-fab color="warn" type="submit">comment</button>-->
+                  <!--</form>-->
+                <!--</div>-->
+              <!--</div>-->
             </div>
           </div>
         </div>
@@ -43,7 +60,7 @@
               <span class="fa fa-star"></span>
             </div>	<span class="review-no">41 reviews</span>
           </div>
-          <p class="product-description">"{{events.description}}"</p>
+          <!--<p class="product-description">"{{events.description}}"</p>-->
 
           <!--<p class="vote"><strong><h2>Gender {{events.genderevent}}</h2></strong><br><strong>Capacity ({{events.capacity}})</strong>-->
           <!--</p>-->
@@ -72,18 +89,137 @@
             class="price">current price: <span>FREE</span>
           </h4>
           <div class="action">
-            <button class="btn btn-lg " style="background-color: #241F61; color:white" [hidden]="fullBook()" (click)="BookEvent(events.eventid)"><i class="fas fa-ticket-alt"></i> Book</button>
+            <button class="btn btn-lg " style="background-color: #241F61; color:white"  (click)="BookEvent(events.eventid)"><i class="fas fa-ticket-alt"></i> Book</button>
             <button routerLink="/activeEvent" class="btn btn-lg btn-danger"  style="color: white"data-toggle="modal" data-target="#product_view"><i class="fas fa-ban"></i> Cancel</button>
             <button class="btn btn-lg" (click)="getComent(events.comments,events.eventid)">View Comment</button>
+
           </div>
         </div>
       </div>
+
+    </div>
+    <div class="col-md-12" style="border-top: solid rgba(106,49,146,0.83)" >
+      <h3 style="text-align: center; color: #6A3092">User Comment</h3>
+    </div>
+    <div class="container" style="background-color: #eee; position: center" *ngFor="let comment of comments" >
+      <div class="row">
+
+        <!-- /col-md-12 -->
+      </div>
+      <!-- /row -->
+      <div class="row">
+        <!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()">-->
+        <div class="col-md-1">
+          <div class="thumbnail">
+            <img class="img-fluid user-photo" src="{{comment.userid.pic}}">
+          </div>
+          <!-- /thumbnail -->
+        </div>
+        <!-- /col-md-1 -->
+        <div class="col-lg-5">
+          <div class="card">
+            <div class="card-header"> <strong>{{comment.userid.firstname}} </strong>  <span class="text-muted">commented {{comment.dateTime}}</span>
+            </div>
+            <div class="card-body">{{comment.comment}}</div>
+          </div> <br>
+        </div>
+
+
+        <!--</form>-->
+
+      </div>
+
+    </div>
+    <div style="border-top: solid #6A3092">
+    <form [formGroup]="commentForm" (ngSubmit)="sendComment()">
+      <div class="row" >
+        <!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()">-->
+        <div class="col-md-1">
+          <div class="thumbnail">
+            <img class="img-fluid user-photo" src="{{auth.getPic()}}">
+          </div>
+          <!-- /thumbnail -->
+        </div>
+        <!-- /col-md-1 -->
+        <div class="col-lg-5 ">
+          <div class="card">
+            <div class="card-header"> <strong>{{auth.getFirstName()}} </strong>  <span class="text-muted">commented {{comment.dateTime}}</span>
+            </div>
+            <div class="card-body" >
+              <mat-form-field hintLabel="Max 18 characters">
+                <input matInput maxlength="26" placeholder="Enter Your Comment" formControlName="comment">
+                <mat-hint align="end">Max Length !!!</mat-hint>
+              </mat-form-field>
+              <button mat-fab color="warn" type="submit" >comment</button>
+            </div>
+          </div> <br>
+        </div>
+      </div>
+      <!--<div class="col-lg-7">-->
+        <!--<mat-form-field hintLabel="Max 18 characters">-->
+          <!--<input matInput maxlength="18" placeholder="Enter Your Comment" formControlName="comment">-->
+          <!--<mat-hint align="end">Max Length !!!</mat-hint>-->
+        <!--</mat-form-field>-->
+        <!--<button mat-fab color="warn" type="submit" >comment</button>-->
+      <!--</div>-->
+    </form>
     </div>
   </div>
+
 </div>
+<!--<ul *ngIf="comments">-->
+  <!--<li *ngFor="let comment of comments">-->
+    <!--<img class="img-fluid user-photo" src="{{comment.userid.pic}}">-->
+    <!--<strong>{{comment.username}} </strong>  <span class="text-muted">commented {{comment.comment}}</span>-->
+  <!--</li>-->
+<!--</ul>-->
+<!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()"></form>-->
+<!--<input formControlName="comment" type="text">-->
+<!--<button  type="submit">Send</button>-->
+
 </body>
+
+
+
+
   <!--<app-comments-detils [eventid]="currentEvents.eventid" [comments]="currentComments"> </app-comments-detils>-->
+
+
+  <!--<div  >-->
+    <!--<h2 style="text-align: center">Comments</h2>-->
+    <!--<div >-->
+      <!--<div class="comments-container" >-->
+        <!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()">-->
+          <!--<ul id="comments-list" class="comments-list" >-->
+            <!--<li>-->
+              <!--<div class="comment-main-level" >-->
+                <!--<div class="comment-avatar">-->
+                  <!--<img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg"-->
+                       <!--alt="">-->
+                <!--</div>-->
+                <!--<div class="comment-box" >-->
+                  <!--<div class="comment-head" >-->
+                    <!--<h6 class="comment-name by-author">{{comment.userid}}</h6>-->
+                    <!--<span>hace 20 minutos</span>-->
+                    <!--<i class="fa fa-reply"></i>-->
+                    <!--<i class="fa fa-heart"></i>-->
+                  <!--</div>-->
+                  <!--<div class="comment-content">{{comment.comment}}</div>-->
+                  <!--<button mat-fab color="warn" type="submit">comment</button>-->
+                <!--</div>-->
+
+              <!--</div>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</form>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 </div>
+
+
+
+
 
 
 <app-footer></app-footer>

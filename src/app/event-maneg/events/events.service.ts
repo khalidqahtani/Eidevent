@@ -76,5 +76,10 @@ export class EventsService {
     return this.http.get<Events[]>(`api/event/trending`);
   }
 
+  commentforevent(eid: number): Observable<Comments[]> {
+    return this.http.get<Comments[]>(`api/comment/buevents/` + `${eid}`);
+  }
+
+
   // Ticketforevent(eid: number)
 }

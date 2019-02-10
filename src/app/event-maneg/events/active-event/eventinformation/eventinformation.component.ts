@@ -5,6 +5,8 @@ import {EventsService} from '../../events.service';
 import {AuthenticationService} from '../../../../authentication/authentication.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
+import {CommentService} from '../../../comment-maneg/comment.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-eventinformation',
@@ -21,6 +23,7 @@ export class EventinformationComponent implements OnInit {
   currentComments: Comments[];
   currentEvents: Events;
   private sub: Subscription;
+  commentForm: FormGroup;
 
 
 
@@ -28,7 +31,9 @@ export class EventinformationComponent implements OnInit {
   constructor(private eventsService: EventsService,
               private auth: AuthenticationService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private commentService: CommentService,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit() {
 
@@ -38,6 +43,10 @@ export class EventinformationComponent implements OnInit {
 
     console.log(this.evid);
     this.getEvents();
+    this.commentForm = this.formBuilder.group({
+      comment: [''],
+    });
+    this.commentforevent()
   }
   getEvents() {
     this.eventsService.getEvent(this.eventid).subscribe(events => {
@@ -68,6 +77,19 @@ export class EventinformationComponent implements OnInit {
     console.log(comment);
     this.currentComments = comment;
     this.eventid = id;
+  }
+
+  commentforevent() {
+    this.eventsService.commentforevent(this.eventid).subscribe(comment => {
+        this.comments = comment;
+      },
+      err => console.log(err),
+    );
+
+  }
+  sendComment() {
+    this.eventsService.CommentEvent(this.commentForm , this.eventid, this.auth.getUserId()).subscribe( value =>  this.ngOnInit());
+    // console.log('The comment is : ', this.eventid);
   }
 
 }

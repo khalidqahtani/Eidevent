@@ -5,6 +5,9 @@ import {User} from '../../../users/user.model';
 import {AuthenticationService} from '../../../authentication/authentication.service';
 import {Router} from '@angular/router';
 import {Comments} from '../../comment-maneg/comments.model';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Subscription} from 'rxjs';
+import {CommentService} from '../../comment-maneg/comment.service';
 
 
 @Component({
@@ -25,15 +28,20 @@ export class ActiveEventComponent implements OnInit {
   currentUser: User;
   term;
   gend;
+  commentForm: FormGroup;
+  private sub: Subscription;
 
   constructor(private eventsService: EventsService,
               private auth: AuthenticationService,
-              private router: Router) {
+              private router: Router
+              ) {
   }
 
   ngOnInit() {
     this.getEventApprove();
     this.trending();
+
+
 
   }
 
@@ -95,5 +103,6 @@ export class ActiveEventComponent implements OnInit {
       this.gend = null;
     }
   }
+
 
 }

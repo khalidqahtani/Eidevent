@@ -127,7 +127,7 @@
       </div>
     </div>
   </div>
-  <div style="background-color: rgba(106,99,146,0.12); padding: 1% ">
+  <div style="background-color: rgba(106,99,146,0.12); padding: 1% " >
   <h3 class="h1" style="color: rgba(224,153,31,0.83); text-align: center"><i class="fas fa-fire-alt"></i> TRENDING</h3>
     <div class="row">
       <div class="col-md-4 col-sm-3" *ngFor="let event of trending$" (click)="getEvent(event)">
@@ -269,7 +269,6 @@
               <!--<div class="space-ten"><app-comments-detils [eventid]="eventid" [comments]="currentComments.length"> </app-comments-detils></div>-->
 
             </div>
-            <div class="space-ten"><app-comments-detils [eventid]="currentEvents.eventid" [comments]="currentComments"> </app-comments-detils></div>
           </div>
         </div>
       </div>

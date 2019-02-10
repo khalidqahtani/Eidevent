@@ -15,6 +15,8 @@ export class Eid {
 export class Uid {
   userid: number;
   username: string;
+  pic: string;
+  firstname: string
 }
 
 
