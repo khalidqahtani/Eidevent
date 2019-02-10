@@ -278,7 +278,7 @@ h2 {
 .product-grid4 .product-discount-label,.product-grid4 .product-new-label{color:#fff;background-color: #241f61;font-size:13px;font-weight:800;text-transform:uppercase;line-height:45px;height:45px;width:45px;border-radius:50%;position:absolute;left:10px;top:15px;transition:all .3s}
 .product-grid4 .product-discount-label{left:auto;right:10px;background-color:#d7292a}
 .product-grid4:hover .product-new-label{opacity:0}
-.product-grid4 .product-content{padding:25px}
+.product-grid4 .product-content{padding:25px; text-align: left; border-top: solid #6A3092}
 .product-grid4 .title{font-size:15px;font-weight:400;text-transform:capitalize;margin:0 0 7px;transition:all .3s ease 0s}
 .product-grid4 .title a{color:#222}
 .product-grid4 .title a:hover{color:#16a085}
@@ -290,3 +290,8 @@ h2 {
 @media only screen and (max-width:990px){.product-grid4{margin-bottom:30px}
 }
 
+
+.kh{
+  display: inline-block;
+  width: 140px; // or whatever
+}

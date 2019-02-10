@@ -16,6 +16,7 @@ export class EventinformationComponent implements OnInit {
   events: Events;
   eventid: number;
   evid: number;
+  userid = this.auth.getUserId();
   comments: Comments[];
   currentComments: Comments[];
   currentEvents: Events;
@@ -49,6 +50,24 @@ export class EventinformationComponent implements OnInit {
 
   getEvent(event) {
     this.currentEvents = event;
+  }
+  BookEvent(eventid: number) {
+    this.eventsService.BookEvent(eventid, this.userid).subscribe(eventbook => {
+      },
+      err => console.log(err),
+      () => this.router.navigate(['/myticket']));
+
+  }
+  fullBook() {
+    if (this.currentEvents.capacity === this.currentEvents.counter) {
+      return true;
+    }
+  }
+
+  getComent(comment, id) {
+    console.log(comment);
+    this.currentComments = comment;
+    this.eventid = id;
   }
 
 }

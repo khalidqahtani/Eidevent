@@ -1,110 +1,89 @@
 <app-nav-details></app-nav-details>
 <app-nav></app-nav>
 
-<div  *ngIf="events" class="wrapper fadeInDown" >
-  <div   id="formContent" >
-    <div id="formHeader">
-    </div>
-    <div class="fadeIn first" style="text-align: center">
-      <br>
-      <img src="assets/gears.png" style="max-height: 120px"/>
-      <p >Edit Event {{events.eventid}}</p>
-    </div>
+<!--<div  *ngIf="events" class="wrapper fadeInDown" >-->
+  <!--<div   id="formContent" >-->
+    <!--<div id="formHeader">-->
+    <!--</div>-->
+    <!--<div class="fadeIn first" style="text-align: center">-->
+      <!--<br>-->
+      <!--<img src="assets/gears.png" style="max-height: 120px"/>-->
+      <!--<p >Edit Event {{events.eventid}}</p>-->
+    <!--</div>-->
+<!--<div>-->
+<!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 <div>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+<div class="container" *ngIf="events" >
+  <div class="card">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-lg-6">
+          <div class="preview-pic tab-content">
+            <div class="tab-pane active" id="pic-1">
+              <img src="{{events.pic}}">
 
 
-      <!--<mat-form-field appearance="outline">-->
-        <!--<mat-label>Event Name </mat-label>-->
+            </div>
+          </div>
+        </div>
+        <div class="details col-lg-6" >
+          <h3 class="product-title" style="color: #6A3092">{{events.nameevent}}</h3>
+          <div class="rating">
+            <div class="stars">	<span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span
+                class="fa fa-star checked"></span>	<span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>	<span class="review-no">41 reviews</span>
+          </div>
+          <p class="product-description">"{{events.description}}"</p>
 
-        <!--&lt;!&ndash;<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>&ndash;&gt;-->
-        <!--<mat-icon matSuffix>assignment</mat-icon>-->
-      <!--</mat-form-field>-->
+          <!--<p class="vote"><strong><h2>Gender {{events.genderevent}}</h2></strong><br><strong>Capacity ({{events.capacity}})</strong>-->
+          <!--</p>-->
+          <div style="border-top: solid #6A3092; background-color: lightgrey; border-radius: 5px; margin-bottom: 4%;">
 
-      <!--<mat-form-field appearance="outline">-->
-        <!--<mat-label>Tybe Event</mat-label>-->
-        <!--<input matInput type="text"-->
-               <!--formControlName="tybeevent" placeholder="Type Event">-->
-        <!--<mat-icon matSuffix>extension</mat-icon>-->
-      <!--</mat-form-field>-->
-  <!---->
-      <!--<mat-form-field appearance="outline">-->
-        <!--<mat-label>Event Gender</mat-label>-->
-        <!--<mat-select placeholder="Gender" formControlName="genderevent" >-->
-          <!--<mat-option value="Male">Male</mat-option>-->
-          <!--<mat-option value="Female">Female</mat-option>-->
-          <!--<mat-option value="Family">Family</mat-option>-->
-        <!--</mat-select>-->
-        <!--<mat-icon matSuffix>people</mat-icon>-->
-      <!--</mat-form-field>-->
-  <!---->
-      <!--<div>-->
-        <!--<mat-form-field appearance="outline">-->
-          <!--<mat-label>Event Street </mat-label>-->
-          <!--<input matInput type="text"-->
-                 <!--name="eventstreet" placeholder="Event Street"-->
-                 <!--formControlName="eventstreet">-->
-          <!--<mat-icon matSuffix>pin_drop</mat-icon>-->
-        <!--</mat-form-field>-->
-        <!---->
-        <!--<mat-form-field appearance="outline">-->
-          <!--<mat-label>Event City</mat-label>-->
-          <!--<input matInput type="text"-->
-                 <!--name="eventcity" placeholder="Event City"-->
-                 <!--formControlName="eventcity">-->
-          <!--<mat-icon matSuffix>map</mat-icon>-->
-        <!--</mat-form-field>-->
-        <!---->
-        <!--<mat-form-field appearance="outline">-->
-          <!--<mat-label>Event Date</mat-label>-->
-          <!--<input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="eventdate">-->
-          <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
-          <!--<mat-datepicker touchUi #picker></mat-datepicker>-->
-        <!--</mat-form-field>-->
-        <!---->
-      <!--</div>-->
-      <!--<div>-->
-        <!---->
-        <!--<mat-form-field appearance="outline">-->
-          <!--<mat-label>Event Time</mat-label>-->
-          <!--<input matInput type="text"-->
-                 <!--name="eventtime" placeholder="Event Time"-->
-                 <!--formControlName="eventtime">-->
-          <!--<mat-icon matSuffix>notifications</mat-icon>-->
-        <!--</mat-form-field>-->
-        <!---->
-        <!--<mat-form-field appearance="outline">-->
-          <!--<mat-label>Capacity</mat-label>-->
-          <!--<input matInput type="text"-->
-                 <!--name="capacity" placeholder="Capacity"-->
-                 <!--formControlName="capacity">-->
-          <!--<mat-icon matSuffix>view_comfy</mat-icon>-->
-        <!--</mat-form-field>-->
-        <!---->
-        <!--<mat-form-field appearance="outline">-->
-          <!--<mat-label>Special Need</mat-label>-->
-          <!--<mat-select placeholder="specialneed" formControlName="specialneed" >-->
-            <!--<mat-option value="Yes">Yes</mat-option>-->
-            <!--<mat-option value="No">No</mat-option>-->
-          <!--</mat-select>-->
-          <!--<mat-icon matSuffix>accessible</mat-icon>-->
-        <!--</mat-form-field>-->
-        <!---->
-      <!--</div>-->
-      <!--<div>-->
-        <!--<mat-form-field class="example-full-width" appearance="outline" style="padding-right: 45px">-->
-          <!--<mat-label>Description</mat-label>-->
-          <!--<input matInput type="text"-->
-                 <!--name="description" placeholder="Description"-->
-                 <!--formControlName="description">-->
-          <!--<textarea matInput></textarea>-->
-        <!--</mat-form-field>-->
-        <!---->
-      <!--</div>-->
+          <p style="font-size: large"><strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>people</mat-icon> Gender:</strong> {{events.genderevent}}</p>
+          <p style="font-size: large"><strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>extension</mat-icon>Type:</strong> {{events.tybeevent}}</p>
+            <p style="font-size: large"><strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>accessible</mat-icon> Specialneed:</strong> {{events.specialneed}}</p>
+          </div>
+          <div style="border-top: solid #6A3092; background-color: lightgrey; border-radius: 5px; margin-bottom: 4%;">
+          <p style="font-size: large"><strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>map</mat-icon> Location</strong></p>
 
-      <!--<div style="text-align: center">-->
-        <!--<input [disabled]="!myForm" type="submit" class="fadeIn fourth" value="Edit Event">-->
-      <!--</div>-->
+
+          <h5 class="sizes"><mat-icon matSuffix>pin_drop</mat-icon> {{events.eventcity}} - {{events.eventstreet}}<br>
+
+            <span class="size" data-toggle="tooltip" title="xtra large">{{events.eventdate}} / {{events.eventtime}}</span>
+
+          </h5>
+          </div>
+          <div style="border-top: solid #6A3092; background-color: lightgrey; border-radius: 5px; margin-bottom: 4%;">
+
+            <p style="font-size: large"><strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>view_comfy</mat-icon> Capacity:</strong> {{events.capacity}}</p>
+            <p style="font-size: large"><strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>done</mat-icon> Booking:</strong> ({{events.counter}})  <meter style="margin-left: 45%" value="{{events.counter}}" min="0" max="{{events.capacity}}"></meter></p>
+          </div>
+          <h4
+            class="price">current price: <span>FREE</span>
+          </h4>
+          <div class="action">
+            <button class="btn btn-lg " style="background-color: #241F61; color:white" [hidden]="fullBook()" (click)="BookEvent(events.eventid)"><i class="fas fa-ticket-alt"></i> Book</button>
+            <button routerLink="/activeEvent" class="btn btn-lg btn-danger"  style="color: white"data-toggle="modal" data-target="#product_view"><i class="fas fa-ban"></i> Cancel</button>
+            <button class="btn btn-lg" (click)="getComent(events.comments,events.eventid)">View Comment</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
+</body>
+  <!--<app-comments-detils [eventid]="currentEvents.eventid" [comments]="currentComments"> </app-comments-detils>-->
 </div>
+
+
+<app-footer></app-footer>

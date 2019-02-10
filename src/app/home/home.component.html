@@ -12,12 +12,12 @@
     </div>
   </div>
   <div class="container">
-    <h1 class="h3" style="width: 100%; margin-bottom: 10px">New Events</h1>
+    <h1 class="h3" style="width: 100%; margin-bottom: 25px">New Events</h1>
     <div class="row">
       <div class="col-md-4 col-sm-6" style="margin-bottom: 22px" *ngFor="let event of events$">
         <div class="product-grid4">
           <div class="product-image4">
-            <a href="#">
+            <a>
               <img class="pic-1" src="{{event.pic}}">
               <img class="pic-2" src="{{event.pic}}">
             </a>
@@ -29,17 +29,29 @@
 
           </div>
           <div class="product-content" style="background-color: white">
-            <h3 class="title">#{{event.eventid}} {{event.nameevent}}</h3>
-            <h3 class="title">Capacity:{{event.capacity}}       Booking:{{event.counter}}</h3>
+            <!--<h3 class="title">#{{event.eventid}}<p style="text-align: end">{{event.nameevent}}</p></h3>-->
+            <!--<h3 class="title" style="margin-right: 1%">{{event.eventid}}{{event.eventcity}}</h3>-->
+            <!--<h3 class="title">Capacity:{{event.capacity}}       Booking:{{event.counter}}</h3>-->
 
-            <div class="price">
-              FREE
-            </div>
+            <!--<div class="price" style="width: 2%">-->
+              <!--<ul>-->
+                <!--{{event.eventcity}} <p style="width: 20%">{{event.eventid}}</p>-->
+              <!--</ul>-->
+            <!--</div>-->
+            <ul style="color: #6A3092">
+                <span class="kh"><i class="fas fa-map-marker-alt"></i> {{event.eventcity}}</span>
+              <i class="fas fa-calendar-alt"></i> {{event.eventdate}}
+            </ul>
+
+
           </div>
         </div>
+
       </div>
+
     </div>
-            <button routerLink="/activeEvent">See more Events</button>
+    <button routerLink="/activeEvent" mat-raised-button color="primary" style="width: 40%; margin-left: 30%; margin-bottom: 3%">See More Events</button>
+
   </div>
 </div>
 </div>
