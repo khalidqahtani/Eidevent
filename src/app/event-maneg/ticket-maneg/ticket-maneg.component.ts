@@ -3,6 +3,7 @@ import {TicketService} from './ticket.service';
 import {AuthenticationService} from '../../authentication/authentication.service';
 import {Ticketmodel} from './tickets.model';
 import {Router} from '@angular/router';
+import {Rate} from './rate-maneg/rate.model';
 
 @Component({
   selector: 'app-ticket-maneg',
@@ -12,8 +13,8 @@ import {Router} from '@angular/router';
 export class TicketManegComponent implements OnInit {
   tikets$: Ticketmodel[];
   ticket: Ticketmodel;
-  ticketid: number;
   currentTickets: Ticketmodel;
+  rate:Rate
   userid: number;
 
   constructor(private ticketService: TicketService,
@@ -44,9 +45,12 @@ export class TicketManegComponent implements OnInit {
     );
   }
 
-  sendRate(rate) {
-    this.ticketService.rateEvent(this.ticketid , rate.value).subscribe();
-    console.log(rate);
+  sendRate(id,rate) {
+    this.ticketService.rateEvent(id , rate.value).subscribe(Rate => this.ngOnInit(),
+
+      err => console.log(err),
+    );
+    console.log(rate.value);
   }
 
 

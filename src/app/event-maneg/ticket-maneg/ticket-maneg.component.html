@@ -35,12 +35,13 @@
     <div class="big">Your
       <br>Ticket</div>
     <div class="number">
-    <div #rate class="rating">
-      <input type="radio"  value="5" /><label  title="Meh" (click)="sendRate(ticket.ticketid, rate)">5 stars</label>
-      <input type="radio"  value="4" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate)" >4 stars</label>
-      <input type="radio"  value="3" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate)">3 stars</label>
-      <input type="radio"  value="2" /><label  title="Sucks big tim" (click)="sendRate(ticket.ticketid, rate)">2 stars</label>
-      <input type="radio"  value="1" /><label  title="Sucks big time" (click)="sendRate(ticket.ticketid, rate)">1 star</label>
+    <div  class="rating">
+      <input type="radio"  #rate5 value="5" /><label  title="Meh" (click)="sendRate(ticket.ticketid, rate5)">5 stars</label>
+      <input type="radio"  #rate4 value="4" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate4)" >4 stars</label>
+      <input type="radio"  #rate3 value="3" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate3)">3 stars</label>
+      <input type="radio"  #rate2 value="2" /><label  title="Sucks big tim" (click)="sendRate(ticket.ticketid, rate2)">2 stars</label>
+      <input type="radio"  #rate1 value="1" /><label  title="Sucks big time" (click)="sendRate(ticket.ticketid, rate1)">1 star</label><br>
+      <h6 style="float: right" *ngIf="!rate">({{ticket.ticketrate}})</h6>
     </div>
     </div>
 
