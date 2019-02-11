@@ -44,7 +44,7 @@ const routes: Routes = [
   {path: 'mycomments', component: CommentManegComponent},
   {path: 'test', component: TestStylesComponent},
   {path: 'footer', component: FooterComponent},
-  {path: 'myprofile', component: MyprofileComponent},
+  {path: 'myprofile/:id', component: MyprofileComponent},
   {path: 'edituser/:id', component: UserDetailComponent},
   {path: 'eventinfo/:id', component: EventinformationComponent},
 

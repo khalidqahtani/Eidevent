@@ -145,15 +145,13 @@ export class EventDetailComponent implements OnInit {
     );
   }
   approvelEvent(eventid: number) {
-    this.eventsService.approvelEvent(eventid).subscribe(approve => {
-      },
+    this.eventsService.approvelEvent(eventid).subscribe(approve => this.ngOnInit(),
       err => console.log(err),
       () => this.router.navigate(['/activeEvent'])
     );
   }
   UnapprovelEvent(eventid: number) {
-    this.eventsService.UnapprovelEvent(eventid).subscribe(unapprove => {
-      },
+    this.eventsService.UnapprovelEvent(eventid).subscribe(unapprove => this.ngOnInit(),
       err => console.log(err),
       () => this.router.navigate(['/activeEvent'])
     );

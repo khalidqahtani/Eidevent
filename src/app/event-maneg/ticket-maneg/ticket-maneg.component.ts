@@ -53,5 +53,9 @@ export class TicketManegComponent implements OnInit {
     console.log(rate.value);
   }
 
+  ticketRate() {
+    if (this.rate.rated === true) {return true;}
+  }
+
 
 }
