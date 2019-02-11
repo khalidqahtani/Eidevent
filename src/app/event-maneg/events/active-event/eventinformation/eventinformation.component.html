@@ -98,7 +98,7 @@
       </div>
 
     </div>
-    <div class="col-md-12" style="border-top: solid rgba(106,49,146,0.83)" >
+    <div style="border-top: inset; border-width: 7px; border-color: #6A3092">
       <h3 style="text-align: center; color: #6A3092">User Comment</h3>
     </div>
     <div class="container" style="background-color: #eee; position: center" *ngFor="let comment of comments" >
@@ -130,7 +130,7 @@
       </div>
 
     </div>
-    <div style="border-top: solid #6A3092">
+    <div style="border-style: inset; border-width: 7px; border-color: white">
     <form [formGroup]="commentForm" (ngSubmit)="sendComment()">
       <div class="row" >
         <!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()">-->
@@ -141,16 +141,16 @@
           <!-- /thumbnail -->
         </div>
         <!-- /col-md-1 -->
-        <div class="col-lg-5 ">
+        <div class="col-lg-11 ">
           <div class="card">
-            <div class="card-header"> <strong>{{auth.getFirstName()}} </strong>  <span class="text-muted">commented {{comment.dateTime}}</span>
+            <div class="card-header"> <strong>{{auth.getFirstName()}} </strong>
             </div>
             <div class="card-body" >
-              <mat-form-field hintLabel="Max 18 characters">
-                <input matInput maxlength="26" placeholder="Enter Your Comment" formControlName="comment">
+              <mat-form-field hintLabel="Max 24 characters">
+                <input  matInput maxlength="24" placeholder="Enter Your Comment" formControlName="comment">
                 <mat-hint align="end">Max Length !!!</mat-hint>
               </mat-form-field>
-              <button mat-fab color="warn" type="submit" >comment</button>
+              <button mat-fab color="warn" type="submit" style="left: 70%">comment</button>
             </div>
           </div> <br>
         </div>

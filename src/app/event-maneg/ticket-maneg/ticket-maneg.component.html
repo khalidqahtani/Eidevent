@@ -16,8 +16,9 @@
 
 <!--</div>-->
 <div style="background-color: rgba(256, 256, 256, 0.8); ">
-<div class="ticket" *ngFor="let ticket of tikets$ ">
+<div class="ticket" *ngFor="let ticket of tikets$" (click)="getTicket(ticket)">
   <div class="stub">
+
     <div class="top"> <span class="admit">{{ticket.eid.nameevent}}</span>
       <span class="line"></span>
       <span class="num">
@@ -33,7 +34,15 @@
   <div class="check">
     <div class="big">Your
       <br>Ticket</div>
-    <div class="number">#{{ticket.eid.eventid}} </div>
+    <div class="number">
+    <div #rate class="rating">
+      <input type="radio"  value="5" /><label  title="Meh" (click)="sendRate(ticket.ticketid, rate)">5 stars</label>
+      <input type="radio"  value="4" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate)" >4 stars</label>
+      <input type="radio"  value="3" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate)">3 stars</label>
+      <input type="radio"  value="2" /><label  title="Sucks big tim" (click)="sendRate(ticket.ticketid, rate)">2 stars</label>
+      <input type="radio"  value="1" /><label  title="Sucks big time" (click)="sendRate(ticket.ticketid, rate)">1 star</label>
+    </div>
+    </div>
 
     <div class="info">
       <section>
@@ -50,11 +59,13 @@
 
       </section>
       <button mat-flat-button color="warn" (click)="deleteTicket(ticket.ticketid)"><i class="fas fa-ban"></i></button>
+
     </div>
+    <!--<app-ticket-detail [ticket]="currentTickets"></app-ticket-detail>-->
 
   </div>
+
 </div>
-<!--<app-ticket-detail [ticket]="currentTickets"></app-ticket-detail>-->
 
 
 

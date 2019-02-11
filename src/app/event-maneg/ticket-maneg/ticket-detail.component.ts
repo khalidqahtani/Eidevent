@@ -11,22 +11,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   selector: 'app-ticket-detail',
   template: `
     <div *ngIf="ticket">
-      <h2>Ticket Detail</h2>
-      <ul class="list-group">
-        <li class="list-group-item"> Ticket ID: {{ ticket.ticketid }}</li>
-        <li class="list-group-item">Date: {{ ticket.date }}</li>
-        <li class="list-group-item">Ticket Cansel: {{ ticket.ticketcancel }}</li>
-        <li class="list-group-item">Ticket : {{ ticket.ticketbook }}</li>
-        <li class="list-group-item">Present : {{ ticket.userpresent }}</li>
-        <li class="list-group-item">Event : {{ ticket.eventname }}</li>
-        <li class="list-group-item">Event Date: {{ ticket.dateevent }}</li>
-        <li class="list-group-item">Rate Ticket {{ ticket.ticketrate }}</li>
-
-
-        <td>
-          <button mat-raised-button color="primary" *ngIf="user" [disabled]="(ticketdeleted())" (click)="deleteTicket(ticket.ticketid)">Cansel</button>
-        </td>
-      </ul>
       <div>
       <mat-form-field>
         <mat-select #rate placeholder="Rate Event" >
@@ -40,6 +24,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
       <button mat-fab color="warn" (click)="sendRate(rate)" >Rate</button>
         
       </div>
+    </div>
     `
 
 })

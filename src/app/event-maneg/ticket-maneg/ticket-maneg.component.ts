@@ -11,6 +11,8 @@ import {Router} from '@angular/router';
 })
 export class TicketManegComponent implements OnInit {
   tikets$: Ticketmodel[];
+  ticket: Ticketmodel;
+  ticketid: number;
   currentTickets: Ticketmodel;
   userid: number;
 
@@ -40,6 +42,11 @@ export class TicketManegComponent implements OnInit {
       err => console.log(err),
       () => this.router.navigate(['/activeEvent'])
     );
+  }
+
+  sendRate(rate) {
+    this.ticketService.rateEvent(this.ticketid , rate.value).subscribe();
+    console.log(rate);
   }
 
 
