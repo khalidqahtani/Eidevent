@@ -16,6 +16,6 @@ export class Events {
      counter: number;
      edelete: boolean;
      approval: boolean;
-     OrgnizerID: User;
+     orgnizerID: User;
      comments: string;
 }

@@ -19,13 +19,30 @@ export class MyprofileComponent implements OnInit {
   hide = true;
   pic: string;
   currentUsers: User;
+  forbiden;
+  error;
 
   constructor(private formBuilder: FormBuilder,
               private usersService: UsersService,
               private route: ActivatedRoute,
-              private router: Router,) {}
+              private router: Router,
+              private auth: AuthenticationService) {}
 
   ngOnInit() {
+
+    if (this.router.url.startsWith('/myprofile')) {
+      if (this.userid != this.auth.getUserId()) {
+        this.forbiden = true;
+      }
+    }
+
+    if (!this.forbiden){
+      this.usersService.getUser(this.userid).subscribe((value0 => {
+        this.user$ = value0;
+        this.myForm.patchValue(this.user$ as any);
+      }), error1 => this.error = true);
+    };
+
     this.route.params.subscribe((value: any) => {
       this.userid = value.id;
     });

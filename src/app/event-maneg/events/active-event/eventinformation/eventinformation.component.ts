@@ -7,6 +7,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {CommentService} from '../../../comment-maneg/comment.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {User} from '../../../../users/user.model';
+import {TicketService} from '../../../ticket-maneg/ticket.service';
 
 @Component({
   selector: 'app-eventinformation',
@@ -17,13 +19,10 @@ export class EventinformationComponent implements OnInit {
 
   events: Events;
   eventid: number;
-  evid: number;
   userid = this.auth.getUserId();
   comments: Comments[];
-  currentComments: Comments[];
-  currentEvents: Events;
-  private sub: Subscription;
   commentForm: FormGroup;
+  rateAvg;
 
 
 
@@ -32,52 +31,53 @@ export class EventinformationComponent implements OnInit {
               private auth: AuthenticationService,
               private router: Router,
               private route: ActivatedRoute,
+              private tikcetService: TicketService,
               private commentService: CommentService,
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {
 
-    this.sub = this.route.params.subscribe((param: any) => {
+  this.route.params.subscribe((param: any) => {
       this.eventid = param.id;
     });
-
-    console.log(this.evid);
+    // this.orgfirst = this.currentEvents.OrgnizerID.firstname
     this.getEvents();
+
     this.commentForm = this.formBuilder.group({
       comment: [''],
     });
-    this.commentforevent()
+    this.commentforevent();
+
   }
   getEvents() {
     this.eventsService.getEvent(this.eventid).subscribe(events => {
         this.events = events;
+        this.getRate(events.orgnizerID.userid);
       },
       err => console.log(err),
-      () => console.log('jjjjjjj')
+      () => console.log(this.events.orgnizerID.userid)
     );
   }
-
-  getEvent(event) {
-    this.currentEvents = event;
+  getRate(id) {
+    this.tikcetService.getRate(id).subscribe(value => {this.rateAvg = value; console.log(this.rateAvg)});
   }
-  BookEvent(eventid: number) {
-    this.eventsService.BookEvent(eventid, this.userid).subscribe(eventbook => {
+
+  // getEvent(event) {
+  //   this.currentEvents = event;
+  // }
+  BookEvent() {
+    this.eventsService.BookEvent(this.eventid, this.userid).subscribe(eventbook => {
       },
       err => console.log(err),
       () => this.router.navigate(['/myticket']));
 
   }
   fullBook() {
-    if (this.currentEvents.capacity === this.currentEvents.counter) {
+    if (this.events.capacity === this.events.counter) {
       return true;
     }
   }
 
-  getComent(comment, id) {
-    console.log(comment);
-    this.currentComments = comment;
-    this.eventid = id;
-  }
 
   commentforevent() {
     this.eventsService.commentforevent(this.eventid).subscribe(comment => {

@@ -4,6 +4,7 @@ export class Comments {
   dateTime: string;
   eventname: string;
   username: string;
+  eid: number;
   eventid: Eid;
   userid: Uid;
 }

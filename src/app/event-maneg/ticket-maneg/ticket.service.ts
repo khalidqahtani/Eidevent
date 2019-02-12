@@ -36,4 +36,8 @@ export class TicketService {
   unpresentTicket(tid: number): Observable<Ticketmodel> {
     return this.http.get<Ticketmodel>(`api/adminaccess/ticket/unpresent/` + `${tid}`);
   }
+
+  getRate(id): Observable<any> {
+    return this.http.get(`/api/rated/${id}`);
+  }
 }

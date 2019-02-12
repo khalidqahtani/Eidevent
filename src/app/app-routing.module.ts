@@ -23,6 +23,7 @@ import {FooterComponent} from './footer/footer.component';
 import {MyprofileComponent} from './myprofile/myprofile.component';
 import {UserDetailComponent} from './users/user-detail.component';
 import {EventinformationComponent} from './event-maneg/events/active-event/eventinformation/eventinformation.component';
+import {OrgnizereventsComponent} from './event-maneg/events/active-event/orgnizerevents/orgnizerevents.component';
 
 const routes: Routes = [
   {path: '', component: AppComponent, canActivate: [AuthGuard]},
@@ -44,9 +45,10 @@ const routes: Routes = [
   {path: 'mycomments', component: CommentManegComponent},
   {path: 'test', component: TestStylesComponent},
   {path: 'footer', component: FooterComponent},
-  {path: 'myprofile/:id', component: MyprofileComponent},
+  {path: 'myprofile/:id', component: MyprofileComponent, canActivate: [AuthGuard]},
   {path: 'edituser/:id', component: UserDetailComponent},
   {path: 'eventinfo/:id', component: EventinformationComponent},
+  {path: 'org/:id', component: OrgnizereventsComponent},
 
 
 

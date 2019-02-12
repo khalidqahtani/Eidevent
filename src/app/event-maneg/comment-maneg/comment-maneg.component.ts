@@ -10,12 +10,14 @@ import {CommentService} from './comment.service';
 })
 export class CommentManegComponent implements OnInit {
   comments$: Comments[];
-  currentComments: Comments;
+  comm: Comments;
   userid: number;
+  eid;
 
   constructor(private auth: AuthenticationService, private commentService: CommentService) { }
 
   ngOnInit() {
+    // this.eid = this.comm.eventid
     this.userid = this.auth.getUserId();
     this.MyComments();
   }

@@ -46,6 +46,7 @@ import { FilterPipe } from './filter.pipe';
 import { FooterComponent } from './footer/footer.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EventinformationComponent } from './event-maneg/events/active-event/eventinformation/eventinformation.component';
+import { OrgnizereventsComponent } from './event-maneg/events/active-event/orgnizerevents/orgnizerevents.component';
 
 
 
@@ -81,6 +82,7 @@ import { EventinformationComponent } from './event-maneg/events/active-event/eve
     FooterComponent,
     MyprofileComponent,
     EventinformationComponent,
+    OrgnizereventsComponent,
 
   ],
   imports: [

@@ -28,6 +28,8 @@
         <div class="preview col-lg-6">
           <div class="preview-pic tab-content">
             <div class="tab-pane active" id="pic-1">
+              <h2 class="span1" [routerLink]="['/org', events.orgnizerID.userid ]">Orgnizer: {{events.orgnizerID.firstname}} :{{rateAvg}}
+              </h2>
               <img src="{{events.pic}}">
               <h2 style="text-align: center">Description</h2>
               <h3 style="text-align: center">"{{events.description}}"</h3>
@@ -52,11 +54,13 @@
         </div>
         <div class="details col-lg-6" >
           <h3 class="product-title" style="color: #6A3092">{{events.nameevent}}</h3>
+
+
           <div class="rating">
             <div class="stars">	<span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
-              <span
-                class="fa fa-star checked"></span>	<span class="fa fa-star"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
               <span class="fa fa-star"></span>
             </div>	<span class="review-no">41 reviews</span>
           </div>
@@ -76,7 +80,7 @@
 
           <h5 class="sizes"><mat-icon matSuffix>pin_drop</mat-icon> {{events.eventcity}} - {{events.eventstreet}}<br>
 
-            <span class="size" data-toggle="tooltip" title="xtra large">{{events.eventdate}} / {{events.eventtime}}</span>
+            <p class="size" class="span1" data-toggle="tooltip" title="xtra large">{{events.eventdate}} / {{events.eventtime}}</p>
 
           </h5>
           </div>
@@ -89,9 +93,8 @@
             class="price">current price: <span>FREE</span>
           </h4>
           <div class="action">
-            <button class="btn btn-lg " style="background-color: #241F61; color:white"  (click)="BookEvent(events.eventid)"><i class="fas fa-ticket-alt"></i> Book</button>
+            <button class="btn btn-lg " style="background-color: #241F61; color:white"  (click)="BookEvent()"><i class="fas fa-ticket-alt"></i> Book</button>
             <button routerLink="/activeEvent" class="btn btn-lg btn-danger"  style="color: white"data-toggle="modal" data-target="#product_view"><i class="fas fa-ban"></i> Cancel</button>
-            <button class="btn btn-lg" (click)="getComent(events.comments,events.eventid)">View Comment</button>
 
           </div>
         </div>

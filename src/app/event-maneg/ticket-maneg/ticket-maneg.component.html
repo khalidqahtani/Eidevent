@@ -36,11 +36,11 @@
       <br>Ticket</div>
     <div class="number">
     <div  class="rating">
-      <input [hidden]="ticketRate()" type="radio"  #rate5 value="5" /><label  title="Meh" (click)="sendRate(ticket.ticketid, rate5)">5 stars</label>
-      <input [hidden]="ticketRate()" type="radio"  #rate4 value="4" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate4)" >4 stars</label>
-      <input [hidden]="ticketRate()" type="radio"  #rate3 value="3" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate3)">3 stars</label>
-      <input [hidden]="ticketRate()" type="radio"  #rate2 value="2" /><label  title="Sucks big tim" (click)="sendRate(ticket.ticketid, rate2)">2 stars</label>
-      <input [hidden]="ticketRate()" type="radio"  #rate1 value="1" /><label  title="Sucks big time" (click)="sendRate(ticket.ticketid, rate1)">1 star</label><br>
+      <input type="radio"  #rate5 value="5" /><label  title="Meh" (click)="sendRate(ticket.ticketid, rate5)">5 stars</label>
+      <input type="radio"  #rate4 value="4" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate4)" >4 stars</label>
+      <input type="radio"  #rate3 value="3" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate3)">3 stars</label>
+      <input type="radio"  #rate2 value="2" /><label  title="Sucks big tim" (click)="sendRate(ticket.ticketid, rate2)">2 stars</label>
+      <input type="radio"  #rate1 value="1" /><label  title="Sucks big time" (click)="sendRate(ticket.ticketid, rate1)">1 star</label><br>
       <h6 style="float: right">({{ticket.ticketrate}})</h6>
     </div>
     </div>
