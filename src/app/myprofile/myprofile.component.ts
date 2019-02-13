@@ -30,11 +30,16 @@ export class MyprofileComponent implements OnInit {
 
   ngOnInit() {
 
+    this.route.params.subscribe((value: any) => {
+      this.userid = value.id;
+
+
     if (this.router.url.startsWith('/myprofile')) {
       if (this.userid != this.auth.getUserId()) {
         this.forbiden = true;
       }
     }
+    });
 
     if (!this.forbiden){
       this.usersService.getUser(this.userid).subscribe((value0 => {
@@ -43,9 +48,7 @@ export class MyprofileComponent implements OnInit {
       }), error1 => this.error = true);
     };
 
-    this.route.params.subscribe((value: any) => {
-      this.userid = value.id;
-    });
+
 
     this.usersService.getUser(this.userid).subscribe((value0 => {
       this.user$ = value0;

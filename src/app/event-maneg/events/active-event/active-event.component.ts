@@ -30,6 +30,8 @@ export class ActiveEventComponent implements OnInit {
   gend;
   commentForm: FormGroup;
   private sub: Subscription;
+  public searchText : string;
+
 
   constructor(private eventsService: EventsService,
               private auth: AuthenticationService,

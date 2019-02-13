@@ -2,7 +2,7 @@
 <app-nav></app-nav>
 
 
-<div class="wrapper fadeInDown">
+<div class="wrapper fadeInDown" *ngIf="!forbiden">
   <div id="formContent">
     <div id="formHeader">
     </div>
@@ -13,7 +13,7 @@
       <p>Edit User</p>
     </div>
 
-    <form [formGroup]="myForm" *ngIf="!forbiden" class="fadeIn second">
+    <form [formGroup]="myForm"  class="fadeIn second">
       <mat-form-field appearance="outline">
         <mat-label>ID</mat-label>
         <input matInput type="text" formControlName="id" placeholder="ID">

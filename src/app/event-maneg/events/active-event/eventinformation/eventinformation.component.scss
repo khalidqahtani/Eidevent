@@ -216,3 +216,15 @@ img {
   border-radius:80%;
   overflow:hidden;
 }
+
+.checked {
+  color: orange;
+}
+
+.fullstar {
+  content: "\f005";
+}
+
+.emptystar {
+  content: "\f006";
+}

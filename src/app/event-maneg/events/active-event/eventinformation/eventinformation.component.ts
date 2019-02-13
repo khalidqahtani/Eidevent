@@ -92,4 +92,12 @@ export class EventinformationComponent implements OnInit {
     // console.log('The comment is : ', this.eventid);
   }
 
+  rateing(avg:number){
+    if(avg<5){
+      return true;
+    }
+  }
+
+
+
 }
