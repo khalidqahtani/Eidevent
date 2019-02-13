@@ -7,6 +7,7 @@ import {Ticketmodel} from '../../ticket-maneg/tickets.model';
 import {UsersService} from '../../../users/users.service';
 import {User} from '../../../users/user.model';
 import {TicketService} from '../../ticket-maneg/ticket.service';
+import {AuthenticationService} from '../../../authentication/authentication.service';
 
 @Component({
   selector: 'app-tickets-for-events',
@@ -15,22 +16,27 @@ import {TicketService} from '../../ticket-maneg/ticket.service';
 })
 export class TicketsForEventsComponent implements OnInit {
   ticket: Ticketmodel[];
-  // events$: Events;
+  events$: Events;
+  user$: User;
   currentEvents: Events;
+  userid: number;
   id: number;
+  myForm;
   forbiden;
   error;
 
   constructor(private eventsService: EventsService,
               private ticketService: TicketService,
+              private usersService: UsersService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private auth: AuthenticationService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: any) => {
       this.id = params.id;
 
-      if (this.router.url.startsWith('/event')) {
+      if (this.router.url.startsWith('/ticketsforevent')) {
         if (this.events$.orgnizerID.userid != this.auth.getUserId()) {
           this.forbiden = true;
         }
@@ -39,9 +45,9 @@ export class TicketsForEventsComponent implements OnInit {
     });
 
     if (!this.forbiden){
-      this.usersService.getUser(this.userid).subscribe((value0 => {
-        this.user$ = value0;
-        this.myForm.patchValue(this.user$ as any);
+      this.eventsService.getEvent(this.id).subscribe((value0 => {
+        this.events$ = value0;
+        this.myForm.patchValue(this.events$ as any);
       }), error1 => this.error = true);
     };
 

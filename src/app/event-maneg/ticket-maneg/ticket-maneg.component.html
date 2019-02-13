@@ -19,7 +19,7 @@
 <div class="ticket" *ngFor="let ticket of tikets$" (click)="getTicket(ticket)">
   <div class="stub">
 
-    <div class="top"> <span class="admit">{{ticket.eid.nameevent}}</span>
+    <div class="top"> <span class="admit" [routerLink]="['/eventinfo', ticket.eid.eventid ]" >{{ticket.eid.nameevent}}</span>
       <span class="line"></span>
       <span class="num">
 

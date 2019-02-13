@@ -1,19 +1,7 @@
 <app-nav-details></app-nav-details>
 <app-nav></app-nav>
 
-<!--<div  *ngIf="events" class="wrapper fadeInDown" >-->
-  <!--<div   id="formContent" >-->
-    <!--<div id="formHeader">-->
-    <!--</div>-->
-    <!--<div class="fadeIn first" style="text-align: center">-->
-      <!--<br>-->
-      <!--<img src="assets/gears.png" style="max-height: 120px"/>-->
-      <!--<p >Edit Event {{events.eventid}}</p>-->
-    <!--</div>-->
-<!--<div>-->
-<!--</div>-->
-  <!--</div>-->
-<!--</div>-->
+
 <div>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,29 +16,28 @@
         <div class="preview col-lg-6">
           <div class="preview-pic tab-content">
             <div class="tab-pane active" id="pic-1">
-              <h2 class="span1" [routerLink]="['/org', events.orgnizerID.userid ]">Orgnizer: {{events.orgnizerID.firstname}}<br>{{rateAvg}}</h2>
-              <div *ngFor="let x of listNumer">
-                <h1>*</h1>
-              </div>
+              <h2 class="span1" [routerLink]="['/org', events.orgnizerID.userid ]">Orgnizer: {{events.orgnizerID.firstname}}<br>
+                <div class="rating" >
+                  <div class="stars" >
+                    <span class="fa fa-star checked" *ngIf="listNumer.includes(1)"></span>
+                    <span class="fa fa-star checked" *ngIf="listNumer.includes(2)"></span>
+                    <span class="fa fa-star checked" *ngIf="listNumer.includes(3)"></span>
+                    <span class="fa fa-star checked" *ngIf="listNumer.includes(4)"></span>
+                    <span class="fa fa-star checked" *ngIf="listNumer.includes(5)"></span>
+                    <span class="fa fa-star" *ngIf="!listNumer.includes(1)"></span>
+                    <span class="fa fa-star" *ngIf="!listNumer.includes(2)"></span>
+                    <span class="fa fa-star" *ngIf="!listNumer.includes(3)"></span>
+                    <span class="fa fa-star" *ngIf="!listNumer.includes(4)"></span>
+                    <span class="fa fa-star" *ngIf="!listNumer.includes(5)"></span>
+                    <span class="review-no"> {{rateAvg}}/5</span>
+                  </div>
+                </div>
+              </h2>
+
               <img src="{{events.pic}}">
               <h2 style="text-align: center">Description</h2>
               <h3 style="text-align: center">"{{events.description}}"</h3>
 
-              <!--<div>-->
-                <!--<h2>comment details</h2>-->
-                <!--<ul class="list-group" *ngFor="let comment of comments">-->
-                  <!--<li class="list-group-item">{{ comment.userid.username }} : "{{ comment.comment }}" on : {{comment.eventname}}</li>-->
-                <!--</ul>-->
-                <!--<div class="example-container">-->
-                  <!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()">-->
-                    <!--<mat-form-field hintLabel="Max 18 characters">-->
-                      <!--<input matInput maxlength="18" placeholder="Enter Your Comment" formControlName="comment">-->
-                      <!--&lt;!&ndash;<mat-hint align="end">Max Length !!!</mat-hint>&ndash;&gt;-->
-                    <!--</mat-form-field>-->
-                    <!--<button mat-fab color="warn" type="submit">comment</button>-->
-                  <!--</form>-->
-                <!--</div>-->
-              <!--</div>-->
             </div>
           </div>
         </div>
@@ -58,25 +45,8 @@
           <h3 class="product-title" style="color: #6A3092">{{events.nameevent}}</h3>
 
 
-          <div class="rating" >
-            <div class="stars" >
-              <span class="fa fa-star checked" *ngIf="listNumer.includes(1)"></span>
-              <span class="fa fa-star checked" *ngIf="listNumer.includes(2)"></span>
-              <span class="fa fa-star checked" *ngIf="listNumer.includes(3)"></span>
-              <span class="fa fa-star checked" *ngIf="listNumer.includes(4)"></span>
-              <span class="fa fa-star checked" *ngIf="listNumer.includes(5)"></span>
-              <span class="fa fa-star" *ngIf="!listNumer.includes(1)"></span>
-              <span class="fa fa-star" *ngIf="!listNumer.includes(2)"></span>
-              <span class="fa fa-star" *ngIf="!listNumer.includes(3)"></span>
-              <span class="fa fa-star" *ngIf="!listNumer.includes(4)"></span>
-              <span class="fa fa-star" *ngIf="!listNumer.includes(5)"></span>
-            </div>
-            <span class="review-no">{{rateAvg}}/5</span>
-          </div>
-          <!--<p class="product-description">"{{events.description}}"</p>-->
 
-          <!--<p class="vote"><strong><h2>Gender {{events.genderevent}}</h2></strong><br><strong>Capacity ({{events.capacity}})</strong>-->
-          <!--</p>-->
+
           <div style="border-top: solid #6A3092; background-color: lightgrey; border-radius: 5px; margin-bottom: 4%;">
 
           <p style="font-size: large"><strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>people</mat-icon> Gender:</strong> {{events.genderevent}}</p>
@@ -116,18 +86,13 @@
     <div class="container" style="background-color: #eee; position: center" *ngFor="let comment of comments" >
       <div class="row">
 
-        <!-- /col-md-12 -->
       </div>
-      <!-- /row -->
       <div class="row">
-        <!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()">-->
         <div class="col-md-1">
           <div class="thumbnail">
             <img class="img-fluid user-photo" src="{{comment.userid.pic}}">
           </div>
-          <!-- /thumbnail -->
         </div>
-        <!-- /col-md-1 -->
         <div class="col-lg-5">
           <div class="card">
             <div class="card-header"> <strong>{{comment.userid.firstname}} </strong>  <span class="text-muted">commented {{comment.dateTime}}</span>
@@ -137,7 +102,6 @@
         </div>
 
 
-        <!--</form>-->
 
       </div>
 
@@ -145,14 +109,11 @@
     <div style="border-style: inset; border-width: 7px; border-color: white">
     <form [formGroup]="commentForm" (ngSubmit)="sendComment()">
       <div class="row" >
-        <!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()">-->
         <div class="col-md-1">
           <div class="thumbnail">
             <img class="img-fluid user-photo" src="{{auth.getPic()}}">
           </div>
-          <!-- /thumbnail -->
         </div>
-        <!-- /col-md-1 -->
         <div class="col-lg-11 ">
           <div class="card">
             <div class="card-header"> <strong>{{auth.getFirstName()}} </strong>
@@ -167,66 +128,19 @@
           </div> <br>
         </div>
       </div>
-      <!--<div class="col-lg-7">-->
-        <!--<mat-form-field hintLabel="Max 18 characters">-->
-          <!--<input matInput maxlength="18" placeholder="Enter Your Comment" formControlName="comment">-->
-          <!--<mat-hint align="end">Max Length !!!</mat-hint>-->
-        <!--</mat-form-field>-->
-        <!--<button mat-fab color="warn" type="submit" >comment</button>-->
-      <!--</div>-->
+
     </form>
     </div>
   </div>
 
 </div>
-<!--<ul *ngIf="comments">-->
-  <!--<li *ngFor="let comment of comments">-->
-    <!--<img class="img-fluid user-photo" src="{{comment.userid.pic}}">-->
-    <!--<strong>{{comment.username}} </strong>  <span class="text-muted">commented {{comment.comment}}</span>-->
-  <!--</li>-->
-<!--</ul>-->
-<!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()"></form>-->
-<!--<input formControlName="comment" type="text">-->
-<!--<button  type="submit">Send</button>-->
 
 </body>
 
 
 
 
-  <!--<app-comments-detils [eventid]="currentEvents.eventid" [comments]="currentComments"> </app-comments-detils>-->
 
-
-  <!--<div  >-->
-    <!--<h2 style="text-align: center">Comments</h2>-->
-    <!--<div >-->
-      <!--<div class="comments-container" >-->
-        <!--<form [formGroup]="commentForm" (ngSubmit)="sendComment()">-->
-          <!--<ul id="comments-list" class="comments-list" >-->
-            <!--<li>-->
-              <!--<div class="comment-main-level" >-->
-                <!--<div class="comment-avatar">-->
-                  <!--<img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg"-->
-                       <!--alt="">-->
-                <!--</div>-->
-                <!--<div class="comment-box" >-->
-                  <!--<div class="comment-head" >-->
-                    <!--<h6 class="comment-name by-author">{{comment.userid}}</h6>-->
-                    <!--<span>hace 20 minutos</span>-->
-                    <!--<i class="fa fa-reply"></i>-->
-                    <!--<i class="fa fa-heart"></i>-->
-                  <!--</div>-->
-                  <!--<div class="comment-content">{{comment.comment}}</div>-->
-                  <!--<button mat-fab color="warn" type="submit">comment</button>-->
-                <!--</div>-->
-
-              <!--</div>-->
-            <!--</li>-->
-          <!--</ul>-->
-        <!--</form>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
 </div>
 
 

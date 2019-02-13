@@ -27,7 +27,8 @@ export class ActiveEventComponent implements OnInit {
   userid = this.auth.getUserId();
   currentUser: User;
   term;
-  gend;
+  gend: string;
+  tybe: string;
   commentForm: FormGroup;
   private sub: Subscription;
   public searchText : string;

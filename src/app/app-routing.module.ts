@@ -37,7 +37,7 @@ const routes: Routes = [
   {path: 'addEvent', component: AddEventComponent},
   {path: 'activeEvent', component: ActiveEventComponent},
   {path: 'unapproved', component: UnactiveEventComponent},
-  {path: 'event/:id', component: EditEventComponent, canActivate: [AuthGuard], data: {userRole : ['ROLE_ORGANIZER']}},
+  {path: 'event/:id', component: EditEventComponent, canActivate: [AuthGuard], data: {userRole : ['ROLE_ADMIN']}},
   {path: 'user/:userid', component: EditUserComponent, canActivate: [AuthGuard], data: {userRole : ['ROLE_ADMIN']}},
   {path: 'myevent', component: MyeventComponent},
   {path: 'myticket', component: TicketManegComponent},
