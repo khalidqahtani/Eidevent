@@ -18,6 +18,8 @@ export class TicketsForEventsComponent implements OnInit {
   // events$: Events;
   currentEvents: Events;
   id: number;
+  forbiden;
+  error;
 
   constructor(private eventsService: EventsService,
               private ticketService: TicketService,
@@ -27,7 +29,22 @@ export class TicketsForEventsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: any) => {
       this.id = params.id;
+
+      if (this.router.url.startsWith('/event')) {
+        if (this.events$.orgnizerID.userid != this.auth.getUserId()) {
+          this.forbiden = true;
+        }
+      }
+
     });
+
+    if (!this.forbiden){
+      this.usersService.getUser(this.userid).subscribe((value0 => {
+        this.user$ = value0;
+        this.myForm.patchValue(this.user$ as any);
+      }), error1 => this.error = true);
+    };
+
     this.getevent();
     this.Myeventtickets();
     // console.log(this.ticket);

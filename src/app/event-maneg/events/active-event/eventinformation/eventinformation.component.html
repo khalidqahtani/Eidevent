@@ -28,32 +28,10 @@
         <div class="preview col-lg-6">
           <div class="preview-pic tab-content">
             <div class="tab-pane active" id="pic-1">
-              <h2 class="span1" [routerLink]="['/org', events.orgnizerID.userid ]">Orgnizer: {{events.orgnizerID.firstname}}<br>{{rateAvg}}
-              <div>
-              <!--<span class="fa fa-star checked"></span>-->
-              <!--<span class="fa fa-star checked"></span>-->
-              <!--<span class="fa fa-star checked"></span>-->
-              <!--<span class="fa fa-star checked"></span>-->
-              <!--<span class="fa fa-star checked"></span>-->
-
-                <script >
-                    rate= this.rateAvg;
-                    // for (i=0; 0<=i<=5; i++) {
-                    //   if(this.rateAvg <= i){
-                    //      '<h1>print rate</h1>';
-                    //   }
-                    // }
-                    for (i = 1; i <= rate <= 5; i++) {
-                      content = '<p class="fullstar">';
-                    }
-                      content = '<p class="emptystar">';
-
-                </script>
-
-
-
+              <h2 class="span1" [routerLink]="['/org', events.orgnizerID.userid ]">Orgnizer: {{events.orgnizerID.firstname}}<br>{{rateAvg}}</h2>
+              <div *ngFor="let x of listNumer">
+                <h1>*</h1>
               </div>
-              </h2>
               <img src="{{events.pic}}">
               <h2 style="text-align: center">Description</h2>
               <h3 style="text-align: center">"{{events.description}}"</h3>
@@ -80,13 +58,20 @@
           <h3 class="product-title" style="color: #6A3092">{{events.nameevent}}</h3>
 
 
-          <div class="rating">
-            <div class="stars">	<span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </div>	<span class="review-no">41 reviews</span>
+          <div class="rating" >
+            <div class="stars" >
+              <span class="fa fa-star checked" *ngIf="listNumer.includes(1)"></span>
+              <span class="fa fa-star checked" *ngIf="listNumer.includes(2)"></span>
+              <span class="fa fa-star checked" *ngIf="listNumer.includes(3)"></span>
+              <span class="fa fa-star checked" *ngIf="listNumer.includes(4)"></span>
+              <span class="fa fa-star checked" *ngIf="listNumer.includes(5)"></span>
+              <span class="fa fa-star" *ngIf="!listNumer.includes(1)"></span>
+              <span class="fa fa-star" *ngIf="!listNumer.includes(2)"></span>
+              <span class="fa fa-star" *ngIf="!listNumer.includes(3)"></span>
+              <span class="fa fa-star" *ngIf="!listNumer.includes(4)"></span>
+              <span class="fa fa-star" *ngIf="!listNumer.includes(5)"></span>
+            </div>
+            <span class="review-no">{{rateAvg}}/5</span>
           </div>
           <!--<p class="product-description">"{{events.description}}"</p>-->
 

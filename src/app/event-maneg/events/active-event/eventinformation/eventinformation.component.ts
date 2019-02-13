@@ -23,8 +23,7 @@ export class EventinformationComponent implements OnInit {
   comments: Comments[];
   commentForm: FormGroup;
   rateAvg;
-
-
+  listNumer: number[] = [];
 
 
   constructor(private eventsService: EventsService,
@@ -33,11 +32,12 @@ export class EventinformationComponent implements OnInit {
               private route: ActivatedRoute,
               private tikcetService: TicketService,
               private commentService: CommentService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
 
-  this.route.params.subscribe((param: any) => {
+    this.route.params.subscribe((param: any) => {
       this.eventid = param.id;
     });
     // this.orgfirst = this.currentEvents.OrgnizerID.firstname
@@ -49,6 +49,7 @@ export class EventinformationComponent implements OnInit {
     this.commentforevent();
 
   }
+
   getEvents() {
     this.eventsService.getEvent(this.eventid).subscribe(events => {
         this.events = events;
@@ -58,8 +59,14 @@ export class EventinformationComponent implements OnInit {
       () => console.log(this.events.orgnizerID.userid)
     );
   }
+
   getRate(id) {
-    this.tikcetService.getRate(id).subscribe(value => {this.rateAvg = value; console.log(this.rateAvg)});
+    this.tikcetService.getRate(id).subscribe(value => {
+      this.rateAvg = value;
+      for (let i = 1; i <= this.rateAvg; i++) {
+        this.listNumer.push(i);
+      }
+    });
   }
 
   // getEvent(event) {
@@ -72,6 +79,7 @@ export class EventinformationComponent implements OnInit {
       () => this.router.navigate(['/myticket']));
 
   }
+
   fullBook() {
     if (this.events.capacity === this.events.counter) {
       return true;
@@ -87,17 +95,14 @@ export class EventinformationComponent implements OnInit {
     );
 
   }
+
   sendComment() {
-    this.eventsService.CommentEvent(this.commentForm , this.eventid, this.auth.getUserId()).subscribe( value =>  this.ngOnInit());
+    this.eventsService.CommentEvent(this.commentForm, this.eventid, this.auth.getUserId()).subscribe(value => this.ngOnInit());
     // console.log('The comment is : ', this.eventid);
   }
 
-  rateing(avg:number){
-    if(avg<5){
-      return true;
-    }
-  }
-
-
-
 }
+
+
+
+

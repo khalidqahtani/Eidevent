@@ -14,6 +14,9 @@ export class EditEventComponent implements OnInit {
   myForm: FormGroup;
   id: number;
   events$: Events;
+  forbiden;
+  error;
+
 
   constructor(private formBuilder: FormBuilder,
               private eventsService: EventsService,
@@ -25,7 +28,21 @@ export class EditEventComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((value: any) => {
       this.id = value.id;
+
+      if (this.router.url.startsWith('/event')) {
+        if (this.id != this.auth.getUserId()) {
+          this.forbiden = true;
+        }
+      }
+
     });
+
+    if (!this.forbiden){
+      this.eventsService.getEvent(this.id).subscribe((value0 => {
+        this.events$ = value0;
+        this.myForm.patchValue(this.events$ as any);
+      }), error1 => this.error = true);
+    };
 
     this.eventsService.getEvent(this.id).subscribe((value0 => {
       this.events$ = value0;
