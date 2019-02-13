@@ -8,7 +8,6 @@
       <p>User Register</p>
     </div>
 
-    <!-- Login Form -->
     <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()" class="fadeIn second">
       <mat-form-field appearance="outline">
         <mat-label>NIN / IQAMA</mat-label>
@@ -58,13 +57,7 @@
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
       </div>
-      <!--<div>-->
-      <!--<mat-form-field>-->
-      <!--<input matInput type="text" class="fadeIn fourth"-->
-             <!--name="confirm" placeholder="Confirm Password"-->
-             <!--formControlName="confirm">-->
-      <!--</mat-form-field>-->
-      <!--</div>-->
+
       <div>
       <mat-form-field appearance="outline">
         <mat-label>Birthday</mat-label>

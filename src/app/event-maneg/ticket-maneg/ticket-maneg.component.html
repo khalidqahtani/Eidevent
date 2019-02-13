@@ -2,19 +2,7 @@
 <app-nav></app-nav>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-<!--<div class="row" >-->
-  <!--<div class="col-md-6">-->
-    <!--<h1>My Ticket</h1>-->
-    <!--<ul style="list-style-type:disc" *ngFor="let ticket of tikets$ " class="list-group-item" (click)="getTicket(ticket)">-->
-      <!--<li>{{ticket.ticketid}} - {{ticket.eventname}}</li>-->
-    <!--</ul>-->
-  <!--</div>-->
 
-  <!--<div class="col-md-6">-->
-  <!--<app-ticket-detail [ticket]="currentTickets"></app-ticket-detail>-->
-  <!--</div>-->
-
-<!--</div>-->
 <div style="background-color: rgba(256, 256, 256, 0.8); ">
 <div class="ticket" *ngFor="let ticket of tikets$" (click)="getTicket(ticket)">
   <div class="stub">
@@ -62,7 +50,6 @@
       <button mat-flat-button color="warn" (click)="deleteTicket(ticket.ticketid)"><i class="fas fa-ban"></i></button>
 
     </div>
-    <!--<app-ticket-detail [ticket]="currentTickets"></app-ticket-detail>-->
 
   </div>
 
