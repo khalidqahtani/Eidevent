@@ -45,17 +45,17 @@ export class ActiveEventComponent implements OnInit {
     this.trending();
 
 
-
   }
 
   getEventApprove() {
     this.eventsService.getEventApprove().subscribe(eventApprovel => {
         this.events$ = eventApprovel;
-        var e = [this.events$].reverse();
-        console.log('e' + e.slice(1));
+
+        console.log(this.eventsService.getEvents())
+
+
       },
       err => console.log(err),
-      () => console.log('Getting users OK...')
     );
   }
 

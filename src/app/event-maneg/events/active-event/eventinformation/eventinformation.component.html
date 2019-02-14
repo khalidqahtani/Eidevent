@@ -66,13 +66,14 @@
           <div style="border-top: solid #6A3092; background-color: lightgrey; border-radius: 5px; margin-bottom: 4%;">
 
             <p style="font-size: large"><strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>view_comfy</mat-icon> Capacity:</strong> {{events.capacity}}</p>
-            <p style="font-size: large"><strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>done</mat-icon> Booking:</strong> ({{events.counter}})  <meter style="margin-left: 45%" value="{{events.counter}}" min="0" max="{{events.capacity}}"></meter></p>
+            <p style="font-size: large"><strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>done</mat-icon> Available:</strong> ({{events.available}})<br><br>
+              <strong style="color: #6A3092;font-size: x-large"><mat-icon matSuffix>how_to_reg</mat-icon> Booking</strong><meter style="margin-left: 1%" value="{{events.counter}}" min="0" max="{{events.capacity}}"></meter></p>
           </div>
           <h4
             class="price">current price: <span>FREE</span>
           </h4>
           <div class="action">
-            <button class="btn btn-lg " style="background-color: #241F61; color:white"  (click)="BookEvent()"><i class="fas fa-ticket-alt"></i> Book</button>
+            <button class="btn btn-lg " style="background-color: #241F61; color:white" [disabled]="fullBook()"   (click)="BookEvent()"><i class="fas fa-ticket-alt"></i> Book</button>
             <button routerLink="/activeEvent" class="btn btn-lg btn-danger"  style="color: white"data-toggle="modal" data-target="#product_view"><i class="fas fa-ban"></i> Cancel</button>
 
           </div>
@@ -121,7 +122,6 @@
             <div class="card-body" >
               <mat-form-field hintLabel="Max 24 characters">
                 <input  matInput maxlength="24" placeholder="Enter Your Comment" formControlName="comment">
-                <mat-hint align="end">Max Length !!!</mat-hint>
               </mat-form-field>
               <button mat-fab color="warn" type="submit" style="left: 70%">comment</button>
             </div>

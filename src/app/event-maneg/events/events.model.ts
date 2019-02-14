@@ -18,6 +18,7 @@ export class Events {
      approval: boolean;
      orgnizerID: User;
      comments: string;
+     available: number;
      uid: number;
 }
 
