@@ -62,7 +62,6 @@ import {Comments} from '../comment-maneg/comments.model';
                   <th>UnDelete</th>
                   <th>approvel</th>
                   <th>Unapprovel</th>
-                  <th>View Comment</th>
                   <th>View Ticket</th>
                 </tr>
                 </thead>
@@ -73,7 +72,6 @@ import {Comments} from '../comment-maneg/comments.model';
                   <td><button mat-raised-button color="primary" *ngIf="admin" [disabled]="!eventdeleted()" (click)="undeleteEvent(event.eventid)">UnDelete</button></td>
                   <td><button mat-raised-button color="primary" *ngIf="admin||org" [disabled]="eventapprovel()" (click)="approvelEvent(event.eventid)">approvel</button></td>
                   <td><button mat-raised-button color="black" *ngIf="admin||org" [disabled]="!eventapprovel()" (click)="UnapprovelEvent(event.eventid)">Unapprovel</button></td>
-                  <td><button mat-raised-button color="primary" *ngIf="org||user" (click)="getComent(event.comments,event.eventid)">View Comment</button></td>
                   <td><button mat-raised-button color="primary" *ngIf="org" [routerLink]="['/ticketsforevent', event.eventid]" >View Ticket</button></td>
                 </tr>
                 </tbody>

@@ -16,14 +16,15 @@ import {AuthenticationService} from '../../../authentication/authentication.serv
 })
 export class TicketsForEventsComponent implements OnInit {
   ticket: Ticketmodel[];
+  tickets: Ticketmodel;
   events$: Events;
-  user$: User;
   currentEvents: Events;
-  userid: number;
+  // userid: number;
   id: number;
+  event: Events;
   myForm;
-  forbiden;
   error;
+
 
   constructor(private eventsService: EventsService,
               private ticketService: TicketService,
@@ -33,27 +34,34 @@ export class TicketsForEventsComponent implements OnInit {
               private auth: AuthenticationService) { }
 
   ngOnInit() {
+
+
     this.route.params.subscribe((params: any) => {
       this.id = params.id;
 
-      if (this.router.url.startsWith('/ticketsforevent')) {
-        if (this.events$.orgnizerID.userid != this.auth.getUserId()) {
-          this.forbiden = true;
-        }
-      }
-
     });
 
-    if (!this.forbiden){
-      this.eventsService.getEvent(this.id).subscribe((value0 => {
-        this.events$ = value0;
-        this.myForm.patchValue(this.events$ as any);
-      }), error1 => this.error = true);
-    };
 
-    this.getevent();
-    this.Myeventtickets();
-    // console.log(this.ticket);
+    this.eventsService.getEvent(this.id).subscribe((value0 => {
+      this.event = value0;
+      console.log(this.auth.getUserId());
+
+      if (this.event.orgnizerID.userid == this.auth.getUserId()){
+        this.eventsService.Myeventtickets(this.id).subscribe((value0 => {
+          this.ticket = value0;
+          console.log(this.auth.getUserId());
+        }), error1 => this.error = true);
+      }
+
+
+    }));
+
+
+
+
+
+
+
   }
   Myeventtickets() {
     this.eventsService.Myeventtickets(this.id).subscribe(Myevent => {

@@ -29,27 +29,32 @@ export class EditEventComponent implements OnInit {
     this.route.params.subscribe((value: any) => {
       this.id = value.id;
 
-      if (this.router.url.startsWith('/event')) {
-        if (this.events$.orgnizerID.userid != this.auth.getUserId()) {
-          this.forbiden = true;
-        }
-      }
+
+
+      // if (this.router.url.startsWith('/event')) {
+      //   if (this.events$.orgnizerID.userid != this.auth.getUserId()) {
+      //     this.forbiden = true;
+      //   }
+      // }
 
     });
 
-    if (!this.forbiden){
+
+
       this.eventsService.getEvent(this.id).subscribe((value0 => {
         this.events$ = value0;
-        this.myForm.patchValue(this.events$ as any);
-        console.log(this.events$.orgnizerID.userid)
-      }), error1 => this.error = true);
-    };
+
+        if (this.events$.orgnizerID.userid == this.auth.getUserId()) {
+          this.myForm.patchValue(this.events$ as any);
+
+          console.log(this.events$.orgnizerID.userid)
+        }}), error1 => this.error = true);
+
 
     // this.eventsService.getEvent(this.id).subscribe((value0 => {
     //   this.events$ = value0;
     //   this.myForm.patchValue(this.events$ as any);
     // }));
-    console.log(this.auth.getUserId());
     this.myForm = this.formBuilder.group({
       nameevent: ['', Validators.compose([Validators.required,
         Validators.pattern(/[a-zA-Z0-9]{3,15}/),
