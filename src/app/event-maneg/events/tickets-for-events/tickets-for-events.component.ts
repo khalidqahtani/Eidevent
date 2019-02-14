@@ -44,12 +44,11 @@ export class TicketsForEventsComponent implements OnInit {
 
     this.eventsService.getEvent(this.id).subscribe((value0 => {
       this.event = value0;
-      console.log(this.auth.getUserId());
+
 
       if (this.event.orgnizerID.userid == this.auth.getUserId()){
         this.eventsService.Myeventtickets(this.id).subscribe((value0 => {
           this.ticket = value0;
-          console.log(this.auth.getUserId());
         }), error1 => this.error = true);
       }
 

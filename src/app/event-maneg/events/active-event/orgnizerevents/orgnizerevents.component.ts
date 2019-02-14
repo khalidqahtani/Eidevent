@@ -15,6 +15,7 @@ export class OrgnizereventsComponent implements OnInit {
   orgid: number;
   events$: Events[];
   userid: number;
+  attender = this.auth.getUserId()
   user: User;
   hide = true;
   pic: string;
@@ -22,11 +23,14 @@ export class OrgnizereventsComponent implements OnInit {
   constructor(private ev: EventsService,
               private auth: AuthenticationService,
               private route: ActivatedRoute,
-              private userService: UsersService) { }
+              private userService: UsersService,
+              private eventService: EventsService,
+              private router:Router) { }
 
   ngOnInit() {
     this.route.params.subscribe((value: any) => {
       this.userid = value.id;
+      console.log(this.attender);
     });
     this.orgid = this.auth.getUserId();
     this.Myevents();
@@ -50,6 +54,13 @@ export class OrgnizereventsComponent implements OnInit {
       err => console.log(err),
       () => console.log('Getting users OK...')
     );
+  }
+  BookEvent(eventid: number) {
+    this.eventService.BookEvent(eventid, this.attender).subscribe(eventbook => {
+      },
+      err => console.log(err),
+      () => this.router.navigate(['/myticket']));
+
   }
 
 }

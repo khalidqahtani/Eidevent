@@ -19,12 +19,23 @@
         <mat-icon matSuffix>assignment</mat-icon>
       </mat-form-field>
 
+      <!--<mat-form-field appearance="outline">-->
+        <!--<mat-label>Tybe Event</mat-label>-->
+        <!--<input matInput type="text"-->
+               <!--formControlName="tybeevent" placeholder="Type Event">-->
+        <!--<mat-icon matSuffix>extension</mat-icon>-->
+      <!--</mat-form-field>-->
+
       <mat-form-field appearance="outline">
         <mat-label>Tybe Event</mat-label>
-        <input matInput type="text"
-               formControlName="tybeevent" placeholder="Type Event">
+        <mat-select placeholder="Type Event" formControlName="tybeevent" >
+          <mat-option value="Shows & Performance">Shows & Performance</mat-option>
+          <mat-option value="Arts">Arts</mat-option>
+          <mat-option value="Fashion">Fashion</mat-option>
+        </mat-select>
         <mat-icon matSuffix>extension</mat-icon>
       </mat-form-field>
+
 
       <mat-form-field appearance="outline">
         <mat-label>Event Gender</mat-label>
