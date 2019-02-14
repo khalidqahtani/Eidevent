@@ -58,10 +58,6 @@ export class TicketsForEventsComponent implements OnInit {
 
 
 
-
-
-
-
   }
   Myeventtickets() {
     this.eventsService.Myeventtickets(this.id).subscribe(Myevent => {
