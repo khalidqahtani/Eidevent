@@ -30,7 +30,8 @@
     </div>
   </div>
   <div style="background-color: rgba(106,99,146,0.12); padding: 1% "  >
-  <h3 class="h1" style="color: rgba(224,153,31,0.83); text-align: center"><i class="fas fa-fire-alt"></i> TRENDING</h3>
+  <!--<h3 class="h1" style="color: rgba(224,153,31,0.83); text-align: center"><i class="fas fa-fire-alt"></i> TRENDING</h3>-->
+    <h1 class="glow"><i class="fas fa-fire-alt"></i> TRENDING</h1>
     <div class="row">
       <div class="col-md-4 col-sm-3" *ngFor="let event of trending$" (click)="getEvent(event)" >
         <div class="product-grid3">
@@ -41,7 +42,7 @@
             </a>
             <ul class="social">
               <li><a [routerLink]="['/eventinfo', event.eventid]" class="btn btn-sm"><i class="fas fa-search"></i></a></li>
-              <li><a *ngIf="event.capacity != event.counter" (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i></a></li>
+              <li><a *ngIf="event.available != 0" (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i></a></li>
             </ul>
             <span class="product-new-label">{{event.nameevent}}</span>
           </div>
@@ -75,10 +76,11 @@
           </a>
           <ul class="social">
             <li><a [routerLink]="['/eventinfo', event.eventid]" class="btn btn-sm"><i class="fas fa-search"></i></a></li>
-            <li><a *ngIf="event.capacity != event.counter" (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i></a></li>
+            <li><a *ngIf="event.available != 0" (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i></a></li>
 
             <!--<div class="space-ten"><app-comments-detils [eventid]="eventid" [comments]="currentComments.length"> </app-comments-detils></div>-->
           </ul>
+          <span class="prokhalid"> Available<br>{{event.available}}</span><br>
           <span class="product-new-label">{{event.nameevent}}</span>
         </div>
         <div class="product-content">
