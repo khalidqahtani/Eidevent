@@ -47,6 +47,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EventinformationComponent } from './event-maneg/events/active-event/eventinformation/eventinformation.component';
 import { OrgnizereventsComponent } from './event-maneg/events/active-event/orgnizerevents/orgnizerevents.component';
+import { AdminDishbordComponent } from './users/admin-dishbord/admin-dishbord.component';
 
 
 
@@ -83,6 +84,7 @@ import { OrgnizereventsComponent } from './event-maneg/events/active-event/orgni
     MyprofileComponent,
     EventinformationComponent,
     OrgnizereventsComponent,
+    AdminDishbordComponent,
 
   ],
   imports: [

@@ -19,12 +19,15 @@
         <!--<mat-error *ngIf="myReactiveForm.controls.id.invalid&&myReactiveForm.touched.id">Plese Help</mat-error>-->
         <mat-icon matSuffix>assignment</mat-icon>
       </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Tybe Event</mat-label>
-          <input matInput type="text"
-                 formControlName="tybeevent" placeholder="Type Event">
-          <mat-icon matSuffix>extension</mat-icon>
-        </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Tybe Event</mat-label>
+        <mat-select placeholder="Type Event" formControlName="tybeevent" >
+          <mat-option value="Shows & Performance">Shows & Performance</mat-option>
+          <mat-option value="Arts">Arts</mat-option>
+          <mat-option value="Fashion">Fashion</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>extension</mat-icon>
+      </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Event Gender</mat-label>
           <mat-select placeholder="Gender" formControlName="genderevent" >
@@ -81,6 +84,14 @@
         </mat-form-field>
       </div>
       <div>
+        <mat-form-field class="example-full-width" appearance="outline" style="padding-right: 45px">
+          <mat-label>Pic</mat-label>
+          <input matInput type="text"
+                 name="pic" placeholder="URL:"
+                 formControlName="pic">
+          <mat-icon matSuffix>photo_camera</mat-icon>
+          <textarea matInput></textarea>
+        </mat-form-field>
         <mat-form-field class="example-full-width" appearance="outline" style="padding-right: 45px">
           <mat-label>Description</mat-label>
           <input matInput type="text"

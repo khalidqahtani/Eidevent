@@ -89,4 +89,6 @@ export class TicketsForEventsComponent implements OnInit {
   present(ticket: Ticketmodel) {
     if (ticket.userpresent === true) {return true; }
   }
+
+
 }

@@ -15,6 +15,7 @@ import {Router} from '@angular/router';
 export class AddEventComponent implements OnInit {
   events$: Observable<Events>;
   myReactiveForm: FormGroup;
+  events: Events;
   orgid: number;
   error = '';
 
@@ -66,8 +67,7 @@ export class AddEventComponent implements OnInit {
   onSubmit() {
     this.eventsService.addEvent(this.orgid, this.myReactiveForm).subscribe(
       data => {
-      },
-      error => this.error = error,
+      }, (error) => console.log(error),
       () => this.router.navigate(['/myevent']));
   }
 
