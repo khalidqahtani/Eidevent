@@ -28,9 +28,6 @@ export class ActiveEventComponent implements OnInit {
   currentUser: User;
   term;
   gend: string;
-  tybe: string;
-  commentForm: FormGroup;
-  private sub: Subscription;
   public searchText : string;
 
 

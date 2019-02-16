@@ -18,9 +18,7 @@ export class UsersComponent implements OnInit {
   admins: User[] = [];
   organizers: User[] = [];
   currentUser: User;
-  role: Therole;
   myForm: FormGroup;
-  cUser: User;
   userid: number;
 
   // currentRole: Therole;
@@ -47,11 +45,11 @@ export class UsersComponent implements OnInit {
       Validators.maxLength(10),
       Validators.minLength(10)])],
       firstname: ['', Validators.compose([Validators.required,
-      Validators.pattern(/[a-zA-Z]{2,10}/),
+      Validators.pattern(/[a-zA-Z\s]{2,10}/),
       Validators.maxLength(10),
       Validators.minLength(2)])],
       lastname: ['', Validators.compose([Validators.required,
-        Validators.pattern(/[a-zA-Z]{2,16}/),
+        Validators.pattern(/[a-zA-Z\s]{2,16}/),
         Validators.maxLength(16),
         Validators.minLength(2)])],
       username: ['', Validators.compose([Validators.required,

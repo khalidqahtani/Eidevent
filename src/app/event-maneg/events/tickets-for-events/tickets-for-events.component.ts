@@ -1,11 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Events} from '../events.model';
 import {EventsService} from '../events.service';
-import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Ticketmodel} from '../../ticket-maneg/tickets.model';
 import {UsersService} from '../../../users/users.service';
-import {User} from '../../../users/user.model';
 import {TicketService} from '../../ticket-maneg/ticket.service';
 import {AuthenticationService} from '../../../authentication/authentication.service';
 
@@ -16,13 +14,10 @@ import {AuthenticationService} from '../../../authentication/authentication.serv
 })
 export class TicketsForEventsComponent implements OnInit {
   ticket: Ticketmodel[];
-  tickets: Ticketmodel;
   events$: Events;
   currentEvents: Events;
-  // userid: number;
   id: number;
   event: Events;
-  myForm;
   error;
 
 
