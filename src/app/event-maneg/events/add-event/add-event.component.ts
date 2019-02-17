@@ -57,7 +57,9 @@ export class AddEventComponent implements OnInit {
       Validators.maxLength(48),
       Validators.minLength(3),])],
       specialneed: ['', Validators.required],
-      capacity: ['', Validators.required],
+      capacity: ['', Validators.compose([Validators.required,
+        Validators.maxLength(300),
+        Validators.minLength(20),])],
       pic: [''],
       counter: ``,
     });
