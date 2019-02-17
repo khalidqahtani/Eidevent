@@ -98,6 +98,10 @@
           <mat-icon matSuffix>mode_edit</mat-icon>
         </mat-form-field>
       </div>
+      <div>
+        <!--<input type="submit" class="fadeIn fourth" (click)="onSubmit()" [disabled]="!myReactiveForm.valid"  value="Register">-->
+        <input [disabled]="!myReactiveForm" type="submit" class="fadeIn fourth" value="Register">
+      </div>
     </form>
 
     <div id="formFooter">

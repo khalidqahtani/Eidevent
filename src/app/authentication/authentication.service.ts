@@ -1,7 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import {config} from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -9,9 +8,10 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    let headers = new HttpHeaders();
-    headers = headers.append('Authorization', 'Basic ' + btoa(`${username}:${password}`));
-    return this.http.get<any>('/userData', {headers: headers})
+    // let headers = new HttpHeaders();
+    // headers = headers.append('Authorization', 'Basic ' + btoa(`${username}:${password}`));
+
+    return this.http.post<any>('/userData', {username , password})
       .pipe(map(user => {
         // login successful if there's a user in the response
         if (user) {
