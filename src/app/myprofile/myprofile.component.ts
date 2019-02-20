@@ -100,9 +100,11 @@ export class MyprofileComponent implements OnInit {
     this.usersService.updateUser(this.myForm, this.userid).subscribe(res => {
         if (res !== null && res !== undefined) {
           console.log(res);
+
+
         }
       }, (error) => console.log(error),
-      () => this.router.navigate(['/users'])
+      () => this.router.navigate(['/home'])
     );
   }
   deleteUser() {

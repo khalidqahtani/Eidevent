@@ -73,9 +73,9 @@
             class="price">current price: <span>FREE</span>
           </h4>
           <div class="action">
-            <button class="btn btn-lg " style="background-color: #241F61; color:white" [disabled]="fullBook()"   (click)="BookEvent()"><i class="fas fa-ticket-alt"></i> Book</button>
+            <button class="btn btn-lg " style="background-color: #241F61; color:white" [disabled]="fullBook()" (click)="BookEvent()"><i class="fas fa-ticket-alt"></i> Book</button>
             <button routerLink="/activeEvent" class="btn btn-lg btn-danger"  style="color: white"data-toggle="modal" data-target="#product_view"><i class="fas fa-ban"></i> Cancel</button>
-
+            <div *ngIf="error" style="color: red">{{error}}</div>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
       <div class="row" >
         <div class="col-md-1">
           <div class="thumbnail">
-            <img class="img-fluid user-photo" src="{{auth.getPic()}}">
+            <img class="img-fluid user-photo" src="{{pic}}">
           </div>
         </div>
         <div class="col-lg-11 ">

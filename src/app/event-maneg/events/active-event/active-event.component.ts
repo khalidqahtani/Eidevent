@@ -29,6 +29,7 @@ export class ActiveEventComponent implements OnInit {
   term;
   gend: string;
   public searchText : string;
+  error;
 
 
   constructor(private eventsService: EventsService,
@@ -71,10 +72,11 @@ export class ActiveEventComponent implements OnInit {
   BookEvent(eventid: number) {
     this.eventsService.BookEvent(eventid, this.userid).subscribe(eventbook => {
       },
-      err => console.log(err),
+      err => this.error=err,
       () => this.router.navigate(['/myticket']));
 
   }
+
 
   getComent(comment, id) {
     console.log(comment);
@@ -82,11 +84,7 @@ export class ActiveEventComponent implements OnInit {
     this.eventid = id;
   }
 
-  fullBook() {
-    if (this.currentEvents.capacity === this.currentEvents.counter) {
-      return true;
-    }
-  }
+
 
   tybeSelect(type) {
     if (type.checked) {

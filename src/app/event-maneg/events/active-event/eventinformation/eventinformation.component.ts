@@ -20,9 +20,11 @@ export class EventinformationComponent implements OnInit {
   events: Events;
   eventid: number;
   userid = this.auth.getUserId();
+  pic = this.auth.getPic();
   comments: Comments[];
   commentForm: FormGroup;
   rateAvg;
+  error;
   listNumer: number[] = [];
 
 
@@ -75,7 +77,7 @@ export class EventinformationComponent implements OnInit {
   BookEvent() {
     this.eventsService.BookEvent(this.eventid, this.userid).subscribe(eventbook => {
       },
-      err => console.log(err),
+      err => this.error=err,
       () => this.router.navigate(['/myticket']));
 
   }
