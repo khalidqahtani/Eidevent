@@ -67,7 +67,7 @@ import {Comments} from '../comment-maneg/comments.model';
                 </thead>
                 <tbody>
                 <tr>
-                  <td><button mat-raised-button color="accent" *ngIf="admin||org" [routerLink]="['/event', event.eventid]" class="btn btn-primary" style="margin-top: 10px">Edit</button></td>
+                  <td><button mat-raised-button color="accent" *ngIf="admin||org" [routerLink]="['/event', event.eventid]" class="btn btn-primary">Edit</button></td>
                   <td><button mat-raised-button color="primary" *ngIf="admin" [disabled]="eventdeleted()" (click)="deleteEvent(event.eventid)">Delete</button></td>
                   <td><button mat-raised-button color="primary" *ngIf="admin" [disabled]="!eventdeleted()" (click)="undeleteEvent(event.eventid)">UnDelete</button></td>
                   <td><button mat-raised-button color="primary" *ngIf="admin||org" [disabled]="eventapprovel()" (click)="approvelEvent(event.eventid)">approvel</button></td>

@@ -77,7 +77,7 @@
           </a>
           <ul class="social">
             <li><a [routerLink]="['/eventinfo', event.eventid]" class="btn btn-sm"><i class="fas fa-search"></i></a></li>
-            <li><a *ngIf="event.available != 0 " (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i></a></li>
+            <li><a *ngIf="event.available != 0 || eventBooked()" (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i></a></li>
 
 
             <!--<div class="space-ten"><app-comments-detils [eventid]="eventid" [comments]="currentComments.length"> </app-comments-detils></div>-->

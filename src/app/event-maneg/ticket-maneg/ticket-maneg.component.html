@@ -23,7 +23,7 @@
     <div class="big">Your
       <br>Ticket</div>
     <div class="number">
-    <div  class="rating">
+    <div  class="rating" *ngIf="ticket.userpresent === true">
       <input type="radio"  #rate5 value="5" /><label  title="Meh" (click)="sendRate(ticket.ticketid, rate5)">5 stars</label>
       <input type="radio"  #rate4 value="4" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate4)" >4 stars</label>
       <input type="radio"  #rate3 value="3" /><label  title="Kinda bad" (click)="sendRate(ticket.ticketid, rate3)">3 stars</label>
@@ -47,7 +47,7 @@
         <div style="color: white">{{ticket.eid.eventcity}}-{{ticket.eid.eventstreet}}</div>
 
       </section>
-      <button mat-flat-button color="warn" (click)="deleteTicket(ticket.ticketid)"><i class="fas fa-ban"></i></button>
+      <button mat-flat-button color="warn" *ngIf="ticket.userpresent != true" (click)="deleteTicket(ticket.ticketid)"><i class="fas fa-ban"></i></button>
 
     </div>
 

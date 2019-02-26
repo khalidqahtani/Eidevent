@@ -8,6 +8,7 @@ import {Comments} from '../../comment-maneg/comments.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {CommentService} from '../../comment-maneg/comment.service';
+import {Ticketmodel} from '../../ticket-maneg/tickets.model';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class ActiveEventComponent implements OnInit {
 
   events$: Events[];
   trending$: Events[];
+  ticketbooked: Ticketmodel;
   eventid: number;
   comments: Comments[];
   currentComments: Comments[];
@@ -100,6 +102,10 @@ export class ActiveEventComponent implements OnInit {
     } else {
       this.gend = null;
     }
+  }
+
+  eventBooked() {
+    if (this.ticketbooked.ticketbook != true){ return true}
   }
 
 
