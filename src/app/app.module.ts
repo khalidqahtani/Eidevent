@@ -48,6 +48,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EventinformationComponent } from './event-maneg/events/active-event/eventinformation/eventinformation.component';
 import { OrgnizereventsComponent } from './event-maneg/events/active-event/orgnizerevents/orgnizerevents.component';
 import { AdminDishbordComponent } from './users/admin-dishbord/admin-dishbord.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -109,7 +110,9 @@ import { AdminDishbordComponent } from './users/admin-dishbord/admin-dishbord.co
     FormsModule,
     MatIconModule,
     MatSliderModule,
-    MatCardModule
+    MatCardModule,
+    NgxPaginationModule
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},

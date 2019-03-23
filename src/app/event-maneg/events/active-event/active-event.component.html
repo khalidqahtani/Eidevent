@@ -66,7 +66,7 @@
   <div style="background-color: rgba(106,99,146,0.12); padding: 1% ">
   <h3 class="h3">Events</h3>
   <div class="row" >
-    <div class="col-md-6 col-sm-3" *ngFor="let event of events$ | filter: {nameevent: searchText, genderevent:searchText, eventcity:searchText, eventdate:searchText, eventid:searchText, tybeevent:searchText } ; " (click)="getEvent(event)">
+    <div class="col-md-6 col-sm-3" *ngFor="let event of events$ | paginate: { itemsPerPage: 4, currentPage: p } | filter: {nameevent: searchText, genderevent:searchText, eventcity:searchText, eventdate:searchText, eventid:searchText, tybeevent:searchText } ; " (click)="getEvent(event)">
 
 
       <div class="product-grid3">
@@ -80,7 +80,6 @@
             <li><a *ngIf="event.available != 0 || eventBooked()" (click)="BookEvent(event.eventid)"><i class="fas fa-ticket-alt"></i></a></li>
 
 
-            <!--<div class="space-ten"><app-comments-detils [eventid]="eventid" [comments]="currentComments.length"> </app-comments-detils></div>-->
           </ul>
           <span class="prokhalid"> Available<br>{{event.available}}</span><br>
           <span class="product-new-label">{{event.nameevent}}</span>
@@ -97,6 +96,7 @@
       </div>
     </div>
   </div>
+    <pagination-controls style="text-align: center" (pageChange)="p = $event"></pagination-controls>
 </div>
 <hr>
 

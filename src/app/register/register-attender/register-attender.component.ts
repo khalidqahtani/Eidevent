@@ -15,7 +15,9 @@ export class RegisterAttenderComponent implements OnInit {
   error = '';
 
 
-  constructor(private formBuilder: FormBuilder , private userService: UsersService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder,
+              private userService: UsersService,
+              private router: Router) { }
 
   ngOnInit() {
     this.myReactiveForm = this.formBuilder.group({
@@ -53,7 +55,8 @@ export class RegisterAttenderComponent implements OnInit {
         Validators.maxLength(9),
         Validators.minLength(9)])],
     });
-  }onSubmit() {
+  }
+  onSubmit() {
     this.userService.addUser(this.myReactiveForm).subscribe(
       data => {
         // this.router.navigate(['/users"']);

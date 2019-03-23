@@ -32,6 +32,7 @@ export class ActiveEventComponent implements OnInit {
   gend: string;
   public searchText : string;
   error;
+  p = 1;
 
 
   constructor(private eventsService: EventsService,
